@@ -1,9 +1,10 @@
 import org.eclipse.emf.transaction.TransactionalEditingDomain
 import org.eclipse.emf.edit.domain.EditingDomain
 import org.eclipse.emf.parsley.edit.EditingDomainFinder
+import org.eclipse.emf.parsley.EmfParsleyJavaGuiceModule
 
 /* corvus.transactional EMF Parsley Dsl Module file */
-module corvus.transactional {
+module corvus.transactional extends EmfParsleyJavaGuiceModule {
 
 	bindings {
 
