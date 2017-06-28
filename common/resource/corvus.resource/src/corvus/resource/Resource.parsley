@@ -1,10 +1,6 @@
 import corvus.transactional.TransactionalEmfParsleyGuiceModule
-import org.eclipse.emf.ecore.util.EcoreUtil
 
 /* corvus.resource EMF Parsley Dsl Module file */
 module corvus.resource extends TransactionalEmfParsleyGuiceModule {
 	
-	bindings {
-		type EcoreUtil -> ResourceAdapterEcoreUtil
-	}
 }
