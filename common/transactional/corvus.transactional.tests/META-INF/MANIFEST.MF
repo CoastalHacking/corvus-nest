@@ -5,6 +5,5 @@ Bundle-SymbolicName: corvus.transactional.tests
 Bundle-Version: 1.0.0.qualifier
 Fragment-Host: corvus.transactional;bundle-version="1.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Require-Bundle: org.eclipse.emf.parsley.junit4;bundle-version="1.2.0",
- org.junit,
- org.eclipse.emf.ecore.xmi;bundle-version="2.13.0"
+Require-Bundle: corvus.dependencies.test;bundle-version="1.0.0",
+ corvus.dependencies.runtime;bundle-version="1.0.0"
