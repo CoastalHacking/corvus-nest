@@ -1,6 +1,19 @@
 import corvus.resource.ResourceEmfParsleyGuiceModule
+import org.eclipse.emf.parsley.resource.ResourceLoader
+import org.eclipse.emf.parsley.runtime.ui.PluginUtil
+import org.eclipse.emf.common.util.URI
 
 /* corvus.domain.org.eclipse.core.resources EMF Parsley Dsl Module file */
 module corvus.domain.org.eclipse.core.resources extends ResourceEmfParsleyGuiceModule {
-	
+
+	configurator {
+		resourceURI {
+			ResourceLoader -> {
+				val bc = PluginUtil.getBundle(ResourcesActivator).bundleContext
+				val file = bc.getBundle().getDataFile("corvus.domain.org.eclipse.core.resources")
+				URI.createFileURI(file.getAbsolutePath())
+			}
+		}
+	}
+
 }
