@@ -1,15 +1,15 @@
-import corvus.transactional.SingletonTransactionalEditingDomainProvider
+import corvus.transactional.GlobalTransactionalEditingDomainProvider
 import corvus.transactional.TransactionalEmfParsleyGuiceModule
-import org.eclipse.emf.transaction.TransactionalEditingDomain
 import org.eclipse.emf.ecore.resource.Resource
+import org.eclipse.emf.transaction.TransactionalEditingDomain
 
 /* corvus.resource EMF Parsley Dsl Module file */
 module corvus.resource extends TransactionalEmfParsleyGuiceModule {
 	
 	bindings {
 		
-		// Use a singleton transactional editing domain
-		provide TransactionalEditingDomain -> SingletonTransactionalEditingDomainProvider
+		// Use a global transactional editing domain
+		provide TransactionalEditingDomain -> GlobalTransactionalEditingDomainProvider
 		
 		// Inject a resource provider
 		provide Resource -> ResourceProvider
