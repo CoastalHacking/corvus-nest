@@ -1,6 +1,7 @@
 import org.eclipse.emf.edit.domain.EditingDomain
 import org.eclipse.emf.parsley.edit.EditingDomainFinder
 import org.eclipse.emf.transaction.TransactionalEditingDomain
+import org.eclipse.emf.parsley.resource.ResourceLoader
 
 /* corvus.transactional EMF Parsley Dsl Module file */
 module corvus.transactional {
@@ -11,7 +12,7 @@ module corvus.transactional {
 		provide TransactionalEditingDomain.Factory -> DefaultTransactionalEditingDomainFactory
 
 		// needs to match extension point!
-		value String TransactionalEditingDomainId -> "org.example.parsley.transactional.id"
+		value String TransactionalEditingDomainId -> "corvus.transactional"
 
 		// ideally the same class would provide both below, but don't think that's possible
 		provide TransactionalEditingDomain -> TransactionalEditingDomainProvider
@@ -19,6 +20,9 @@ module corvus.transactional {
 
 		// use a transactional-aware finder
 		type EditingDomainFinder -> TransactionalEditingDomainFinder
+
+		// use a resource loader that initializes the resource via a transaction
+		type ResourceLoader -> TransactionalResourceLoader
 
 	}
 }
