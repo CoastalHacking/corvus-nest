@@ -6,7 +6,8 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-SymbolicName: corvus.transactional; singleton:=true
 Bundle-Activator: corvus.transactional.TransactionalActivator
 Bundle-ActivationPolicy: lazy
-Require-Bundle: corvus.dependencies.build;bundle-version="1.0.0"
+Require-Bundle: org.eclipse.core.runtime,
+ corvus.dependencies.build;bundle-version="1.0.0"
 Import-Package: org.apache.log4j,
  org.apache.commons.logging
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8

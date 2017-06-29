@@ -6,7 +6,8 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-SymbolicName: corvus.resource; singleton:=true
 Bundle-Activator: corvus.resource.ResourceActivator
 Bundle-ActivationPolicy: lazy
-Require-Bundle: corvus.dependencies.build;bundle-version="1.0.0",
+Require-Bundle: org.eclipse.core.runtime,
+ corvus.dependencies.build;bundle-version="1.0.0",
  corvus.transactional;bundle-version="1.0.0";visibility:=reexport
 Import-Package: org.apache.log4j,
  org.apache.commons.logging
