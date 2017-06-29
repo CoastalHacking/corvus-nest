@@ -9,7 +9,6 @@ import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 
-// TODO: Test me!
 public class ResourceProvider implements Provider<Resource> {
 
 	@Inject
