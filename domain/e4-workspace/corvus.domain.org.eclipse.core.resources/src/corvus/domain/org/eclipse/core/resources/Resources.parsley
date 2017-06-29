@@ -1,0 +1,6 @@
+import corvus.resource.ResourceEmfParsleyGuiceModule
+
+/* corvus.domain.org.eclipse.core.resources EMF Parsley Dsl Module file */
+module corvus.domain.org.eclipse.core.resources extends ResourceEmfParsleyGuiceModule {
+	
+}

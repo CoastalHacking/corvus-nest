@@ -1,0 +1,34 @@
+package corvus.domain.org.eclipse.core.resources
+
+class IWorkspace {
+	contains IWorkspaceRoot root opposite workspace
+}
+
+class IWorkspaceRoot extends IContainer {
+	container IWorkspace workspace opposite root
+	contains IContainer[] containers opposite root
+	String fullPath
+}
+
+class IContainer extends IResource {
+	container IWorkspaceRoot root opposite containers
+	contains IResource[] members opposite parent
+}
+
+class IResource {
+	container IContainer parent opposite members
+	contains IMarker[] markers opposite resource
+	String relativePath
+}
+
+class IMarker {
+	container IResource resource opposite markers
+	long ^id
+	String ^type
+}
+
+class TextMarker extends IMarker {
+	int lineNumber
+	int charStart
+	int charEnd
+}
