@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link corvus.domain.org.eclipse.core.resources.IResource#getParent <em>Parent</em>}</li>
  *   <li>{@link corvus.domain.org.eclipse.core.resources.IResource#getMarkers <em>Markers</em>}</li>
- *   <li>{@link corvus.domain.org.eclipse.core.resources.IResource#getRelativePath <em>Relative Path</em>}</li>
+ *   <li>{@link corvus.domain.org.eclipse.core.resources.IResource#getName <em>Name</em>}</li>
  * </ul>
  *
  * @see corvus.domain.org.eclipse.core.resources.ResourcesPackage#getIResource()
@@ -72,29 +72,29 @@ public interface IResource extends EObject {
 	EList<IMarker> getMarkers();
 
 	/**
-	 * Returns the value of the '<em><b>Relative Path</b></em>' attribute.
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Relative Path</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Relative Path</em>' attribute.
-	 * @see #setRelativePath(String)
-	 * @see corvus.domain.org.eclipse.core.resources.ResourcesPackage#getIResource_RelativePath()
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see #setName(String)
+	 * @see corvus.domain.org.eclipse.core.resources.ResourcesPackage#getIResource_Name()
 	 * @model unique="false"
 	 * @generated
 	 */
-	String getRelativePath();
+	String getName();
 
 	/**
-	 * Sets the value of the '{@link corvus.domain.org.eclipse.core.resources.IResource#getRelativePath <em>Relative Path</em>}' attribute.
+	 * Sets the value of the '{@link corvus.domain.org.eclipse.core.resources.IResource#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Relative Path</em>' attribute.
-	 * @see #getRelativePath()
+	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * @see #getName()
 	 * @generated
 	 */
-	void setRelativePath(String value);
+	void setName(String value);
 
 } // IResource

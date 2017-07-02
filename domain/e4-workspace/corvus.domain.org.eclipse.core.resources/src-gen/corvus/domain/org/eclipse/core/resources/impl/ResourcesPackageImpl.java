@@ -5,7 +5,6 @@ package corvus.domain.org.eclipse.core.resources.impl;
 import corvus.domain.org.eclipse.core.resources.IContainer;
 import corvus.domain.org.eclipse.core.resources.IMarker;
 import corvus.domain.org.eclipse.core.resources.IResource;
-import corvus.domain.org.eclipse.core.resources.IWorkspace;
 import corvus.domain.org.eclipse.core.resources.IWorkspaceRoot;
 import corvus.domain.org.eclipse.core.resources.ResourcesFactory;
 import corvus.domain.org.eclipse.core.resources.ResourcesPackage;
@@ -26,13 +25,6 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
  * @generated
  */
 public class ResourcesPackageImpl extends EPackageImpl implements ResourcesPackage {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass iWorkspaceEClass = null;
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -137,24 +129,6 @@ public class ResourcesPackageImpl extends EPackageImpl implements ResourcesPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getIWorkspace() {
-		return iWorkspaceEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getIWorkspace_Root() {
-		return (EReference)iWorkspaceEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getIWorkspaceRoot() {
 		return iWorkspaceRootEClass;
 	}
@@ -164,7 +138,7 @@ public class ResourcesPackageImpl extends EPackageImpl implements ResourcesPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getIWorkspaceRoot_Workspace() {
+	public EReference getIWorkspaceRoot_Containers() {
 		return (EReference)iWorkspaceRootEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -173,17 +147,8 @@ public class ResourcesPackageImpl extends EPackageImpl implements ResourcesPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getIWorkspaceRoot_Containers() {
-		return (EReference)iWorkspaceRootEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getIWorkspaceRoot_FullPath() {
-		return (EAttribute)iWorkspaceRootEClass.getEStructuralFeatures().get(2);
+	public EAttribute getIWorkspaceRoot_RawLocation() {
+		return (EAttribute)iWorkspaceRootEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -245,7 +210,7 @@ public class ResourcesPackageImpl extends EPackageImpl implements ResourcesPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getIResource_RelativePath() {
+	public EAttribute getIResource_Name() {
 		return (EAttribute)iResourceEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -349,13 +314,9 @@ public class ResourcesPackageImpl extends EPackageImpl implements ResourcesPacka
 		isCreated = true;
 
 		// Create classes and their features
-		iWorkspaceEClass = createEClass(IWORKSPACE);
-		createEReference(iWorkspaceEClass, IWORKSPACE__ROOT);
-
 		iWorkspaceRootEClass = createEClass(IWORKSPACE_ROOT);
-		createEReference(iWorkspaceRootEClass, IWORKSPACE_ROOT__WORKSPACE);
 		createEReference(iWorkspaceRootEClass, IWORKSPACE_ROOT__CONTAINERS);
-		createEAttribute(iWorkspaceRootEClass, IWORKSPACE_ROOT__FULL_PATH);
+		createEAttribute(iWorkspaceRootEClass, IWORKSPACE_ROOT__RAW_LOCATION);
 
 		iContainerEClass = createEClass(ICONTAINER);
 		createEReference(iContainerEClass, ICONTAINER__ROOT);
@@ -364,7 +325,7 @@ public class ResourcesPackageImpl extends EPackageImpl implements ResourcesPacka
 		iResourceEClass = createEClass(IRESOURCE);
 		createEReference(iResourceEClass, IRESOURCE__PARENT);
 		createEReference(iResourceEClass, IRESOURCE__MARKERS);
-		createEAttribute(iResourceEClass, IRESOURCE__RELATIVE_PATH);
+		createEAttribute(iResourceEClass, IRESOURCE__NAME);
 
 		iMarkerEClass = createEClass(IMARKER);
 		createEReference(iMarkerEClass, IMARKER__RESOURCE);
@@ -413,13 +374,9 @@ public class ResourcesPackageImpl extends EPackageImpl implements ResourcesPacka
 		textMarkerEClass.getESuperTypes().add(this.getIMarker());
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(iWorkspaceEClass, IWorkspace.class, "IWorkspace", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getIWorkspace_Root(), this.getIWorkspaceRoot(), this.getIWorkspaceRoot_Workspace(), "root", null, 0, 1, IWorkspace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		initEClass(iWorkspaceRootEClass, IWorkspaceRoot.class, "IWorkspaceRoot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getIWorkspaceRoot_Workspace(), this.getIWorkspace(), this.getIWorkspace_Root(), "workspace", null, 0, 1, IWorkspaceRoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getIWorkspaceRoot_Containers(), this.getIContainer(), this.getIContainer_Root(), "containers", null, 0, -1, IWorkspaceRoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getIWorkspaceRoot_FullPath(), theEcorePackage.getEString(), "fullPath", null, 0, 1, IWorkspaceRoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIWorkspaceRoot_RawLocation(), theEcorePackage.getEString(), "rawLocation", null, 0, 1, IWorkspaceRoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(iContainerEClass, IContainer.class, "IContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getIContainer_Root(), this.getIWorkspaceRoot(), this.getIWorkspaceRoot_Containers(), "root", null, 0, 1, IContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -428,7 +385,7 @@ public class ResourcesPackageImpl extends EPackageImpl implements ResourcesPacka
 		initEClass(iResourceEClass, IResource.class, "IResource", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getIResource_Parent(), this.getIContainer(), this.getIContainer_Members(), "parent", null, 0, 1, IResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getIResource_Markers(), this.getIMarker(), this.getIMarker_Resource(), "markers", null, 0, -1, IResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getIResource_RelativePath(), theEcorePackage.getEString(), "relativePath", null, 0, 1, IResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIResource_Name(), theEcorePackage.getEString(), "name", null, 0, 1, IResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(iMarkerEClass, IMarker.class, "IMarker", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getIMarker_Resource(), this.getIResource(), this.getIResource_Markers(), "resource", null, 0, 1, IMarker.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

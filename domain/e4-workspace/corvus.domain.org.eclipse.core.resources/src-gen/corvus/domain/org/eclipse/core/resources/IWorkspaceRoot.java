@@ -13,9 +13,8 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link corvus.domain.org.eclipse.core.resources.IWorkspaceRoot#getWorkspace <em>Workspace</em>}</li>
  *   <li>{@link corvus.domain.org.eclipse.core.resources.IWorkspaceRoot#getContainers <em>Containers</em>}</li>
- *   <li>{@link corvus.domain.org.eclipse.core.resources.IWorkspaceRoot#getFullPath <em>Full Path</em>}</li>
+ *   <li>{@link corvus.domain.org.eclipse.core.resources.IWorkspaceRoot#getRawLocation <em>Raw Location</em>}</li>
  * </ul>
  *
  * @see corvus.domain.org.eclipse.core.resources.ResourcesPackage#getIWorkspaceRoot()
@@ -23,34 +22,6 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface IWorkspaceRoot extends IContainer {
-	/**
-	 * Returns the value of the '<em><b>Workspace</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link corvus.domain.org.eclipse.core.resources.IWorkspace#getRoot <em>Root</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Workspace</em>' container reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Workspace</em>' container reference.
-	 * @see #setWorkspace(IWorkspace)
-	 * @see corvus.domain.org.eclipse.core.resources.ResourcesPackage#getIWorkspaceRoot_Workspace()
-	 * @see corvus.domain.org.eclipse.core.resources.IWorkspace#getRoot
-	 * @model opposite="root" transient="false"
-	 * @generated
-	 */
-	IWorkspace getWorkspace();
-
-	/**
-	 * Sets the value of the '{@link corvus.domain.org.eclipse.core.resources.IWorkspaceRoot#getWorkspace <em>Workspace</em>}' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Workspace</em>' container reference.
-	 * @see #getWorkspace()
-	 * @generated
-	 */
-	void setWorkspace(IWorkspace value);
-
 	/**
 	 * Returns the value of the '<em><b>Containers</b></em>' containment reference list.
 	 * The list contents are of type {@link corvus.domain.org.eclipse.core.resources.IContainer}.
@@ -70,29 +41,29 @@ public interface IWorkspaceRoot extends IContainer {
 	EList<IContainer> getContainers();
 
 	/**
-	 * Returns the value of the '<em><b>Full Path</b></em>' attribute.
+	 * Returns the value of the '<em><b>Raw Location</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Full Path</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Raw Location</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Full Path</em>' attribute.
-	 * @see #setFullPath(String)
-	 * @see corvus.domain.org.eclipse.core.resources.ResourcesPackage#getIWorkspaceRoot_FullPath()
+	 * @return the value of the '<em>Raw Location</em>' attribute.
+	 * @see #setRawLocation(String)
+	 * @see corvus.domain.org.eclipse.core.resources.ResourcesPackage#getIWorkspaceRoot_RawLocation()
 	 * @model unique="false"
 	 * @generated
 	 */
-	String getFullPath();
+	String getRawLocation();
 
 	/**
-	 * Sets the value of the '{@link corvus.domain.org.eclipse.core.resources.IWorkspaceRoot#getFullPath <em>Full Path</em>}' attribute.
+	 * Sets the value of the '{@link corvus.domain.org.eclipse.core.resources.IWorkspaceRoot#getRawLocation <em>Raw Location</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Full Path</em>' attribute.
-	 * @see #getFullPath()
+	 * @param value the new value of the '<em>Raw Location</em>' attribute.
+	 * @see #getRawLocation()
 	 * @generated
 	 */
-	void setFullPath(String value);
+	void setRawLocation(String value);
 
 } // IWorkspaceRoot

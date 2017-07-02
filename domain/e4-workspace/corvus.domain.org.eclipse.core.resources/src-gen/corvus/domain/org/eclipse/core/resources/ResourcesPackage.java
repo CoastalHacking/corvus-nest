@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.EReference;
  * <!-- end-user-doc -->
  * @see corvus.domain.org.eclipse.core.resources.ResourcesFactory
  * @model kind="package"
- *        annotation="http://www.eclipse.org/emf/2002/GenModel basePackage='corvus.domain.org.eclipse.core'"
+ *        annotation="http://www.eclipse.org/emf/2002/GenModel editDirectory='/corvus.domain.org.eclipse.core.resources/src-gen' basePackage='corvus.domain.org.eclipse.core'"
  * @generated
  */
 public interface ResourcesPackage extends EPackage {
@@ -58,43 +58,6 @@ public interface ResourcesPackage extends EPackage {
 	ResourcesPackage eINSTANCE = corvus.domain.org.eclipse.core.resources.impl.ResourcesPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link corvus.domain.org.eclipse.core.resources.impl.IWorkspaceImpl <em>IWorkspace</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see corvus.domain.org.eclipse.core.resources.impl.IWorkspaceImpl
-	 * @see corvus.domain.org.eclipse.core.resources.impl.ResourcesPackageImpl#getIWorkspace()
-	 * @generated
-	 */
-	int IWORKSPACE = 0;
-
-	/**
-	 * The feature id for the '<em><b>Root</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IWORKSPACE__ROOT = 0;
-
-	/**
-	 * The number of structural features of the '<em>IWorkspace</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IWORKSPACE_FEATURE_COUNT = 1;
-
-	/**
-	 * The number of operations of the '<em>IWorkspace</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IWORKSPACE_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link corvus.domain.org.eclipse.core.resources.impl.IResourceImpl <em>IResource</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -102,7 +65,7 @@ public interface ResourcesPackage extends EPackage {
 	 * @see corvus.domain.org.eclipse.core.resources.impl.ResourcesPackageImpl#getIResource()
 	 * @generated
 	 */
-	int IRESOURCE = 3;
+	int IRESOURCE = 2;
 
 	/**
 	 * The feature id for the '<em><b>Parent</b></em>' container reference.
@@ -123,13 +86,13 @@ public interface ResourcesPackage extends EPackage {
 	int IRESOURCE__MARKERS = 1;
 
 	/**
-	 * The feature id for the '<em><b>Relative Path</b></em>' attribute.
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IRESOURCE__RELATIVE_PATH = 2;
+	int IRESOURCE__NAME = 2;
 
 	/**
 	 * The number of structural features of the '<em>IResource</em>' class.
@@ -157,7 +120,7 @@ public interface ResourcesPackage extends EPackage {
 	 * @see corvus.domain.org.eclipse.core.resources.impl.ResourcesPackageImpl#getIContainer()
 	 * @generated
 	 */
-	int ICONTAINER = 2;
+	int ICONTAINER = 1;
 
 	/**
 	 * The feature id for the '<em><b>Parent</b></em>' container reference.
@@ -178,13 +141,13 @@ public interface ResourcesPackage extends EPackage {
 	int ICONTAINER__MARKERS = IRESOURCE__MARKERS;
 
 	/**
-	 * The feature id for the '<em><b>Relative Path</b></em>' attribute.
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ICONTAINER__RELATIVE_PATH = IRESOURCE__RELATIVE_PATH;
+	int ICONTAINER__NAME = IRESOURCE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Root</b></em>' container reference.
@@ -230,7 +193,7 @@ public interface ResourcesPackage extends EPackage {
 	 * @see corvus.domain.org.eclipse.core.resources.impl.ResourcesPackageImpl#getIWorkspaceRoot()
 	 * @generated
 	 */
-	int IWORKSPACE_ROOT = 1;
+	int IWORKSPACE_ROOT = 0;
 
 	/**
 	 * The feature id for the '<em><b>Parent</b></em>' container reference.
@@ -251,13 +214,13 @@ public interface ResourcesPackage extends EPackage {
 	int IWORKSPACE_ROOT__MARKERS = ICONTAINER__MARKERS;
 
 	/**
-	 * The feature id for the '<em><b>Relative Path</b></em>' attribute.
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IWORKSPACE_ROOT__RELATIVE_PATH = ICONTAINER__RELATIVE_PATH;
+	int IWORKSPACE_ROOT__NAME = ICONTAINER__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Root</b></em>' container reference.
@@ -278,31 +241,22 @@ public interface ResourcesPackage extends EPackage {
 	int IWORKSPACE_ROOT__MEMBERS = ICONTAINER__MEMBERS;
 
 	/**
-	 * The feature id for the '<em><b>Workspace</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int IWORKSPACE_ROOT__WORKSPACE = ICONTAINER_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Containers</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IWORKSPACE_ROOT__CONTAINERS = ICONTAINER_FEATURE_COUNT + 1;
+	int IWORKSPACE_ROOT__CONTAINERS = ICONTAINER_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Full Path</b></em>' attribute.
+	 * The feature id for the '<em><b>Raw Location</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IWORKSPACE_ROOT__FULL_PATH = ICONTAINER_FEATURE_COUNT + 2;
+	int IWORKSPACE_ROOT__RAW_LOCATION = ICONTAINER_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>IWorkspace Root</em>' class.
@@ -311,7 +265,7 @@ public interface ResourcesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IWORKSPACE_ROOT_FEATURE_COUNT = ICONTAINER_FEATURE_COUNT + 3;
+	int IWORKSPACE_ROOT_FEATURE_COUNT = ICONTAINER_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>IWorkspace Root</em>' class.
@@ -330,7 +284,7 @@ public interface ResourcesPackage extends EPackage {
 	 * @see corvus.domain.org.eclipse.core.resources.impl.ResourcesPackageImpl#getIMarker()
 	 * @generated
 	 */
-	int IMARKER = 4;
+	int IMARKER = 3;
 
 	/**
 	 * The feature id for the '<em><b>Resource</b></em>' container reference.
@@ -385,7 +339,7 @@ public interface ResourcesPackage extends EPackage {
 	 * @see corvus.domain.org.eclipse.core.resources.impl.ResourcesPackageImpl#getTextMarker()
 	 * @generated
 	 */
-	int TEXT_MARKER = 5;
+	int TEXT_MARKER = 4;
 
 	/**
 	 * The feature id for the '<em><b>Resource</b></em>' container reference.
@@ -461,27 +415,6 @@ public interface ResourcesPackage extends EPackage {
 
 
 	/**
-	 * Returns the meta object for class '{@link corvus.domain.org.eclipse.core.resources.IWorkspace <em>IWorkspace</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>IWorkspace</em>'.
-	 * @see corvus.domain.org.eclipse.core.resources.IWorkspace
-	 * @generated
-	 */
-	EClass getIWorkspace();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link corvus.domain.org.eclipse.core.resources.IWorkspace#getRoot <em>Root</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Root</em>'.
-	 * @see corvus.domain.org.eclipse.core.resources.IWorkspace#getRoot()
-	 * @see #getIWorkspace()
-	 * @generated
-	 */
-	EReference getIWorkspace_Root();
-
-	/**
 	 * Returns the meta object for class '{@link corvus.domain.org.eclipse.core.resources.IWorkspaceRoot <em>IWorkspace Root</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -490,17 +423,6 @@ public interface ResourcesPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getIWorkspaceRoot();
-
-	/**
-	 * Returns the meta object for the container reference '{@link corvus.domain.org.eclipse.core.resources.IWorkspaceRoot#getWorkspace <em>Workspace</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Workspace</em>'.
-	 * @see corvus.domain.org.eclipse.core.resources.IWorkspaceRoot#getWorkspace()
-	 * @see #getIWorkspaceRoot()
-	 * @generated
-	 */
-	EReference getIWorkspaceRoot_Workspace();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link corvus.domain.org.eclipse.core.resources.IWorkspaceRoot#getContainers <em>Containers</em>}'.
@@ -514,15 +436,15 @@ public interface ResourcesPackage extends EPackage {
 	EReference getIWorkspaceRoot_Containers();
 
 	/**
-	 * Returns the meta object for the attribute '{@link corvus.domain.org.eclipse.core.resources.IWorkspaceRoot#getFullPath <em>Full Path</em>}'.
+	 * Returns the meta object for the attribute '{@link corvus.domain.org.eclipse.core.resources.IWorkspaceRoot#getRawLocation <em>Raw Location</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Full Path</em>'.
-	 * @see corvus.domain.org.eclipse.core.resources.IWorkspaceRoot#getFullPath()
+	 * @return the meta object for the attribute '<em>Raw Location</em>'.
+	 * @see corvus.domain.org.eclipse.core.resources.IWorkspaceRoot#getRawLocation()
 	 * @see #getIWorkspaceRoot()
 	 * @generated
 	 */
-	EAttribute getIWorkspaceRoot_FullPath();
+	EAttribute getIWorkspaceRoot_RawLocation();
 
 	/**
 	 * Returns the meta object for class '{@link corvus.domain.org.eclipse.core.resources.IContainer <em>IContainer</em>}'.
@@ -589,15 +511,15 @@ public interface ResourcesPackage extends EPackage {
 	EReference getIResource_Markers();
 
 	/**
-	 * Returns the meta object for the attribute '{@link corvus.domain.org.eclipse.core.resources.IResource#getRelativePath <em>Relative Path</em>}'.
+	 * Returns the meta object for the attribute '{@link corvus.domain.org.eclipse.core.resources.IResource#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Relative Path</em>'.
-	 * @see corvus.domain.org.eclipse.core.resources.IResource#getRelativePath()
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see corvus.domain.org.eclipse.core.resources.IResource#getName()
 	 * @see #getIResource()
 	 * @generated
 	 */
-	EAttribute getIResource_RelativePath();
+	EAttribute getIResource_Name();
 
 	/**
 	 * Returns the meta object for class '{@link corvus.domain.org.eclipse.core.resources.IMarker <em>IMarker</em>}'.
@@ -709,24 +631,6 @@ public interface ResourcesPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
-		 * The meta object literal for the '{@link corvus.domain.org.eclipse.core.resources.impl.IWorkspaceImpl <em>IWorkspace</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see corvus.domain.org.eclipse.core.resources.impl.IWorkspaceImpl
-		 * @see corvus.domain.org.eclipse.core.resources.impl.ResourcesPackageImpl#getIWorkspace()
-		 * @generated
-		 */
-		EClass IWORKSPACE = eINSTANCE.getIWorkspace();
-
-		/**
-		 * The meta object literal for the '<em><b>Root</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference IWORKSPACE__ROOT = eINSTANCE.getIWorkspace_Root();
-
-		/**
 		 * The meta object literal for the '{@link corvus.domain.org.eclipse.core.resources.impl.IWorkspaceRootImpl <em>IWorkspace Root</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -737,14 +641,6 @@ public interface ResourcesPackage extends EPackage {
 		EClass IWORKSPACE_ROOT = eINSTANCE.getIWorkspaceRoot();
 
 		/**
-		 * The meta object literal for the '<em><b>Workspace</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference IWORKSPACE_ROOT__WORKSPACE = eINSTANCE.getIWorkspaceRoot_Workspace();
-
-		/**
 		 * The meta object literal for the '<em><b>Containers</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -753,12 +649,12 @@ public interface ResourcesPackage extends EPackage {
 		EReference IWORKSPACE_ROOT__CONTAINERS = eINSTANCE.getIWorkspaceRoot_Containers();
 
 		/**
-		 * The meta object literal for the '<em><b>Full Path</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Raw Location</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute IWORKSPACE_ROOT__FULL_PATH = eINSTANCE.getIWorkspaceRoot_FullPath();
+		EAttribute IWORKSPACE_ROOT__RAW_LOCATION = eINSTANCE.getIWorkspaceRoot_RawLocation();
 
 		/**
 		 * The meta object literal for the '{@link corvus.domain.org.eclipse.core.resources.impl.IContainerImpl <em>IContainer</em>}' class.
@@ -813,12 +709,12 @@ public interface ResourcesPackage extends EPackage {
 		EReference IRESOURCE__MARKERS = eINSTANCE.getIResource_Markers();
 
 		/**
-		 * The meta object literal for the '<em><b>Relative Path</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute IRESOURCE__RELATIVE_PATH = eINSTANCE.getIResource_RelativePath();
+		EAttribute IRESOURCE__NAME = eINSTANCE.getIResource_Name();
 
 		/**
 		 * The meta object literal for the '{@link corvus.domain.org.eclipse.core.resources.impl.IMarkerImpl <em>IMarker</em>}' class.

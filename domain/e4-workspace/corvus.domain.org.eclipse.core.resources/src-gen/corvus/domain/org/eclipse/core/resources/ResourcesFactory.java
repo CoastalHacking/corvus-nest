@@ -22,15 +22,6 @@ public interface ResourcesFactory extends EFactory {
 	ResourcesFactory eINSTANCE = corvus.domain.org.eclipse.core.resources.impl.ResourcesFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>IWorkspace</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>IWorkspace</em>'.
-	 * @generated
-	 */
-	IWorkspace createIWorkspace();
-
-	/**
 	 * Returns a new object of class '<em>IWorkspace Root</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

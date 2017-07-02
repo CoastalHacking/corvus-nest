@@ -68,10 +68,6 @@ public class ResourcesAdapterFactory extends AdapterFactoryImpl {
 	protected ResourcesSwitch<Adapter> modelSwitch =
 		new ResourcesSwitch<Adapter>() {
 			@Override
-			public Adapter caseIWorkspace(IWorkspace object) {
-				return createIWorkspaceAdapter();
-			}
-			@Override
 			public Adapter caseIWorkspaceRoot(IWorkspaceRoot object) {
 				return createIWorkspaceRootAdapter();
 			}
@@ -110,20 +106,6 @@ public class ResourcesAdapterFactory extends AdapterFactoryImpl {
 		return modelSwitch.doSwitch((EObject)target);
 	}
 
-
-	/**
-	 * Creates a new adapter for an object of class '{@link corvus.domain.org.eclipse.core.resources.IWorkspace <em>IWorkspace</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see corvus.domain.org.eclipse.core.resources.IWorkspace
-	 * @generated
-	 */
-	public Adapter createIWorkspaceAdapter() {
-		return null;
-	}
 
 	/**
 	 * Creates a new adapter for an object of class '{@link corvus.domain.org.eclipse.core.resources.IWorkspaceRoot <em>IWorkspace Root</em>}'.

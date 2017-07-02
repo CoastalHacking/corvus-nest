@@ -66,12 +66,6 @@ public class ResourcesSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case ResourcesPackage.IWORKSPACE: {
-				IWorkspace iWorkspace = (IWorkspace)theEObject;
-				T result = caseIWorkspace(iWorkspace);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case ResourcesPackage.IWORKSPACE_ROOT: {
 				IWorkspaceRoot iWorkspaceRoot = (IWorkspaceRoot)theEObject;
 				T result = caseIWorkspaceRoot(iWorkspaceRoot);
@@ -108,21 +102,6 @@ public class ResourcesSwitch<T> extends Switch<T> {
 			}
 			default: return defaultCase(theEObject);
 		}
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>IWorkspace</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>IWorkspace</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseIWorkspace(IWorkspace object) {
-		return null;
 	}
 
 	/**

@@ -34,7 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link corvus.domain.org.eclipse.core.resources.impl.IResourceImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link corvus.domain.org.eclipse.core.resources.impl.IResourceImpl#getMarkers <em>Markers</em>}</li>
- *   <li>{@link corvus.domain.org.eclipse.core.resources.impl.IResourceImpl#getRelativePath <em>Relative Path</em>}</li>
+ *   <li>{@link corvus.domain.org.eclipse.core.resources.impl.IResourceImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
@@ -51,24 +51,24 @@ public class IResourceImpl extends MinimalEObjectImpl.Container implements IReso
 	protected EList<IMarker> markers;
 
 	/**
-	 * The default value of the '{@link #getRelativePath() <em>Relative Path</em>}' attribute.
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRelativePath()
+	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String RELATIVE_PATH_EDEFAULT = null;
+	protected static final String NAME_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getRelativePath() <em>Relative Path</em>}' attribute.
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRelativePath()
+	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-	protected String relativePath = RELATIVE_PATH_EDEFAULT;
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -157,8 +157,8 @@ public class IResourceImpl extends MinimalEObjectImpl.Container implements IReso
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getRelativePath() {
-		return relativePath;
+	public String getName() {
+		return name;
 	}
 
 	/**
@@ -166,11 +166,11 @@ public class IResourceImpl extends MinimalEObjectImpl.Container implements IReso
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRelativePath(String newRelativePath) {
-		String oldRelativePath = relativePath;
-		relativePath = newRelativePath;
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ResourcesPackage.IRESOURCE__RELATIVE_PATH, oldRelativePath, relativePath));
+			eNotify(new ENotificationImpl(this, Notification.SET, ResourcesPackage.IRESOURCE__NAME, oldName, name));
 	}
 
 	/**
@@ -235,8 +235,8 @@ public class IResourceImpl extends MinimalEObjectImpl.Container implements IReso
 				return basicGetParent();
 			case ResourcesPackage.IRESOURCE__MARKERS:
 				return getMarkers();
-			case ResourcesPackage.IRESOURCE__RELATIVE_PATH:
-				return getRelativePath();
+			case ResourcesPackage.IRESOURCE__NAME:
+				return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -257,8 +257,8 @@ public class IResourceImpl extends MinimalEObjectImpl.Container implements IReso
 				getMarkers().clear();
 				getMarkers().addAll((Collection<? extends IMarker>)newValue);
 				return;
-			case ResourcesPackage.IRESOURCE__RELATIVE_PATH:
-				setRelativePath((String)newValue);
+			case ResourcesPackage.IRESOURCE__NAME:
+				setName((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -278,8 +278,8 @@ public class IResourceImpl extends MinimalEObjectImpl.Container implements IReso
 			case ResourcesPackage.IRESOURCE__MARKERS:
 				getMarkers().clear();
 				return;
-			case ResourcesPackage.IRESOURCE__RELATIVE_PATH:
-				setRelativePath(RELATIVE_PATH_EDEFAULT);
+			case ResourcesPackage.IRESOURCE__NAME:
+				setName(NAME_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -297,8 +297,8 @@ public class IResourceImpl extends MinimalEObjectImpl.Container implements IReso
 				return basicGetParent() != null;
 			case ResourcesPackage.IRESOURCE__MARKERS:
 				return markers != null && !markers.isEmpty();
-			case ResourcesPackage.IRESOURCE__RELATIVE_PATH:
-				return RELATIVE_PATH_EDEFAULT == null ? relativePath != null : !RELATIVE_PATH_EDEFAULT.equals(relativePath);
+			case ResourcesPackage.IRESOURCE__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -313,8 +313,8 @@ public class IResourceImpl extends MinimalEObjectImpl.Container implements IReso
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (relativePath: ");
-		result.append(relativePath);
+		result.append(" (name: ");
+		result.append(name);
 		result.append(')');
 		return result.toString();
 	}

@@ -1,13 +1,9 @@
+@GenModel(editDirectory="/corvus.domain.org.eclipse.core.resources/src-gen")
 package corvus.domain.org.eclipse.core.resources
 
-class IWorkspace {
-	contains IWorkspaceRoot root opposite workspace
-}
-
 class IWorkspaceRoot extends IContainer {
-	container IWorkspace workspace opposite root
 	contains IContainer[] containers opposite root
-	String fullPath
+	String rawLocation
 }
 
 class IContainer extends IResource {
@@ -18,7 +14,7 @@ class IContainer extends IResource {
 class IResource {
 	container IContainer parent opposite members
 	contains IMarker[] markers opposite resource
-	String relativePath
+	String name
 }
 
 class IMarker {
