@@ -1,0 +1,8 @@
+import corvus.domain.org.eclipse.core.resources.ResourcesEmfParsleyGuiceModule
+
+module corvus.domain.e4.workspace.d2m extends ResourcesEmfParsleyGuiceModule {
+
+	bindings {
+		type MarkerUtil -> MarkerUtil
+	}
+}
