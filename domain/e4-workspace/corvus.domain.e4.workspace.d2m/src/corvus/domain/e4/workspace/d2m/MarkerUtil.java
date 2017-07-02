@@ -1,5 +1,7 @@
 package corvus.domain.e4.workspace.d2m;
 
+import org.eclipse.core.runtime.CoreException;
+
 import com.google.inject.Singleton;
 
 import corvus.domain.org.eclipse.core.resources.IContainer;
@@ -18,6 +20,12 @@ public class MarkerUtil {
 	private IWorkspaceRoot createTextMarker(org.eclipse.core.resources.IMarker marker) {
 		final TextMarker otherMarker = ResourcesFactory.eINSTANCE.createTextMarker();
 		otherMarker.setId(marker.getId());
+		try {
+			otherMarker.setType(marker.getType());
+		} catch (CoreException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		otherMarker.setCharStart(marker.getAttribute(org.eclipse.core.resources.IMarker.CHAR_START, -1));
 		otherMarker.setCharEnd(marker.getAttribute(org.eclipse.core.resources.IMarker.CHAR_END, -1));
 		otherMarker.setLineNumber(marker.getAttribute(org.eclipse.core.resources.IMarker.LINE_NUMBER, -1));

@@ -7,16 +7,19 @@ import static org.mockito.Mockito.when;
 
 import java.util.List;
 
+import org.eclipse.core.runtime.CoreException;
+
 public class TestUtil {
 
 	public static org.eclipse.core.resources.IMarker generateMockMarker(
 			long id,
+			String type,
 			int charStart,
 			int charEnd,
 			int lineNumber,
 			String resourceName,
 			List<String> containerNames,
-			String rootRawLocation) {
+			String rootRawLocation) throws CoreException {
 		org.eclipse.core.resources.IMarker result = mock(org.eclipse.core.resources.IMarker.class);
 		/*
 		final org.eclipse.core.resources.IResource iResource = marker.getResource();
@@ -24,6 +27,7 @@ public class TestUtil {
 
 		 */
 		when(result.getId()).thenReturn(id);
+		when(result.getType()).thenReturn(type);
 		when(result.getAttribute(eq(org.eclipse.core.resources.IMarker.CHAR_START), anyInt())).thenReturn(charStart);
 		when(result.getAttribute(eq(org.eclipse.core.resources.IMarker.CHAR_END), anyInt())).thenReturn(charEnd);
 		when(result.getAttribute(eq(org.eclipse.core.resources.IMarker.LINE_NUMBER), anyInt())).thenReturn(lineNumber);

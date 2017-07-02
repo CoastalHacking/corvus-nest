@@ -5,6 +5,7 @@ import static org.junit.Assert.assertEquals;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.parsley.junit4.AbstractEmfParsleyTest;
 import org.junit.Test;
 
@@ -26,11 +27,12 @@ public class MarkerUtilTest extends AbstractEmfParsleyTest {
 	}
 	
 	@Test
-	public void shouldCreateBranchFromMarker() {
+	public void shouldCreateBranchFromMarker() throws CoreException {
 		long expectedId = 1234L;
 		int expectedCharStart = 5;
 		int expectedCharEnd = 10;
 		int lineNumber = 3;
+		String expectedType = "org.example.foo.type";
 		String expectedResourceName = "Foo.java";
 		List<String> expectedContainerNames = new ArrayList<>();
 		String expectedContainerNameOne = "project";
@@ -42,9 +44,9 @@ public class MarkerUtilTest extends AbstractEmfParsleyTest {
 		String expectedRawLocation = "/foo/bar"; // workspace root raw path
 		
 		org.eclipse.core.resources.IMarker mockMarker = TestUtil.generateMockMarker(
-				expectedId, expectedCharStart, expectedCharEnd, lineNumber,
+				expectedId, expectedType, expectedCharStart, expectedCharEnd, lineNumber,
 				expectedResourceName, expectedContainerNames, expectedRawLocation);
-		
+
 		Injector injector = getOrCreateInjector();
 		MarkerUtil markerUtil = injector.getInstance(MarkerUtil.class);
 
