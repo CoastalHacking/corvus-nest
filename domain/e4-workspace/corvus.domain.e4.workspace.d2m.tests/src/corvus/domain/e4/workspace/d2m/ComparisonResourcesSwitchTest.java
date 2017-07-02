@@ -1,6 +1,8 @@
 package corvus.domain.e4.workspace.d2m;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
@@ -29,9 +31,12 @@ public class ComparisonResourcesSwitchTest {
 			}
 		}
 		
-		assertEquals(expectedObject, comparisonSwitch.getExpectedObject());
 		assertEquals(null, comparisonSwitch.getLastExistingObject());
+		assertEquals(expectedObject, comparisonSwitch.getExpectedObject());
 
+		TreeIterator<EObject> iter = comparisonSwitch.getObjectsToAdd();
+		assertTrue(iter.hasNext());
+		assertEquals(expectedObject, iter.next());
 	}
 
 	@Test
@@ -53,9 +58,12 @@ public class ComparisonResourcesSwitchTest {
 			}
 		}
 
-		assertEquals(expectedContainerOne, comparisonSwitch.getExpectedObject());
 		assertEquals(existingRoot, comparisonSwitch.getLastExistingObject());
+		assertEquals(expectedContainerOne, comparisonSwitch.getExpectedObject());
 
+		TreeIterator<EObject> iter = comparisonSwitch.getObjectsToAdd();
+		assertTrue(iter.hasNext());
+		assertEquals(expectedContainerOne, iter.next());
 	}
 	
 	@Test
@@ -82,6 +90,10 @@ public class ComparisonResourcesSwitchTest {
 
 		assertEquals(existingContainerOne, comparisonSwitch.getLastExistingObject());
 		assertEquals(expectedContainerTwo, comparisonSwitch.getExpectedObject());
+
+		TreeIterator<EObject> iter = comparisonSwitch.getObjectsToAdd();
+		assertTrue(iter.hasNext());
+		assertEquals(expectedContainerTwo, iter.next());
 	}
 
 	@Test
@@ -111,6 +123,10 @@ public class ComparisonResourcesSwitchTest {
 
 		assertEquals(existingContainerTwo, comparisonSwitch.getLastExistingObject());
 		assertEquals(expectedResource, comparisonSwitch.getExpectedObject());
+
+		TreeIterator<EObject> iter = comparisonSwitch.getObjectsToAdd();
+		assertTrue(iter.hasNext());
+		assertEquals(expectedResource, iter.next());
 	}
 	
 	@Test
@@ -143,6 +159,10 @@ public class ComparisonResourcesSwitchTest {
 
 		assertEquals(existingResource, comparisonSwitch.getLastExistingObject());
 		assertEquals(expectedMarker, comparisonSwitch.getExpectedObject());
+
+		TreeIterator<EObject> iter = comparisonSwitch.getObjectsToAdd();
+		assertTrue(iter.hasNext());
+		assertEquals(expectedMarker, iter.next());
 	}
 	
 	@Test
@@ -174,6 +194,9 @@ public class ComparisonResourcesSwitchTest {
 
 		assertEquals(existingTextMarker, comparisonSwitch.getLastExistingObject());
 		assertEquals(null, comparisonSwitch.getExpectedObject());
+	
+		TreeIterator<EObject> iter = comparisonSwitch.getObjectsToAdd();
+		assertFalse(iter.hasNext());
 	}
 
 }
