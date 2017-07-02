@@ -1,6 +1,6 @@
 package corvus.domain.e4.workspace.d2m;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
@@ -11,28 +11,15 @@ import org.junit.Test;
 import corvus.domain.org.eclipse.core.resources.IContainer;
 import corvus.domain.org.eclipse.core.resources.IResource;
 import corvus.domain.org.eclipse.core.resources.IWorkspaceRoot;
-import corvus.domain.org.eclipse.core.resources.ResourcesFactory;
 import corvus.domain.org.eclipse.core.resources.TextMarker;
 
 public class ComparisonResourcesSwitchTest {
-
-	private final String expectedRawLocation = "/var/foo/bar";
-	private final String expectedContainerOneName = "project_a";
-	private final String expectedContainerTwoName = "some_dir";
-	private final String expectedResourceName = "Some.resource";
-	private final String expectedMarkerType = "some.marker.type";
-	private final long expectedMarkerId = 42L;
-	private final int expectedMarkerCharStart = 5;
-	private final int expectedMarkerCharEnd = 10;
-	private final int expectedMarkerLineNumber = 2;
-
-	private ResourcesFactory factory = ResourcesFactory.eINSTANCE;
 
 	@Test
 	public void shouldExpectWorkspaceRootNullExisting() {
 		
 		Resource resource = new ResourceImpl();
-		IWorkspaceRoot expectedObject = createExpectedBranch(expectedRawLocation);
+		IWorkspaceRoot expectedObject = TestUtil.createExpectedWorkspaceRoot();
 		ComparisonResourcesSwitch comparisonSwitch = new ComparisonResourcesSwitch(expectedObject);
 
 		for (TreeIterator<EObject> iter = resource.getAllContents(); iter.hasNext();) {
@@ -51,11 +38,10 @@ public class ComparisonResourcesSwitchTest {
 	public void shouldExpectContainerOneExistingRoot() {
 		
 		Resource resource = new ResourceImpl();
-		IWorkspaceRoot existingRoot = factory.createIWorkspaceRoot();
-		existingRoot.setRawLocation(expectedRawLocation);
+		IWorkspaceRoot existingRoot = TestUtil.createExpectedWorkspaceRoot();
 		resource.getContents().add(existingRoot);
 
-		IWorkspaceRoot branchRoot = createExpectedBranch(expectedRawLocation);
+		IWorkspaceRoot branchRoot = TestUtil.createExpectedBranch();
 		EObject expectedContainerOne = branchRoot.getMembers().get(0);
 
 		ComparisonResourcesSwitch comparisonSwitch = new ComparisonResourcesSwitch(branchRoot);
@@ -76,13 +62,12 @@ public class ComparisonResourcesSwitchTest {
 	public void shouldExpectContainerTwoExistingContainerOne() {
 
 		Resource resource = new ResourceImpl();
-		IWorkspaceRoot existingRoot = factory.createIWorkspaceRoot();
-		existingRoot.setRawLocation(expectedRawLocation);
-		IContainer existingContainerOne = createContainer(expectedContainerOneName);
+		IWorkspaceRoot existingRoot = TestUtil.createExpectedWorkspaceRoot();
+		IContainer existingContainerOne = TestUtil.createExpectedContainerOne();
 		existingRoot.getMembers().add(existingContainerOne);
 		resource.getContents().add(existingRoot);
 
-		IWorkspaceRoot branchRoot = createExpectedBranch(expectedRawLocation);
+		IWorkspaceRoot branchRoot = TestUtil.createExpectedBranch();
 		IContainer containerOne = (IContainer)branchRoot.getMembers().get(0);
 		IContainer expectedContainerTwo = (IContainer)containerOne.getMembers().get(0);
 
@@ -103,15 +88,14 @@ public class ComparisonResourcesSwitchTest {
 	public void shouldExpectResourceExistingContainerTwo() {
 
 		Resource resource = new ResourceImpl();
-		IWorkspaceRoot existingRoot = factory.createIWorkspaceRoot();
-		existingRoot.setRawLocation(expectedRawLocation);
-		IContainer existingContainerOne = createContainer(expectedContainerOneName);
-		IContainer existingContainerTwo = createContainer(expectedContainerTwoName);
+		IWorkspaceRoot existingRoot = TestUtil.createExpectedWorkspaceRoot();
+		IContainer existingContainerOne = TestUtil.createExpectedContainerOne();
+		IContainer existingContainerTwo = TestUtil.createExpectedContainerTwo();
 		existingContainerOne.getMembers().add(existingContainerTwo);
 		existingRoot.getMembers().add(existingContainerOne);
 		resource.getContents().add(existingRoot);
 
-		IWorkspaceRoot branchRoot = createExpectedBranch(expectedRawLocation);
+		IWorkspaceRoot branchRoot = TestUtil.createExpectedBranch();
 		IContainer containerOne = (IContainer)branchRoot.getMembers().get(0);
 		IContainer containerTwo = (IContainer)containerOne.getMembers().get(0);
 		IResource expectedResource = containerTwo.getMembers().get(0);
@@ -133,17 +117,16 @@ public class ComparisonResourcesSwitchTest {
 	public void shouldExpecMarkerExistingResource() {
 
 		Resource resource = new ResourceImpl();
-		IWorkspaceRoot existingRoot = factory.createIWorkspaceRoot();
-		existingRoot.setRawLocation(expectedRawLocation);
-		IContainer existingContainerOne = createContainer(expectedContainerOneName);
-		IContainer existingContainerTwo = createContainer(expectedContainerTwoName);
-		IResource existingResource = createResource(expectedResourceName);
+		IWorkspaceRoot existingRoot = TestUtil.createExpectedWorkspaceRoot();
+		IContainer existingContainerOne = TestUtil.createExpectedContainerOne();
+		IContainer existingContainerTwo = TestUtil.createExpectedContainerTwo();
+		IResource existingResource = TestUtil.createExpectedResource();
 		existingContainerTwo.getMembers().add(existingResource);
 		existingContainerOne.getMembers().add(existingContainerTwo);
 		existingRoot.getMembers().add(existingContainerOne);
 		resource.getContents().add(existingRoot);
 
-		IWorkspaceRoot branchRoot = createExpectedBranch(expectedRawLocation);
+		IWorkspaceRoot branchRoot = TestUtil.createExpectedBranch();
 		IContainer containerOne = (IContainer)branchRoot.getMembers().get(0);
 		IContainer containerTwo = (IContainer)containerOne.getMembers().get(0);
 		IResource expectedResource = containerTwo.getMembers().get(0);
@@ -166,13 +149,11 @@ public class ComparisonResourcesSwitchTest {
 	public void shouldExpectNullExistingMarker() {
 
 		Resource resource = new ResourceImpl();
-		IWorkspaceRoot existingRoot = factory.createIWorkspaceRoot();
-		existingRoot.setRawLocation(expectedRawLocation);
-		IContainer existingContainerOne = createContainer(expectedContainerOneName);
-		IContainer existingContainerTwo = createContainer(expectedContainerTwoName);
-		IResource existingResource = createResource(expectedResourceName);
-		TextMarker existingTextMarker = createTextMarker(expectedMarkerType, expectedMarkerId,
-				expectedMarkerCharStart, expectedMarkerCharEnd, expectedMarkerLineNumber);
+		IWorkspaceRoot existingRoot = TestUtil.createExpectedWorkspaceRoot();
+		IContainer existingContainerOne = TestUtil.createExpectedContainerOne();
+		IContainer existingContainerTwo = TestUtil.createExpectedContainerTwo();
+		IResource existingResource = TestUtil.createExpectedResource();
+		TextMarker existingTextMarker = TestUtil.createExpectedTextMarker();
 
 		existingResource.getMarkers().add(existingTextMarker);
 		existingContainerTwo.getMembers().add(existingResource);
@@ -180,7 +161,7 @@ public class ComparisonResourcesSwitchTest {
 		existingRoot.getMembers().add(existingContainerOne);
 		resource.getContents().add(existingRoot);
 
-		IWorkspaceRoot branchRoot = createExpectedBranch(expectedRawLocation);
+		IWorkspaceRoot branchRoot = TestUtil.createExpectedBranch();
 
 		ComparisonResourcesSwitch comparisonSwitch = new ComparisonResourcesSwitch(branchRoot);
 
@@ -194,46 +175,5 @@ public class ComparisonResourcesSwitchTest {
 		assertEquals(existingTextMarker, comparisonSwitch.getLastExistingObject());
 		assertEquals(null, comparisonSwitch.getExpectedObject());
 	}
-	
-	private IWorkspaceRoot createExpectedBranch(String rawLocation) {
-		
-		IWorkspaceRoot result = factory.createIWorkspaceRoot();
-		result.setRawLocation(rawLocation);
 
-		IContainer containerOne = createContainer(expectedContainerOneName);
-		IContainer containerTwo = createContainer(expectedContainerTwoName);
-		IResource resource = createResource(expectedResourceName);
-		TextMarker textMarker = createTextMarker(expectedMarkerType, expectedMarkerId,
-				expectedMarkerCharStart, expectedMarkerCharEnd, expectedMarkerLineNumber);
-
-		result.getMembers().add(containerOne);
-		containerOne.getMembers().add(containerTwo);
-		containerTwo.getMembers().add(resource);
-		resource.getMarkers().add(textMarker);
-		return result;
-	}
-	
-	private IContainer createContainer(String containerName) {
-		IContainer result = factory.createIContainer();
-		result.setName(containerName);
-		return result;
-	}
-	
-	private IResource createResource(String resourceName) {
-		IResource result = factory.createIResource();
-		result.setName(resourceName);
-		return result;
-	}
-
-	private TextMarker createTextMarker(
-			String markerType, long markerId,
-			int markerCharStart, int markerCharEnd, int expectedMarkerLineNumber) {
-		TextMarker result = factory.createTextMarker();
-		result.setType(markerType);
-		result.setId(markerId);
-		result.setCharStart(markerCharStart);
-		result.setCharEnd(markerCharEnd);
-		result.setLineNumber(expectedMarkerLineNumber);
-		return result;
-	}
 }

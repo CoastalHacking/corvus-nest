@@ -9,8 +9,26 @@ import java.util.List;
 
 import org.eclipse.core.runtime.CoreException;
 
-public class TestUtil {
+import corvus.domain.org.eclipse.core.resources.IContainer;
+import corvus.domain.org.eclipse.core.resources.IResource;
+import corvus.domain.org.eclipse.core.resources.IWorkspaceRoot;
+import corvus.domain.org.eclipse.core.resources.ResourcesFactory;
+import corvus.domain.org.eclipse.core.resources.TextMarker;
 
+public class TestUtil {
+	
+	private static ResourcesFactory factory = ResourcesFactory.eINSTANCE;
+
+	public static final String expectedRawLocation = "/var/foo/bar";
+	public static final String expectedContainerOneName = "project_a";
+	public static final String expectedContainerTwoName = "some_dir";
+	public static final String expectedResourceName = "Some.resource";
+	public static final String expectedMarkerType = "some.marker.type";
+	public static final long expectedMarkerId = 42L;
+	public static final int expectedMarkerCharStart = 5;
+	public static final int expectedMarkerCharEnd = 10;
+	public static final int expectedMarkerLineNumber = 2;
+	
 	public static org.eclipse.core.resources.IMarker generateMockMarker(
 			long id,
 			String type,
@@ -62,5 +80,72 @@ public class TestUtil {
 			previousContainer = container;
 		}
 		return previousContainer;
+	}
+	
+	
+	public static IWorkspaceRoot createExpectedBranch() {
+		
+		IWorkspaceRoot result = createWorkspaceRoot(expectedRawLocation);
+		IContainer containerOne = createExpectedContainerOne();
+		IContainer containerTwo = createExpectedContainerTwo();
+		IResource resource = createExpectedResource();
+		TextMarker textMarker = createExpectedTextMarker();
+		result.getMembers().add(containerOne);
+		containerOne.getMembers().add(containerTwo);
+		containerTwo.getMembers().add(resource);
+		resource.getMarkers().add(textMarker);
+		return result;
+	}
+
+	public static IWorkspaceRoot createExpectedWorkspaceRoot() {
+		return createWorkspaceRoot(expectedRawLocation);
+	}
+	
+	public static IContainer createExpectedContainerOne() {
+		return createContainer(TestUtil.expectedContainerOneName);
+	}
+
+	public static IContainer createExpectedContainerTwo() {
+		return createContainer(TestUtil.expectedContainerTwoName);
+	}
+
+	public static IResource createExpectedResource() {
+		return createResource(expectedResourceName);
+	}
+
+	public static TextMarker createExpectedTextMarker() {
+		return createTextMarker(expectedMarkerType,
+				expectedMarkerId, expectedMarkerCharStart,
+				expectedMarkerCharEnd, expectedMarkerLineNumber);
+	}
+
+	public static IWorkspaceRoot createWorkspaceRoot(String rawLocation) {
+		IWorkspaceRoot result = factory.createIWorkspaceRoot();
+		result.setRawLocation(rawLocation);
+		return result;
+	}
+
+	public static IContainer createContainer(String containerName) {
+		IContainer result = factory.createIContainer();
+		result.setName(containerName);
+		return result;
+	}
+	
+	public static IResource createResource(String resourceName) {
+		IResource result = factory.createIResource();
+		result.setName(resourceName);
+		return result;
+	}
+
+	public static TextMarker createTextMarker(
+			String markerType, long markerId,
+			int markerCharStart, int markerCharEnd, int expectedMarkerLineNumber) {
+		TextMarker result = factory.createTextMarker();
+		result.setType(markerType);
+		result.setId(markerId);
+		result.setCharStart(markerCharStart);
+		result.setCharEnd(markerCharEnd);
+		result.setLineNumber(expectedMarkerLineNumber);
+		return result;
 	}
 }
