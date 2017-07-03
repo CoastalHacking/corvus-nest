@@ -4,5 +4,7 @@ module corvus.domain.e4.workspace.d2m extends ResourcesEmfParsleyGuiceModule {
 
 	bindings {
 		type MarkerUtil -> MarkerUtil
+		
+		type MarkerController -> MarkerControllerImpl
 	}
 }

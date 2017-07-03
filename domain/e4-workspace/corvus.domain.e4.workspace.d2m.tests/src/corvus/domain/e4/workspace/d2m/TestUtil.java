@@ -5,6 +5,7 @@ import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.core.runtime.CoreException;
@@ -28,6 +29,16 @@ public class TestUtil {
 	public static final int expectedMarkerCharStart = 5;
 	public static final int expectedMarkerCharEnd = 10;
 	public static final int expectedMarkerLineNumber = 2;
+
+	public static org.eclipse.core.resources.IMarker generateExpectedMockMarker() throws CoreException {
+		List<String> expectedContainers = new ArrayList<>();
+		expectedContainers.add(expectedContainerOneName);
+		expectedContainers.add(expectedContainerTwoName);
+		return generateMockMarker(expectedMarkerId,
+				expectedMarkerType, expectedMarkerCharStart,
+				expectedMarkerCharEnd, expectedMarkerLineNumber,
+				expectedResourceName, expectedContainers, expectedRawLocation);
+	}
 	
 	public static org.eclipse.core.resources.IMarker generateMockMarker(
 			long id,
