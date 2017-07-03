@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ASCII"?>
+<fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:commands="http://www.eclipse.org/ui/2010/UIModel/application/commands" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_Nhd_MF-IEeenbtsboHSPbw">
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_XgUTUF-bEeenbtsboHSPbw" featurename="commands" parentElementId="xpath:/">
+    <elements xsi:type="commands:Command" xmi:id="_en-5kF-bEeenbtsboHSPbw" elementId="corvus.domain.e4.workspace.ui.command.add" commandName="Add">
+      <parameters xmi:id="_jIG10F-bEeenbtsboHSPbw" elementId="markerType" name="Marker Type" optional="false"/>
+    </elements>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_6nbnAF-bEeenbtsboHSPbw" featurename="handlers" parentElementId="xpath:/">
+    <elements xsi:type="commands:Handler" xmi:id="_9g6VkF-bEeenbtsboHSPbw" elementId="corvus.domain.e4.workspace.ui.handler.add" contributionURI="bundleclass://corvus.domain.e4.workspace.ui/corvus.domain.e4.workspace.ui.AddHandler" command="_en-5kF-bEeenbtsboHSPbw"/>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_CSoYIF-cEeenbtsboHSPbw" featurename="menuContributions" parentElementId="xpath:/">
+    <elements xsi:type="menu:MenuContribution" xmi:id="_Dykg4F-cEeenbtsboHSPbw" elementId="corvus.domain.e4.workspace.ui.menucontribution.0" positionInParent="after=additions" parentId="popup">
+      <children xsi:type="menu:Menu" xmi:id="_GtxGsF-cEeenbtsboHSPbw" elementId="corvus.domain.e4.workspace.ui.menu.corvus" label="Corvus"/>
+    </elements>
+  </fragments>
+</fragment:ModelFragments>

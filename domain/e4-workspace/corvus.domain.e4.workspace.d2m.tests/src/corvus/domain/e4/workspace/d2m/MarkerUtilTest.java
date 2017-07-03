@@ -48,7 +48,7 @@ public class MarkerUtilTest extends AbstractEmfParsleyTest {
 				expectedResourceName, expectedContainerNames, expectedRawLocation);
 
 		Injector injector = getOrCreateInjector();
-		MarkerUtil markerUtil = injector.getInstance(MarkerUtil.class);
+		MarkerUtilImpl markerUtil = injector.getInstance(MarkerUtilImpl.class);
 
 		IWorkspaceRoot workspaceRoot = markerUtil.createBranchFromMarker(mockMarker);
 		assertEquals(expectedRawLocation, workspaceRoot.getRawLocation());

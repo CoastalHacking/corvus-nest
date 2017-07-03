@@ -4,6 +4,8 @@ import org.eclipse.core.runtime.CoreException;
 
 import com.google.inject.Singleton;
 
+import corvus.domain.e4.workspace.Constants;
+import corvus.domain.e4.workspace.MarkerUtil;
 import corvus.domain.org.eclipse.core.resources.IContainer;
 import corvus.domain.org.eclipse.core.resources.IResource;
 import corvus.domain.org.eclipse.core.resources.IWorkspaceRoot;
@@ -11,7 +13,7 @@ import corvus.domain.org.eclipse.core.resources.ResourcesFactory;
 import corvus.domain.org.eclipse.core.resources.TextMarker;
 
 @Singleton
-public class MarkerUtil {
+public class MarkerUtilImpl implements MarkerUtil {
 
 	public IWorkspaceRoot createBranchFromMarker(org.eclipse.core.resources.IMarker marker) {
 		return createTextMarker(marker);
@@ -68,4 +70,35 @@ public class MarkerUtil {
 		return otherRoot;
 	}
 
+	public org.eclipse.core.resources.IMarker getMarkerAtSelection(org.eclipse.core.resources.IResource resource, int charStart, int charEnd) {
+		org.eclipse.core.resources.IMarker result = null;
+
+		try {
+			for (org.eclipse.core.resources.IMarker m: resource.findMarkers(
+					Constants.MARKER_TYPE, /*includeSubtypes*/true, /*?*/ org.eclipse.core.resources.IResource.DEPTH_ONE)) {
+				// ends are exclusive; starts are inclusive
+
+				final int markerCharStart = (Integer)m.getAttribute(org.eclipse.core.resources.IMarker.CHAR_START, -1);
+				final int markerCharEnd = (Integer)m.getAttribute(org.eclipse.core.resources.IMarker.CHAR_END, -1);
+
+				// ignore if the subject marker starts before this one ends
+				if (markerCharEnd < charStart)
+					continue;
+
+				// ignore if the subject marker ends before this one starts
+				if (charEnd < markerCharStart)
+					continue;
+
+				// keep lowest resource-relative ID
+				if (result == null || result.getId() > m.getId())
+					result = m;
+			}
+		} catch (CoreException e) {
+			// TODO: log
+			e.printStackTrace();
+		}
+
+		return result;
+
+	}
 }

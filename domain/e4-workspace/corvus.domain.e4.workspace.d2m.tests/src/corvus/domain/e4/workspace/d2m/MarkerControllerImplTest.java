@@ -26,6 +26,7 @@ import org.junit.rules.TemporaryFolder;
 
 import com.google.inject.Injector;
 
+import corvus.domain.e4.workspace.MarkerController;
 import corvus.domain.org.eclipse.core.resources.IContainer;
 import corvus.domain.org.eclipse.core.resources.IMarker;
 import corvus.domain.org.eclipse.core.resources.IResource;

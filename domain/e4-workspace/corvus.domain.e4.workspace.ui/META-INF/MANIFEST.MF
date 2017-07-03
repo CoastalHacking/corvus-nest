@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Corvus e4 UI
+Bundle-SymbolicName: corvus.domain.e4.workspace.ui;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Require-Bundle: org.eclipse.e4.ui.model.workbench,
+ org.eclipse.e4.core.di.annotations,
+ org.eclipse.e4.ui.services,
+ org.eclipse.jface.text,
+ org.eclipse.ui,
+ org.eclipse.ui.workbench.texteditor,
+ corvus.domain.e4.workspace.d2m,
+ com.google.inject,
+ corvus.domain.e4.workspace,
+ org.eclipse.core.runtime,
+ corvus.domain.org.eclipse.core.resources;bundle-version="1.0.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Import-Package: javax.inject;version="1.0.0"

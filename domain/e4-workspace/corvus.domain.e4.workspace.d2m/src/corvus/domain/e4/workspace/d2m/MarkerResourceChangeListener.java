@@ -12,7 +12,8 @@ import org.eclipse.core.resources.IResourceDelta;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 
-import corvus.domain.org.eclipse.core.resources.ResourcesConstants;
+import corvus.domain.e4.workspace.Constants;
+import corvus.domain.e4.workspace.MarkerController;
 
 /**
  * 
@@ -22,6 +23,7 @@ import corvus.domain.org.eclipse.core.resources.ResourcesConstants;
  *
  */
 @Singleton
+// TODO: Test me!
 public class MarkerResourceChangeListener implements IResourceChangeListener {
 
 	@Inject
@@ -34,7 +36,7 @@ public class MarkerResourceChangeListener implements IResourceChangeListener {
 	public void resourceChanged(IResourceChangeEvent event) {
 		switch (event.getType()) {
 		case IResourceChangeEvent.POST_CHANGE:
-			final IMarkerDelta[] deltas = event.findMarkerDeltas(ResourcesConstants.MARKER_TYPE, false);
+			final IMarkerDelta[] deltas = event.findMarkerDeltas(Constants.MARKER_TYPE, true);
 			if (deltas != null && deltas.length != 0) {
 				for (IMarkerDelta delta : deltas) {
 					final IMarker marker = delta.getMarker();

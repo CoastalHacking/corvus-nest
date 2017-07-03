@@ -12,6 +12,7 @@ import org.eclipse.emf.transaction.TransactionalEditingDomain;
 
 import com.google.inject.Inject;
 
+import corvus.domain.e4.workspace.MarkerController;
 import corvus.domain.org.eclipse.core.resources.IWorkspaceRoot;
 
 /**
@@ -29,7 +30,7 @@ public class MarkerControllerImpl implements MarkerController {
 	TransactionalEditingDomain ted;
 
 	@Inject
-	MarkerUtil markerUtil;
+	MarkerUtilImpl markerUtil;
 
 	/* 
 	 * This code is clunky

@@ -1,4 +1,4 @@
-package corvus.domain.e4.workspace.d2m;
+package corvus.domain.e4.workspace;
 
 import org.eclipse.core.resources.IMarker;
 

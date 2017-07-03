@@ -1,9 +1,12 @@
 import corvus.domain.org.eclipse.core.resources.ResourcesEmfParsleyGuiceModule
+import corvus.domain.e4.workspace.MarkerController
+import corvus.domain.e4.workspace.d2m.MarkerUtilImpl
+import corvus.domain.e4.workspace.MarkerUtil
 
 module corvus.domain.e4.workspace.d2m extends ResourcesEmfParsleyGuiceModule {
 
 	bindings {
-		type MarkerUtil -> MarkerUtil
+		type MarkerUtil -> MarkerUtilImpl
 		
 		type MarkerController -> MarkerControllerImpl
 	}
