@@ -2,8 +2,6 @@ package corvus.transactional;
 
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 
-import com.google.inject.Singleton;
-
 
 /**
  * Inspired by @link{GlobalAdapterFactoryEditingDomainProvider}

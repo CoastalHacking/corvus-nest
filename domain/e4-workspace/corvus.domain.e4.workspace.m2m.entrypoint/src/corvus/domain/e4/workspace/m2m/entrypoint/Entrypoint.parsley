@@ -1,0 +1,9 @@
+import org.eclipse.emf.transaction.ResourceSetListener
+
+/* corvus.domain.e4.workspace.m2m.entrypoint EMF Parsley Dsl Module file */
+module corvus.domain.e4.workspace.m2m.entrypoint extends corvus.model.entrypoint.EntrypointEmfParsleyGuiceModule {
+
+	bindings {
+		type ResourceSetListener -> EntryPointModelToModelListener
+	}
+}

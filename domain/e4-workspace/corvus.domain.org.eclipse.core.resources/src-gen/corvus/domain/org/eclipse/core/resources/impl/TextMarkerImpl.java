@@ -8,6 +8,8 @@ import corvus.domain.org.eclipse.core.resources.TextMarker;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -22,6 +24,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link corvus.domain.org.eclipse.core.resources.impl.TextMarkerImpl#getLineNumber <em>Line Number</em>}</li>
  *   <li>{@link corvus.domain.org.eclipse.core.resources.impl.TextMarkerImpl#getCharStart <em>Char Start</em>}</li>
  *   <li>{@link corvus.domain.org.eclipse.core.resources.impl.TextMarkerImpl#getCharEnd <em>Char End</em>}</li>
+ *   <li>{@link corvus.domain.org.eclipse.core.resources.impl.TextMarkerImpl#getDomain <em>Domain</em>}</li>
  * </ul>
  *
  * @generated
@@ -86,6 +89,16 @@ public class TextMarkerImpl extends IMarkerImpl implements TextMarker {
 	 * @ordered
 	 */
 	protected int charEnd = CHAR_END_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getDomain() <em>Domain</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDomain()
+	 * @generated
+	 * @ordered
+	 */
+	protected EObject domain;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -174,6 +187,44 @@ public class TextMarkerImpl extends IMarkerImpl implements TextMarker {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EObject getDomain() {
+		if (domain != null && domain.eIsProxy()) {
+			InternalEObject oldDomain = (InternalEObject)domain;
+			domain = eResolveProxy(oldDomain);
+			if (domain != oldDomain) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ResourcesPackage.TEXT_MARKER__DOMAIN, oldDomain, domain));
+			}
+		}
+		return domain;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EObject basicGetDomain() {
+		return domain;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDomain(EObject newDomain) {
+		EObject oldDomain = domain;
+		domain = newDomain;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ResourcesPackage.TEXT_MARKER__DOMAIN, oldDomain, domain));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -183,6 +234,9 @@ public class TextMarkerImpl extends IMarkerImpl implements TextMarker {
 				return getCharStart();
 			case ResourcesPackage.TEXT_MARKER__CHAR_END:
 				return getCharEnd();
+			case ResourcesPackage.TEXT_MARKER__DOMAIN:
+				if (resolve) return getDomain();
+				return basicGetDomain();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -203,6 +257,9 @@ public class TextMarkerImpl extends IMarkerImpl implements TextMarker {
 				return;
 			case ResourcesPackage.TEXT_MARKER__CHAR_END:
 				setCharEnd((Integer)newValue);
+				return;
+			case ResourcesPackage.TEXT_MARKER__DOMAIN:
+				setDomain((EObject)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -225,6 +282,9 @@ public class TextMarkerImpl extends IMarkerImpl implements TextMarker {
 			case ResourcesPackage.TEXT_MARKER__CHAR_END:
 				setCharEnd(CHAR_END_EDEFAULT);
 				return;
+			case ResourcesPackage.TEXT_MARKER__DOMAIN:
+				setDomain((EObject)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -243,6 +303,8 @@ public class TextMarkerImpl extends IMarkerImpl implements TextMarker {
 				return charStart != CHAR_START_EDEFAULT;
 			case ResourcesPackage.TEXT_MARKER__CHAR_END:
 				return charEnd != CHAR_END_EDEFAULT;
+			case ResourcesPackage.TEXT_MARKER__DOMAIN:
+				return domain != null;
 		}
 		return super.eIsSet(featureID);
 	}

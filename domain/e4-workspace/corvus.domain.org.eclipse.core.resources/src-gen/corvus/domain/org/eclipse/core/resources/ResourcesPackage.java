@@ -396,13 +396,22 @@ public interface ResourcesPackage extends EPackage {
 	int TEXT_MARKER__CHAR_END = IMARKER_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Domain</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_MARKER__DOMAIN = IMARKER_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Text Marker</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXT_MARKER_FEATURE_COUNT = IMARKER_FEATURE_COUNT + 3;
+	int TEXT_MARKER_FEATURE_COUNT = IMARKER_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Text Marker</em>' class.
@@ -608,6 +617,17 @@ public interface ResourcesPackage extends EPackage {
 	EAttribute getTextMarker_CharEnd();
 
 	/**
+	 * Returns the meta object for the reference '{@link corvus.domain.org.eclipse.core.resources.TextMarker#getDomain <em>Domain</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Domain</em>'.
+	 * @see corvus.domain.org.eclipse.core.resources.TextMarker#getDomain()
+	 * @see #getTextMarker()
+	 * @generated
+	 */
+	EReference getTextMarker_Domain();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -783,6 +803,14 @@ public interface ResourcesPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TEXT_MARKER__CHAR_END = eINSTANCE.getTextMarker_CharEnd();
+
+		/**
+		 * The meta object literal for the '<em><b>Domain</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TEXT_MARKER__DOMAIN = eINSTANCE.getTextMarker_Domain();
 
 	}
 

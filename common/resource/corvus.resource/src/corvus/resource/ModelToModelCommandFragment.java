@@ -1,9 +1,9 @@
 package corvus.resource;
 
+import java.util.List;
 import java.util.Map;
 
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.transaction.ResourceSetChangeEvent;
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.transaction.Transaction;
 
 public interface ModelToModelCommandFragment {
@@ -15,14 +15,8 @@ public interface ModelToModelCommandFragment {
 	 * @param event  the resource set change event, filtered by the source
 	 * model of interest
 	 */
-	public void doExecute(ResourceSetChangeEvent event);
+	public void doExecute(List<Notification> notifications);
 
-	/**
-	 * The EClass of the desired source model
-	 * @return
-	 */
-	public EClass getSourceModel();
-	
 	/**
 	 * A map of options, based on {@link Transaction} OPTION_* fields
 	 * 

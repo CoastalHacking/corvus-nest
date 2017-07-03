@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: corvus.domain.e4.workspace.m2m.entrypoint
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: corvus.domain.e4.workspace.m2m.entrypoint;singleton:=true
+Bundle-Activator: corvus.domain.e4.workspace.m2m.entrypoint.EntrypointActivator
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.ui,
+ org.eclipse.emf.parsley.views,
+ org.eclipse.xtext.xbase.lib,
+ corvus.model.entrypoint,
+ corvus.domain.e4.workspace,
+ corvus.domain.org.eclipse.core.resources
+Import-Package: org.apache.log4j,
+ org.apache.commons.logging
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Service-Component: OSGI-INF/corvus.domain.e4.workspace.m2m.entrypoint.OsgiEntryPointM2MListener.xml

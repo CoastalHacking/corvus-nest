@@ -1,6 +1,12 @@
 package corvus.resource;
 
-import org.eclipse.emf.ecore.EClass;
+import java.util.List;
+
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
+import org.eclipse.core.runtime.jobs.Job;
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.ResourceSetChangeEvent;
 import org.eclipse.emf.transaction.RollbackException;
@@ -8,14 +14,6 @@ import org.eclipse.emf.transaction.TransactionalCommandStack;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 
 public abstract class ModelToModelListener extends PostCommitEClassResourceSetListener {
-
-	/* (non-Javadoc)
-	 * @see org.example.resourcesetlistener.PostCommitEClassResourceSetListener#getEClass()
-	 */
-	@Override
-	public EClass getEClass() {
-		return getFragment().getSourceModel();
-	}
 
 	public abstract ModelToModelCommandFragment getFragment();
 	
@@ -30,6 +28,40 @@ public abstract class ModelToModelListener extends PostCommitEClassResourceSetLi
 				ted != null &&
 				event.getEditingDomain().equals(ted)) {
 
+			ReadWriteTransactionJob job = new ReadWriteTransactionJob(
+					"Read/write transaction via " + getClass().getName(),
+					ted,
+					getFragment(),
+					event.getNotifications() // need to be copied
+
+					);
+			job.schedule();
+
+		}
+		return;
+	}
+
+	public static class ReadWriteTransactionJob extends Job {
+
+		private TransactionalEditingDomain ted;
+		
+		private ModelToModelCommandFragment  fragment;
+
+		private List<Notification> notifications;
+
+		public ReadWriteTransactionJob(String name,
+				TransactionalEditingDomain ted,
+				ModelToModelCommandFragment  fragment,
+				List<Notification> notifications) {
+			super(name);
+			this.ted = ted;
+			this.fragment = fragment;
+			this.notifications = notifications;
+		}
+
+		@Override
+		protected IStatus run(IProgressMonitor monitor) {
+			IStatus result;
 			TransactionalCommandStack stack = (TransactionalCommandStack)ted.getCommandStack();
 
 			try {
@@ -37,18 +69,23 @@ public abstract class ModelToModelListener extends PostCommitEClassResourceSetLi
 
 					@Override
 					protected void doExecute() {
-						getFragment().doExecute(event);
+						fragment.doExecute(notifications);
 					}
 
-				}, getFragment().getOptions());
+				}, fragment.getOptions());
+				result = Status.OK_STATUS;
 
 			} catch (InterruptedException ie) {
-				// TODO log
+				result = new Status(IStatus.ERROR,
+						ResourceActivator.PLUGIN_ID,
+						"Interrupted before transaction could start", ie);
 			} catch (RollbackException re) {
-				// TODO log
+				result = new Status(IStatus.ERROR,
+						ResourceActivator.PLUGIN_ID,
+						"Transaction was rolled back", re);
 			}
+			return result;
 		}
-		return;
+		
 	}
-
 }

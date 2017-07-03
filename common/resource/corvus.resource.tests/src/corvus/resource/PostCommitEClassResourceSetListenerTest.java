@@ -6,7 +6,6 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.NotificationFilter;
 import org.eclipse.emf.transaction.ResourceSetChangeEvent;
@@ -22,9 +21,12 @@ public class PostCommitEClassResourceSetListenerTest {
 		when(notification.getNotifier()).thenReturn(expected);
 
 		PostCommitEClassResourceSetListener listener = new PostCommitEClassResourceSetListener() {
-			@Override public void resourceSetChanged(ResourceSetChangeEvent event) {}
 
-			@Override public EClass getEClass() { return expected.eClass(); }
+			@Override public NotificationFilter getFilter() {
+				return NotificationFilter.createNotifierTypeFilter(expected.eClass());
+			}
+
+			@Override public void resourceSetChanged(ResourceSetChangeEvent event) {}
 		};
 
 		NotificationFilter filter = listener.getFilter();
@@ -40,9 +42,13 @@ public class PostCommitEClassResourceSetListenerTest {
 		when(notification.getNotifier()).thenReturn(notExpected);
 
 		PostCommitEClassResourceSetListener listener = new PostCommitEClassResourceSetListener() {
+
+			@Override public NotificationFilter getFilter() {
+				return NotificationFilter.createNotifierTypeFilter(expected.eClass());
+			}
+
 			@Override public void resourceSetChanged(ResourceSetChangeEvent event) {}
 
-			@Override public EClass getEClass() { return expected.eClass(); }
 		};
 
 		NotificationFilter filter = listener.getFilter();

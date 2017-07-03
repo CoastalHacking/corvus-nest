@@ -2,6 +2,7 @@
  */
 package corvus.domain.org.eclipse.core.resources;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -15,6 +16,7 @@ package corvus.domain.org.eclipse.core.resources;
  *   <li>{@link corvus.domain.org.eclipse.core.resources.TextMarker#getLineNumber <em>Line Number</em>}</li>
  *   <li>{@link corvus.domain.org.eclipse.core.resources.TextMarker#getCharStart <em>Char Start</em>}</li>
  *   <li>{@link corvus.domain.org.eclipse.core.resources.TextMarker#getCharEnd <em>Char End</em>}</li>
+ *   <li>{@link corvus.domain.org.eclipse.core.resources.TextMarker#getDomain <em>Domain</em>}</li>
  * </ul>
  *
  * @see corvus.domain.org.eclipse.core.resources.ResourcesPackage#getTextMarker()
@@ -99,5 +101,31 @@ public interface TextMarker extends IMarker {
 	 * @generated
 	 */
 	void setCharEnd(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Domain</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Domain</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Domain</em>' reference.
+	 * @see #setDomain(EObject)
+	 * @see corvus.domain.org.eclipse.core.resources.ResourcesPackage#getTextMarker_Domain()
+	 * @model
+	 * @generated
+	 */
+	EObject getDomain();
+
+	/**
+	 * Sets the value of the '{@link corvus.domain.org.eclipse.core.resources.TextMarker#getDomain <em>Domain</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Domain</em>' reference.
+	 * @see #getDomain()
+	 * @generated
+	 */
+	void setDomain(EObject value);
 
 } // TextMarker

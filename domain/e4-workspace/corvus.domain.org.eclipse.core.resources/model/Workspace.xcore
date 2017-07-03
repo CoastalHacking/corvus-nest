@@ -1,6 +1,8 @@
 @GenModel(editDirectory="/corvus.domain.org.eclipse.core.resources/src-gen")
 package corvus.domain.org.eclipse.core.resources
 
+import org.eclipse.emf.ecore.EObject
+
 class IWorkspaceRoot extends IContainer {
 	contains IContainer[] containers opposite root
 	String rawLocation
@@ -27,4 +29,5 @@ class TextMarker extends IMarker {
 	int lineNumber
 	int charStart
 	int charEnd
+	refers EObject domain
 }

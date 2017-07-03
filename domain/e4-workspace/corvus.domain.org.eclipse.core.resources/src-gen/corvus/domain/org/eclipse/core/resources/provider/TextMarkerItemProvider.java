@@ -48,6 +48,7 @@ public class TextMarkerItemProvider extends IMarkerItemProvider {
 			addLineNumberPropertyDescriptor(object);
 			addCharStartPropertyDescriptor(object);
 			addCharEndPropertyDescriptor(object);
+			addDomainPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -114,6 +115,28 @@ public class TextMarkerItemProvider extends IMarkerItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Domain feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDomainPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_TextMarker_domain_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TextMarker_domain_feature", "_UI_TextMarker_type"),
+				 ResourcesPackage.Literals.TEXT_MARKER__DOMAIN,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}

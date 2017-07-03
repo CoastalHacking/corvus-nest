@@ -291,6 +291,15 @@ public class ResourcesPackageImpl extends EPackageImpl implements ResourcesPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getTextMarker_Domain() {
+		return (EReference)textMarkerEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ResourcesFactory getResourcesFactory() {
 		return (ResourcesFactory)getEFactoryInstance();
 	}
@@ -336,6 +345,7 @@ public class ResourcesPackageImpl extends EPackageImpl implements ResourcesPacka
 		createEAttribute(textMarkerEClass, TEXT_MARKER__LINE_NUMBER);
 		createEAttribute(textMarkerEClass, TEXT_MARKER__CHAR_START);
 		createEAttribute(textMarkerEClass, TEXT_MARKER__CHAR_END);
+		createEReference(textMarkerEClass, TEXT_MARKER__DOMAIN);
 	}
 
 	/**
@@ -396,6 +406,7 @@ public class ResourcesPackageImpl extends EPackageImpl implements ResourcesPacka
 		initEAttribute(getTextMarker_LineNumber(), theEcorePackage.getEInt(), "lineNumber", null, 0, 1, TextMarker.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTextMarker_CharStart(), theEcorePackage.getEInt(), "charStart", null, 0, 1, TextMarker.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTextMarker_CharEnd(), theEcorePackage.getEInt(), "charEnd", null, 0, 1, TextMarker.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTextMarker_Domain(), theEcorePackage.getEObject(), null, "domain", null, 0, 1, TextMarker.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

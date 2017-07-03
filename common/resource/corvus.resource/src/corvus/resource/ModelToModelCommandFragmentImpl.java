@@ -1,10 +1,11 @@
 package corvus.resource;
 
 import java.util.Collections;
+import java.util.List;
 import java.util.Map;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.transaction.ResourceSetChangeEvent;
@@ -20,33 +21,24 @@ public abstract class ModelToModelCommandFragmentImpl implements ModelToModelCom
 
 	protected Map<?, ?> options;
 	protected URI uri;
-	protected EClass eClass;
 
-	public ModelToModelCommandFragmentImpl(URI uri, EClass eClass) {
+	public ModelToModelCommandFragmentImpl(URI uri) {
 		this.uri = uri;
-		this.eClass = eClass;
 		this.options = Collections.EMPTY_MAP;
 	}
 	
-	public ModelToModelCommandFragmentImpl(URI uri, EClass eClass, Map<?, ?> options) {
+	public ModelToModelCommandFragmentImpl(URI uri, Map<?, ?> options) {
 		this.uri = uri;
-		this.eClass = eClass;
 		this.options = options;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * @see org.example.resourcesetlistener.ModelToModelCommandFragment#doExecute(org.eclipse.emf.transaction.ResourceSetChangeEvent)
-	 */
-	@Override
-	public abstract void doExecute(ResourceSetChangeEvent event);
-
 	/* (non-Javadoc)
-	 * @see org.example.resourcesetlistener.ModelToModelCommandFragment#getSourceModel()
+	 * @see corvus.resource.ModelToModelCommandFragment#doExecute(java.util.List)
 	 */
 	@Override
-	public EClass getSourceModel() {
-		return eClass;
+	public void doExecute(List<Notification> notifications) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	/* (non-Javadoc)

@@ -1,10 +1,13 @@
 package corvus.resource;
 
-import static org.junit.Assert.*;
-import static org.mockito.Mockito.*;
+import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
+import java.util.List;
+
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.transaction.ResourceSetChangeEvent;
@@ -15,8 +18,6 @@ public class ModelToModelCommandFragmentImplTest {
 
 	@Test
 	public void shouldGetResource() {
-		// Mocks
-		EObject sourceModel = ModelUtil.createObject("ExpectedModel");
 		ResourceSetChangeEvent event = mock(ResourceSetChangeEvent.class);
 		TransactionalEditingDomain ted = mock(TransactionalEditingDomain.class);
 		when(event.getEditingDomain()).thenReturn(ted);
@@ -29,11 +30,10 @@ public class ModelToModelCommandFragmentImplTest {
 		Resource expected = mock(Resource.class);
 		when(set.getResource(uri, false)).thenReturn(expected);
 
-		ModelToModelCommandFragmentImpl impl = new ModelToModelCommandFragmentImpl(
-				uri, sourceModel.eClass()) {
-			@Override public void doExecute(ResourceSetChangeEvent event) {}
+		ModelToModelCommandFragmentImpl impl = new ModelToModelCommandFragmentImpl(uri) {
+			@Override public void doExecute(List<Notification> notifications) {}
 		};
-		
+
 		Resource actual = impl.getResource(event);
 		assertEquals(expected, actual);
 	}

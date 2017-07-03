@@ -7,7 +7,6 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.ResourceSetChangeEvent;
 import org.eclipse.emf.transaction.RollbackException;
@@ -21,8 +20,6 @@ public class ModelToModelListenerTest {
 	public void shouldExecuteStack() throws InterruptedException, RollbackException {
 		// Mocks
 		ModelToModelCommandFragment mockFragment = mock(ModelToModelCommandFragment.class);
-		EObject sourceModel = ModelUtil.createObject("ExpectedModel");
-		when(mockFragment.getSourceModel()).thenReturn(sourceModel.eClass());
 
 		TransactionalEditingDomain mockTed = mock(TransactionalEditingDomain.class);
 

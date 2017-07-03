@@ -98,7 +98,7 @@ public class ComparisonResourcesSwitch extends ResourcesSwitch<Boolean> {
 			result = Boolean.TRUE;
 			lastExistingObject = object;
 			// current implementation assumes only one member
-			expectedObject = ((IWorkspaceRoot)expectedObject).getMembers().get(0);
+			expectedObject = ((IWorkspaceRoot)expectedObject).getContainers().get(0);
 		}
 		return result;
 	}

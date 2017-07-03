@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin>
+
+   <extension
+         id="corvus.domain.e4.workspace.m2v.entrypoint.fragment"
+         point="org.eclipse.e4.workbench.model">
+      <fragment
+            uri="fragment.e4xmi">
+      </fragment>
+   </extension>
+   <extension
+         id="entryPoint"
+         name="Corvus Entry Point"
+         point="org.eclipse.core.resources.markers">
+      <super
+            type="corvus.domain.e4.workspace.corvusMarker">
+      </super>
+   </extension>
+
+</plugin>

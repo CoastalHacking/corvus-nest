@@ -1,0 +1,4 @@
+/* corvus.domain.e4.workspace.m2v.entrypoint EMF Parsley Dsl Module file */
+module corvus.domain.e4.workspace.m2v.entrypoint extends corvus.model.entrypoint.EntrypointEmfParsleyGuiceModule {
+
+}
