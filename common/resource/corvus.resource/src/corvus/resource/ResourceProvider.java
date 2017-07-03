@@ -8,7 +8,9 @@ import org.eclipse.emf.transaction.TransactionalEditingDomain;
 
 import com.google.inject.Inject;
 import com.google.inject.Provider;
+import com.google.inject.Singleton;
 
+@Singleton
 public class ResourceProvider implements Provider<Resource> {
 
 	@Inject
