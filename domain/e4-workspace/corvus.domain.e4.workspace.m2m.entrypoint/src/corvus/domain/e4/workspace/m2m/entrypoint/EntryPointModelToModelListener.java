@@ -3,16 +3,18 @@
  */
 package corvus.domain.e4.workspace.m2m.entrypoint;
 
-import java.util.List;
+import java.util.UUID;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.parsley.config.Configurator;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.transaction.NotificationFilter;
 
 import com.google.inject.Inject;
 
 import corvus.domain.org.eclipse.core.resources.ResourcesPackage;
+import corvus.domain.org.eclipse.core.resources.TextMarker;
+import corvus.model.entrypoint.EntryPoint;
+import corvus.model.entrypoint.EntrypointFactory;
 import corvus.resource.ModelToModelCommandFragment;
 import corvus.resource.ModelToModelCommandFragmentImpl;
 import corvus.resource.ModelToModelListener;
@@ -24,11 +26,13 @@ import corvus.resource.ModelToModelListener;
 public class EntryPointModelToModelListener extends ModelToModelListener {
 
 	@Inject
-	private Configurator configurator;
+	private Resource resource;
 
-	private URI entryPointUri;
-	
+	// inject?
 	private NotificationFilter filter;
+
+	// inject?
+	private ModelToModelCommandFragment fragment;
 
 	/**
 	 * 
@@ -53,20 +57,39 @@ public class EntryPointModelToModelListener extends ModelToModelListener {
 	 */
 	@Override
 	public ModelToModelCommandFragment getFragment() {
-		// Cannot add below in constructor since it requires the injected values
-		// which have not been injected when the constructor is called
-		if (entryPointUri == null) {
-			entryPointUri = configurator.resourceURI(this);
+
+		if (fragment == null) {
+			fragment = new EntryPointFragment();
 		}
-		ModelToModelCommandFragment fragment = new ModelToModelCommandFragmentImpl(entryPointUri) {
-
-			@Override
-			public void doExecute(List<Notification> notifications) {
-				notifications.toString();
-			}
-
-		};
 		return fragment;
+	}
+
+	public class EntryPointFragment extends ModelToModelCommandFragmentImpl {
+
+		/*
+		 * (non-Javadoc)
+		 * @see corvus.resource.ModelToModelCommandFragmentImpl#added(org.eclipse.emf.common.notify.Notification)
+		 */
+		@Override
+		protected void added(Notification notification) {
+			Object newValue = notification.getNewValue();
+			if (newValue instanceof TextMarker) {
+				TextMarker addedMarker = (TextMarker)newValue;
+				EntryPoint entryPoint = EntrypointFactory.eINSTANCE.createEntryPoint();
+				entryPoint.setName("EntryPoint: " + UUID.randomUUID().toString());
+
+				// Add entry point to resource first
+				resource.getContents().add(entryPoint);
+
+				// Then connect to marker
+				addedMarker.setDomain(entryPoint);
+			}
+		}
+
+		protected void removed(Notification notification) {
+
+		}
+		
 	}
 
 }

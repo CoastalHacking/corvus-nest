@@ -1,10 +1,12 @@
 package corvus.domain.e4.workspace.d2m;
 
+import java.io.IOException;
 import java.util.Collections;
 
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.parsley.resource.ResourceManager;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.RollbackException;
 import org.eclipse.emf.transaction.TransactionalCommandStack;
@@ -25,6 +27,9 @@ public class MarkerControllerImpl implements MarkerController {
 	// TODO: verify the resource is part of the editing domain
 	@Inject
 	Resource resource;
+	
+	@Inject
+	ResourceManager resourceManager;
 	
 	@Inject
 	TransactionalEditingDomain ted;
@@ -76,6 +81,13 @@ public class MarkerControllerImpl implements MarkerController {
 							if (!addSwitch.doSwitch(eObject)) {
 								// TODO log at warning
 								treeIterator.prune();
+							}
+							
+							try {
+								resourceManager.save(resource);
+							} catch (IOException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
 							}
 						}
 					}

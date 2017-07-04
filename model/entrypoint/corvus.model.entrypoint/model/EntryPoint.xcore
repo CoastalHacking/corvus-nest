@@ -1,11 +1,6 @@
 @GenModel(editDirectory="/corvus.model.entrypoint/src-gen")
 package corvus.model.entrypoint
 
-class Framework {
-	contains EntryPoint[] entryPoints opposite framework
-}
-
 class EntryPoint {
-	container Framework framework opposite entryPoints
 	String name
 }

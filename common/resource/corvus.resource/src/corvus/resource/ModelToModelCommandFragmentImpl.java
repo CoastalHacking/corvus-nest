@@ -5,11 +5,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.transaction.ResourceSetChangeEvent;
-import org.eclipse.emf.transaction.TransactionalEditingDomain;
 
 /**
  * 
@@ -20,15 +15,12 @@ import org.eclipse.emf.transaction.TransactionalEditingDomain;
 public abstract class ModelToModelCommandFragmentImpl implements ModelToModelCommandFragment {
 
 	protected Map<?, ?> options;
-	protected URI uri;
 
-	public ModelToModelCommandFragmentImpl(URI uri) {
-		this.uri = uri;
+	public ModelToModelCommandFragmentImpl() {
 		this.options = Collections.EMPTY_MAP;
 	}
 	
-	public ModelToModelCommandFragmentImpl(URI uri, Map<?, ?> options) {
-		this.uri = uri;
+	public ModelToModelCommandFragmentImpl(Map<?, ?> options) {
 		this.options = options;
 	}
 
@@ -37,8 +29,24 @@ public abstract class ModelToModelCommandFragmentImpl implements ModelToModelCom
 	 */
 	@Override
 	public void doExecute(List<Notification> notifications) {
-		// TODO Auto-generated method stub
+		for (Notification notification: notifications) {
+			switch (notification.getEventType()) {
+			case Notification.ADD:
+				added(notification);
+				break;
+			default:
+				break;
+			}
+		}
 		
+	}
+
+	/**
+	 * Called when an ADD notification is sent
+	 * 
+	 * @param notification A notification
+	 */
+	protected void added(Notification notification) {
 	}
 
 	/* (non-Javadoc)
@@ -48,22 +56,5 @@ public abstract class ModelToModelCommandFragmentImpl implements ModelToModelCom
 	public Map<?, ?> getOptions() {
 		return options;
 	}
-
-	/**
-	 * Helper method to obtain a resource given an event
-	 * 
-	 * @param event Non-nullable resource set change event
-	 * @return a previously demand-loaded resource or null
-	 */
-	protected Resource getResource(ResourceSetChangeEvent event) {
-		Resource result = null;
-		TransactionalEditingDomain ted = event.getEditingDomain();
-		ResourceSet rset = ted.getResourceSet();
-		if (rset != null) {
-			result = rset.getResource(uri, false);
-		}
-		return result;
-	}
-
 
 }

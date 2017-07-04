@@ -68,10 +68,6 @@ public class EntrypointAdapterFactory extends AdapterFactoryImpl {
 	protected EntrypointSwitch<Adapter> modelSwitch =
 		new EntrypointSwitch<Adapter>() {
 			@Override
-			public Adapter caseFramework(Framework object) {
-				return createFrameworkAdapter();
-			}
-			@Override
 			public Adapter caseEntryPoint(EntryPoint object) {
 				return createEntryPointAdapter();
 			}
@@ -94,20 +90,6 @@ public class EntrypointAdapterFactory extends AdapterFactoryImpl {
 		return modelSwitch.doSwitch((EObject)target);
 	}
 
-
-	/**
-	 * Creates a new adapter for an object of class '{@link corvus.model.entrypoint.Framework <em>Framework</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see corvus.model.entrypoint.Framework
-	 * @generated
-	 */
-	public Adapter createFrameworkAdapter() {
-		return null;
-	}
 
 	/**
 	 * Creates a new adapter for an object of class '{@link corvus.model.entrypoint.EntryPoint <em>Entry Point</em>}'.
