@@ -1,4 +1,16 @@
+import corvus.resource.NotificationsConsumer
+import org.eclipse.emf.transaction.NotificationFilter
+
 /* corvus.domain.e4.workspace.m2v.entrypoint EMF Parsley Dsl Module file */
 module corvus.domain.e4.workspace.m2v.entrypoint extends corvus.model.entrypoint.EntrypointEmfParsleyGuiceModule {
+
+	bindings {
+
+		// Override default ANY with something more specific
+		provide NotificationFilter -> EntryPointM2VNotificationFilterProvider
+
+		// Override with consumer that does something
+		type NotificationsConsumer -> EntryPointM2VNotificationsConsumer
+	}
 
 }
