@@ -1,17 +1,34 @@
 import corvus.transactional.GlobalTransactionalEditingDomainProvider
 import corvus.transactional.TransactionalEmfParsleyGuiceModule
 import org.eclipse.emf.ecore.resource.Resource
+import org.eclipse.emf.transaction.NotificationFilter
+import org.eclipse.emf.transaction.ResourceSetListener
 import org.eclipse.emf.transaction.TransactionalEditingDomain
 
 /* corvus.resource EMF Parsley Dsl Module file */
 module corvus.resource extends TransactionalEmfParsleyGuiceModule {
 	
 	bindings {
-		
+
 		// Use a global transactional editing domain
 		provide TransactionalEditingDomain -> GlobalTransactionalEditingDomainProvider
-		
+
 		// Inject a resource provider
 		provide Resource -> ResourceProvider
+
+		// Use a default notification filter of ANY. Override for specialization
+		provide NotificationFilter -> DefaultNotificationFilterProvider
+
+		// Perform read/write transactions via Eclipse Jobs
+		provide ReadWriteTransaction -> ReadWriteTransactionProvider
+
+		// The resource set listener for this project
+		type ResourceSetListener -> InjectableResourceSetListener
+
+		// Default to an empty list of options
+		type TransactionOptions -> TransactionOptions
+
+		// Default to a no-op consumer
+		type NotificationsConsumer -> NotificationsConsumer
 	}
 }

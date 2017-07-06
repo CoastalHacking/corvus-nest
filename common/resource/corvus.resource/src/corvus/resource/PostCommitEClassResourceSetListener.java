@@ -4,6 +4,7 @@ import org.eclipse.emf.transaction.NotificationFilter;
 import org.eclipse.emf.transaction.ResourceSetChangeEvent;
 import org.eclipse.emf.transaction.ResourceSetListenerImpl;
 
+@Deprecated
 public abstract class PostCommitEClassResourceSetListener extends ResourceSetListenerImpl {
 
 	public PostCommitEClassResourceSetListener() {
