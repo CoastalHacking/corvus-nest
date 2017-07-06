@@ -3,7 +3,8 @@
 package corvus.model.entrypoint.provider;
 
 
-import corvus.model.entrypoint.EntryPoint;
+import corvus.model.entrypoint.EntryPointFramework;
+import corvus.model.entrypoint.EntrypointFactory;
 import corvus.model.entrypoint.EntrypointPackage;
 
 import java.util.Collection;
@@ -14,24 +15,24 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link corvus.model.entrypoint.EntryPoint} object.
+ * This is the item provider adapter for a {@link corvus.model.entrypoint.EntryPointFramework} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class EntryPointItemProvider 
+public class EntryPointFrameworkItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -45,7 +46,7 @@ public class EntryPointItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EntryPointItemProvider(AdapterFactory adapterFactory) {
+	public EntryPointFrameworkItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -60,65 +61,49 @@ public class EntryPointItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addFrameworkPropertyDescriptor(object);
-			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Framework feature.
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addFrameworkPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_EntryPoint_framework_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EntryPoint_framework_feature", "_UI_EntryPoint_type"),
-				 EntrypointPackage.Literals.ENTRY_POINT__FRAMEWORK,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(EntrypointPackage.Literals.ENTRY_POINT_FRAMEWORK__ENTRY_POINTS);
+		}
+		return childrenFeatures;
 	}
 
 	/**
-	 * This adds a property descriptor for the Name feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_EntryPoint_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EntryPoint_name_feature", "_UI_EntryPoint_type"),
-				 EntrypointPackage.Literals.ENTRY_POINT__NAME,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
 	}
 
 	/**
-	 * This returns EntryPoint.gif.
+	 * This returns EntryPointFramework.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/EntryPoint"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/EntryPointFramework"));
 	}
 
 	/**
@@ -129,10 +114,7 @@ public class EntryPointItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((EntryPoint)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_EntryPoint_type") :
-			getString("_UI_EntryPoint_type") + " " + label;
+		return getString("_UI_EntryPointFramework_type");
 	}
 	
 
@@ -147,9 +129,9 @@ public class EntryPointItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(EntryPoint.class)) {
-			case EntrypointPackage.ENTRY_POINT__NAME:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+		switch (notification.getFeatureID(EntryPointFramework.class)) {
+			case EntrypointPackage.ENTRY_POINT_FRAMEWORK__ENTRY_POINTS:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
 		super.notifyChanged(notification);
@@ -165,6 +147,11 @@ public class EntryPointItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EntrypointPackage.Literals.ENTRY_POINT_FRAMEWORK__ENTRY_POINTS,
+				 EntrypointFactory.eINSTANCE.createEntryPoint()));
 	}
 
 	/**

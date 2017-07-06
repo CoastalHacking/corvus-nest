@@ -3,12 +3,14 @@
 package corvus.model.entrypoint.impl;
 
 import corvus.model.entrypoint.EntryPoint;
+import corvus.model.entrypoint.EntryPointFramework;
 import corvus.model.entrypoint.EntrypointFactory;
 import corvus.model.entrypoint.EntrypointPackage;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EcorePackage;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
@@ -20,6 +22,13 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
  * @generated
  */
 public class EntrypointPackageImpl extends EPackageImpl implements EntrypointPackage {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass entryPointFrameworkEClass = null;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -96,6 +105,24 @@ public class EntrypointPackageImpl extends EPackageImpl implements EntrypointPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getEntryPointFramework() {
+		return entryPointFrameworkEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEntryPointFramework_EntryPoints() {
+		return (EReference)entryPointFrameworkEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getEntryPoint() {
 		return entryPointEClass;
 	}
@@ -105,8 +132,17 @@ public class EntrypointPackageImpl extends EPackageImpl implements EntrypointPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getEntryPoint_Framework() {
+		return (EReference)entryPointEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EAttribute getEntryPoint_Name() {
-		return (EAttribute)entryPointEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)entryPointEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -137,7 +173,11 @@ public class EntrypointPackageImpl extends EPackageImpl implements EntrypointPac
 		isCreated = true;
 
 		// Create classes and their features
+		entryPointFrameworkEClass = createEClass(ENTRY_POINT_FRAMEWORK);
+		createEReference(entryPointFrameworkEClass, ENTRY_POINT_FRAMEWORK__ENTRY_POINTS);
+
 		entryPointEClass = createEClass(ENTRY_POINT);
+		createEReference(entryPointEClass, ENTRY_POINT__FRAMEWORK);
 		createEAttribute(entryPointEClass, ENTRY_POINT__NAME);
 	}
 
@@ -174,7 +214,11 @@ public class EntrypointPackageImpl extends EPackageImpl implements EntrypointPac
 		// Add supertypes to classes
 
 		// Initialize classes, features, and operations; add parameters
+		initEClass(entryPointFrameworkEClass, EntryPointFramework.class, "EntryPointFramework", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getEntryPointFramework_EntryPoints(), this.getEntryPoint(), this.getEntryPoint_Framework(), "entryPoints", null, 0, -1, EntryPointFramework.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(entryPointEClass, EntryPoint.class, "EntryPoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getEntryPoint_Framework(), this.getEntryPointFramework(), this.getEntryPointFramework_EntryPoints(), "framework", null, 0, 1, EntryPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEntryPoint_Name(), theEcorePackage.getEString(), "name", null, 0, 1, EntryPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource

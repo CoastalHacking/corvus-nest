@@ -72,6 +72,29 @@ public class EntrypointItemProviderAdapterFactory extends EntrypointAdapterFacto
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link corvus.model.entrypoint.EntryPointFramework} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EntryPointFrameworkItemProvider entryPointFrameworkItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link corvus.model.entrypoint.EntryPointFramework}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEntryPointFrameworkAdapter() {
+		if (entryPointFrameworkItemProvider == null) {
+			entryPointFrameworkItemProvider = new EntryPointFrameworkItemProvider(this);
+		}
+
+		return entryPointFrameworkItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link corvus.model.entrypoint.EntryPoint} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -193,6 +216,7 @@ public class EntrypointItemProviderAdapterFactory extends EntrypointAdapterFacto
 	 * @generated
 	 */
 	public void dispose() {
+		if (entryPointFrameworkItemProvider != null) entryPointFrameworkItemProvider.dispose();
 		if (entryPointItemProvider != null) entryPointItemProvider.dispose();
 	}
 

@@ -22,6 +22,15 @@ public interface EntrypointFactory extends EFactory {
 	EntrypointFactory eINSTANCE = corvus.model.entrypoint.impl.EntrypointFactoryImpl.init();
 
 	/**
+	 * Returns a new object of class '<em>Entry Point Framework</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Entry Point Framework</em>'.
+	 * @generated
+	 */
+	EntryPointFramework createEntryPointFramework();
+
+	/**
 	 * Returns a new object of class '<em>Entry Point</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

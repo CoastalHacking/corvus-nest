@@ -66,6 +66,12 @@ public class EntrypointSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
+			case EntrypointPackage.ENTRY_POINT_FRAMEWORK: {
+				EntryPointFramework entryPointFramework = (EntryPointFramework)theEObject;
+				T result = caseEntryPointFramework(entryPointFramework);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case EntrypointPackage.ENTRY_POINT: {
 				EntryPoint entryPoint = (EntryPoint)theEObject;
 				T result = caseEntryPoint(entryPoint);
@@ -74,6 +80,21 @@ public class EntrypointSwitch<T> extends Switch<T> {
 			}
 			default: return defaultCase(theEObject);
 		}
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Entry Point Framework</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Entry Point Framework</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEntryPointFramework(EntryPointFramework object) {
+		return null;
 	}
 
 	/**

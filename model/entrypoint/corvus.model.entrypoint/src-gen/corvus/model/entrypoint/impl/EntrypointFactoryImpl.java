@@ -56,10 +56,21 @@ public class EntrypointFactoryImpl extends EFactoryImpl implements EntrypointFac
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
+			case EntrypointPackage.ENTRY_POINT_FRAMEWORK: return createEntryPointFramework();
 			case EntrypointPackage.ENTRY_POINT: return createEntryPoint();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EntryPointFramework createEntryPointFramework() {
+		EntryPointFrameworkImpl entryPointFramework = new EntryPointFrameworkImpl();
+		return entryPointFramework;
 	}
 
 	/**
