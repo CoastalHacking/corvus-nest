@@ -5,6 +5,6 @@ Bundle-SymbolicName: corvus.domain.e4.workspace.d2m.tests
 Bundle-Version: 1.0.0.qualifier
 Fragment-Host: corvus.domain.e4.workspace.d2m
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Require-Bundle: corvus.dependencies.test;bundle-version="1.0.0",
- org.eclipse.emf.ecore.xmi,
- org.eclipse.core.expressions
+Require-Bundle: org.eclipse.emf.ecore.xmi,
+ org.eclipse.core.expressions,
+ corvus.common.test;bundle-version="1.0.0"

@@ -5,27 +5,21 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
-import java.io.IOException;
-import java.util.UUID;
-
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.common.util.TreeIterator;
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.emf.parsley.config.Configurator;
-import org.eclipse.emf.parsley.junit4.AbstractEmfParsleyTest;
-import org.eclipse.emf.parsley.runtime.ui.PluginUtil;
 import org.eclipse.emf.transaction.RunnableWithResult;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.TemporaryFolder;
 
 import com.google.inject.Injector;
 
+import corvus.common.test.CorvusAbstractEmfParsleyTest;
+import corvus.common.test.TestConfigurator;
 import corvus.domain.e4.workspace.MarkerController;
 import corvus.domain.org.eclipse.core.resources.IContainer;
 import corvus.domain.org.eclipse.core.resources.IMarker;
@@ -33,9 +27,9 @@ import corvus.domain.org.eclipse.core.resources.IResource;
 import corvus.domain.org.eclipse.core.resources.IWorkspaceRoot;
 import corvus.domain.org.eclipse.core.resources.TextMarker;
 import corvus.domain.org.eclipse.core.resources.util.ResourcesSwitch;
+import corvus.transactional.TransactionalEmfParsleyGuiceModule;
 
-public class MarkerControllerImplTest  extends AbstractEmfParsleyTest {
-
+public class MarkerControllerImplTest extends CorvusAbstractEmfParsleyTest {
 
 	@Test
 	public void shouldAddMarker() throws CoreException, InterruptedException {
@@ -121,58 +115,29 @@ public class MarkerControllerImplTest  extends AbstractEmfParsleyTest {
 	
 	}
 
-	// Method and two classes below copied from ResourceProviderTest
-
-	/* (non-Javadoc)
-	 * @see org.eclipse.emf.parsley.junit4.AbstractEmfParsleyTest#createInjector()
-	 */
-	@Override
-	protected Injector createInjector() {
-		String id = UUID.randomUUID().toString();
-		return createInjector(new TestModule(
-				PluginUtil.getPlugin(
-						PluginUtil.getBundle(D2mActivator.class)),
-				id));
-	}
-
-	public static class TestConfigurator extends Configurator {
-
-		private URI result;
-
-		@Rule
-		public TemporaryFolder tempFolder = new TemporaryFolder();
-
-		public URI resourceURI(Object object) {
-			if (result == null) {
-				try {
-					tempFolder.create();
-					result = URI.createFileURI(tempFolder.newFile().getAbsolutePath());
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
-			return result;
-		}
-	}
-
-	public static class TestModule extends D2mEmfParsleyGuiceModule {
+	// Hack: below copied from ResourceProviderTest
+	// just changed the super to D2mEmfParsleyGuiceModule
+	public static class TestCaseModule extends D2mEmfParsleyGuiceModule {
 
 		private String id;
 
-		public TestModule(AbstractUIPlugin plugin, String id) {
+		public TestCaseModule(AbstractUIPlugin plugin, String id) {
 			super(plugin);
 			this.id = id;
 		}
-
-		@Override
+		
 		public Class<? extends Configurator> bindConfigurator() {
 			return TestConfigurator.class;
 		}
-		
-		@Override
+
 		public String valueTransactionalEditingDomainId() {
 			return id;
 		}
-		
 	}
+
+	@Override
+	protected TransactionalEmfParsleyGuiceModule getTestModule(AbstractUIPlugin plugin, String id) {
+		return new TestCaseModule(plugin, id);
+	}
+
 }
