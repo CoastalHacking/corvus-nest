@@ -14,6 +14,7 @@ import com.google.inject.Inject;
 import corvus.domain.org.eclipse.core.resources.ResourcesPackage;
 import corvus.domain.org.eclipse.core.resources.TextMarker;
 import corvus.model.entrypoint.EntryPoint;
+import corvus.model.entrypoint.EntryPointFramework;
 import corvus.model.entrypoint.EntrypointFactory;
 import corvus.resource.ModelToModelCommandFragment;
 import corvus.resource.ModelToModelCommandFragmentImpl;
@@ -78,8 +79,11 @@ public class EntryPointModelToModelListener extends ModelToModelListener {
 				EntryPoint entryPoint = EntrypointFactory.eINSTANCE.createEntryPoint();
 				entryPoint.setName("EntryPoint: " + UUID.randomUUID().toString());
 
-				// Add entry point to resource first
-				resource.getContents().add(entryPoint);
+				// Hack: the below obtains the root framework at index 0
+				// Chaos occurs if the framework list is re-ordered
+				// TODO: re-factor post named URI fragments
+				EntryPointFramework genericFramework = (EntryPointFramework)resource.getContents().get(0);
+				genericFramework.getEntryPoints().add(entryPoint);
 
 				// Then connect to marker
 				addedMarker.setDomain(entryPoint);

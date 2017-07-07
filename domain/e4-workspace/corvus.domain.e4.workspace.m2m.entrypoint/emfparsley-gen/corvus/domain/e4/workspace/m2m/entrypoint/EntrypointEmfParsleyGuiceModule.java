@@ -13,6 +13,7 @@ public class EntrypointEmfParsleyGuiceModule extends corvus.model.entrypoint.Ent
     super(plugin);
   }
   
+  @Override
   public Class<? extends ResourceSetListener> bindResourceSetListener() {
     return EntryPointModelToModelListener.class;
   }
