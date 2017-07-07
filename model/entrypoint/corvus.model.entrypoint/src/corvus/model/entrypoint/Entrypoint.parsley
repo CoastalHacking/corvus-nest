@@ -15,5 +15,19 @@ module corvus.model.entrypoint extends ResourceEmfParsleyGuiceModule {
 			}
 		}
 	}
+	
+	resourceManager {
+		
+		// Load the package into the global package registry
+		// TODO: consider injecting?
+		var EntrypointPackage package = EntrypointPackage.eINSTANCE
+
+		var EntrypointFactory factory = EntrypointFactory.eINSTANCE
+
+		initializeResource {
+			var EntryPointFramework framework = factory.createEntryPointFramework
+			it.contents += framework
+		}
+	}
 
 }

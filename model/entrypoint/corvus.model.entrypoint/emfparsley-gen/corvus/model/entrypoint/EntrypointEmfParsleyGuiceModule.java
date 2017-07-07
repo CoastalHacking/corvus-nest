@@ -1,8 +1,10 @@
 package corvus.model.entrypoint;
 
 import corvus.model.entrypoint.config.EntrypointConfigurator;
+import corvus.model.entrypoint.resource.EntrypointResourceManager;
 import corvus.resource.ResourceEmfParsleyGuiceModule;
 import org.eclipse.emf.parsley.config.Configurator;
+import org.eclipse.emf.parsley.resource.ResourceManager;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 
 /**
@@ -17,5 +19,10 @@ public class EntrypointEmfParsleyGuiceModule extends ResourceEmfParsleyGuiceModu
   @Override
   public Class<? extends Configurator> bindConfigurator() {
     return EntrypointConfigurator.class;
+  }
+  
+  @Override
+  public Class<? extends ResourceManager> bindResourceManager() {
+    return EntrypointResourceManager.class;
   }
 }
