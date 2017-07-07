@@ -3,7 +3,6 @@ package corvus.resource;
 import static org.junit.Assert.assertNotNull;
 
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.emf.parsley.config.Configurator;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.junit.Test;
@@ -18,10 +17,6 @@ public class ResourceProviderTest extends CorvusAbstractEmfParsleyTest {
 
 	@Test
 	public void shouldInjectResource() {
-
-		// TODO: make injectable?
-		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put(
-				Resource.Factory.Registry.DEFAULT_EXTENSION, new XMIResourceFactoryImpl());
 
 		Injector injector = getOrCreateInjector();
 		Resource resource = injector.getInstance(Resource.class);
