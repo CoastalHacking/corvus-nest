@@ -52,6 +52,7 @@ public interface EntryPoint extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * The default value is <code>"Generic Entry Point"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
@@ -61,7 +62,7 @@ public interface EntryPoint extends EObject {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see corvus.model.entrypoint.EntrypointPackage#getEntryPoint_Name()
-	 * @model unique="false"
+	 * @model default="Generic Entry Point" unique="false"
 	 * @generated
 	 */
 	String getName();

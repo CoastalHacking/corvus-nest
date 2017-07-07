@@ -8,6 +8,7 @@ import corvus.model.entrypoint.EntrypointPackage;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -15,6 +16,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
@@ -29,6 +31,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link corvus.model.entrypoint.impl.EntryPointFrameworkImpl#getEntryPoints <em>Entry Points</em>}</li>
+ *   <li>{@link corvus.model.entrypoint.impl.EntryPointFrameworkImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
@@ -43,6 +46,26 @@ public class EntryPointFrameworkImpl extends MinimalEObjectImpl.Container implem
 	 * @ordered
 	 */
 	protected EList<EntryPoint> entryPoints;
+
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = "Generic Entry Point Framework";
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -73,6 +96,27 @@ public class EntryPointFrameworkImpl extends MinimalEObjectImpl.Container implem
 			entryPoints = new EObjectContainmentWithInverseEList<EntryPoint>(EntryPoint.class, this, EntrypointPackage.ENTRY_POINT_FRAMEWORK__ENTRY_POINTS, EntrypointPackage.ENTRY_POINT__FRAMEWORK);
 		}
 		return entryPoints;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EntrypointPackage.ENTRY_POINT_FRAMEWORK__NAME, oldName, name));
 	}
 
 	/**
@@ -114,6 +158,8 @@ public class EntryPointFrameworkImpl extends MinimalEObjectImpl.Container implem
 		switch (featureID) {
 			case EntrypointPackage.ENTRY_POINT_FRAMEWORK__ENTRY_POINTS:
 				return getEntryPoints();
+			case EntrypointPackage.ENTRY_POINT_FRAMEWORK__NAME:
+				return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -131,6 +177,9 @@ public class EntryPointFrameworkImpl extends MinimalEObjectImpl.Container implem
 				getEntryPoints().clear();
 				getEntryPoints().addAll((Collection<? extends EntryPoint>)newValue);
 				return;
+			case EntrypointPackage.ENTRY_POINT_FRAMEWORK__NAME:
+				setName((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -146,6 +195,9 @@ public class EntryPointFrameworkImpl extends MinimalEObjectImpl.Container implem
 			case EntrypointPackage.ENTRY_POINT_FRAMEWORK__ENTRY_POINTS:
 				getEntryPoints().clear();
 				return;
+			case EntrypointPackage.ENTRY_POINT_FRAMEWORK__NAME:
+				setName(NAME_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -160,8 +212,26 @@ public class EntryPointFrameworkImpl extends MinimalEObjectImpl.Container implem
 		switch (featureID) {
 			case EntrypointPackage.ENTRY_POINT_FRAMEWORK__ENTRY_POINTS:
 				return entryPoints != null && !entryPoints.isEmpty();
+			case EntrypointPackage.ENTRY_POINT_FRAMEWORK__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (name: ");
+		result.append(name);
+		result.append(')');
+		return result.toString();
 	}
 
 } //EntryPointFrameworkImpl

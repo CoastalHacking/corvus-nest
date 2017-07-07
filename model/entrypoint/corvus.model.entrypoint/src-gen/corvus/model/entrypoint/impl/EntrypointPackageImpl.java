@@ -123,6 +123,15 @@ public class EntrypointPackageImpl extends EPackageImpl implements EntrypointPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getEntryPointFramework_Name() {
+		return (EAttribute)entryPointFrameworkEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getEntryPoint() {
 		return entryPointEClass;
 	}
@@ -175,6 +184,7 @@ public class EntrypointPackageImpl extends EPackageImpl implements EntrypointPac
 		// Create classes and their features
 		entryPointFrameworkEClass = createEClass(ENTRY_POINT_FRAMEWORK);
 		createEReference(entryPointFrameworkEClass, ENTRY_POINT_FRAMEWORK__ENTRY_POINTS);
+		createEAttribute(entryPointFrameworkEClass, ENTRY_POINT_FRAMEWORK__NAME);
 
 		entryPointEClass = createEClass(ENTRY_POINT);
 		createEReference(entryPointEClass, ENTRY_POINT__FRAMEWORK);
@@ -216,10 +226,11 @@ public class EntrypointPackageImpl extends EPackageImpl implements EntrypointPac
 		// Initialize classes, features, and operations; add parameters
 		initEClass(entryPointFrameworkEClass, EntryPointFramework.class, "EntryPointFramework", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getEntryPointFramework_EntryPoints(), this.getEntryPoint(), this.getEntryPoint_Framework(), "entryPoints", null, 0, -1, EntryPointFramework.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEntryPointFramework_Name(), theEcorePackage.getEString(), "name", "Generic Entry Point Framework", 0, 1, EntryPointFramework.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(entryPointEClass, EntryPoint.class, "EntryPoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getEntryPoint_Framework(), this.getEntryPointFramework(), this.getEntryPointFramework_EntryPoints(), "framework", null, 0, 1, EntryPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getEntryPoint_Name(), theEcorePackage.getEString(), "name", null, 0, 1, EntryPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEntryPoint_Name(), theEcorePackage.getEString(), "name", "Generic Entry Point", 0, 1, EntryPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

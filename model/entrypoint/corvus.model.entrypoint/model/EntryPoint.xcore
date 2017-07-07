@@ -3,9 +3,10 @@ package corvus.model.entrypoint
 
 class EntryPointFramework {
 	contains EntryPoint[] entryPoints opposite framework
+	String name = "Generic Entry Point Framework"
 }
 
 class EntryPoint {
 	container EntryPointFramework framework opposite entryPoints
-	String name
+	String name = "Generic Entry Point"
 }

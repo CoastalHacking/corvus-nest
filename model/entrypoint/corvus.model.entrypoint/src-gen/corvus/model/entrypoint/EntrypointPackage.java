@@ -77,13 +77,22 @@ public interface EntrypointPackage extends EPackage {
 	int ENTRY_POINT_FRAMEWORK__ENTRY_POINTS = 0;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTRY_POINT_FRAMEWORK__NAME = 1;
+
+	/**
 	 * The number of structural features of the '<em>Entry Point Framework</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENTRY_POINT_FRAMEWORK_FEATURE_COUNT = 1;
+	int ENTRY_POINT_FRAMEWORK_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Entry Point Framework</em>' class.
@@ -163,6 +172,17 @@ public interface EntrypointPackage extends EPackage {
 	EReference getEntryPointFramework_EntryPoints();
 
 	/**
+	 * Returns the meta object for the attribute '{@link corvus.model.entrypoint.EntryPointFramework#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see corvus.model.entrypoint.EntryPointFramework#getName()
+	 * @see #getEntryPointFramework()
+	 * @generated
+	 */
+	EAttribute getEntryPointFramework_Name();
+
+	/**
 	 * Returns the meta object for class '{@link corvus.model.entrypoint.EntryPoint <em>Entry Point</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -234,6 +254,14 @@ public interface EntrypointPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ENTRY_POINT_FRAMEWORK__ENTRY_POINTS = eINSTANCE.getEntryPointFramework_EntryPoints();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ENTRY_POINT_FRAMEWORK__NAME = eINSTANCE.getEntryPointFramework_Name();
 
 		/**
 		 * The meta object literal for the '{@link corvus.model.entrypoint.impl.EntryPointImpl <em>Entry Point</em>}' class.
