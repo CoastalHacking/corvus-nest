@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Corvus e4 Workspace OSGi DS
+Bundle-SymbolicName: corvus.domain.e4.workspace.osgi
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Service-Component: OSGI-INF/corvus.domain.e4.workspace.osgi.m2v.entrypoint.OsgiEntryPointM2VListener.xml,
+ OSGI-INF/corvus.domain.e4.workspace.osgi.m2m.entrypoint.OsgiEntryPointM2MListener.xml,
+ OSGI-INF/corvus.domain.e4.workspace.osgi.d2m.OsgiMarkerUtilImpl.xml
+Bundle-ActivationPolicy: lazy
+Export-Package: corvus.domain.e4.workspace.osgi,
+ corvus.domain.e4.workspace.osgi.m2v.entrypoint
+Require-Bundle: corvus.resource,
+ corvus.domain.e4.workspace,
+ corvus.domain.e4.workspace.d2m,
+ corvus.domain.e4.workspace.m2m.entrypoint,
+ corvus.domain.e4.workspace.m2v.entrypoint,
+ corvus.domain.org.eclipse.core.resources

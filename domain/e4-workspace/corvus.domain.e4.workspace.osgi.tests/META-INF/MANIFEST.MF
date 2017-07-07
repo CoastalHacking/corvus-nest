@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Corvus e4 Workspace OSGI DS Tests
+Bundle-SymbolicName: corvus.domain.e4.workspace.osgi.tests
+Bundle-Version: 1.0.0.qualifier
+Fragment-Host: corvus.domain.e4.workspace.osgi
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: corvus.common.test

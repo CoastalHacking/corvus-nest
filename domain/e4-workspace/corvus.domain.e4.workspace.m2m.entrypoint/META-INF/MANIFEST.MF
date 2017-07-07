@@ -16,4 +16,4 @@ Require-Bundle: org.eclipse.core.runtime,
 Import-Package: org.apache.log4j,
  org.apache.commons.logging
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Service-Component: OSGI-INF/corvus.domain.e4.workspace.m2m.entrypoint.OsgiEntryPointM2MListener.xml
+Export-Package: corvus.domain.e4.workspace.m2m.entrypoint

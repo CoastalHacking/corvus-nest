@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="corvus.domain.e4.workspace.d2m.OsgiMarkerUtilImpl">
-   <service>
-      <provide interface="corvus.domain.e4.workspace.MarkerUtil"/>
-   </service>
-   <implementation class="corvus.domain.e4.workspace.d2m.OsgiMarkerUtilImpl"/>
-</scr:component>

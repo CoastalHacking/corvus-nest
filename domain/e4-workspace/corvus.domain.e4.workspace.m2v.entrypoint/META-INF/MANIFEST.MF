@@ -18,4 +18,4 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: org.apache.commons.logging,
   org.apache.log4j
 Bundle-ActivationPolicy: lazy
-Service-Component: OSGI-INF/corvus.domain.e4.workspace.m2v.entrypoint.OsgiEntryPointM2VListener.xml
+Export-Package: corvus.domain.e4.workspace.m2v.entrypoint

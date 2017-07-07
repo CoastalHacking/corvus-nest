@@ -1,4 +1,4 @@
-package corvus.domain.e4.workspace;
+package corvus.domain.e4.workspace.osgi;
 
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.transaction.NotificationFilter;
