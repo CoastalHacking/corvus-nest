@@ -17,3 +17,4 @@ Require-Bundle: corvus.resource,
  corvus.domain.e4.workspace.m2m.entrypoint,
  corvus.domain.e4.workspace.m2v.entrypoint,
  corvus.domain.org.eclipse.core.resources
+Import-Package: org.osgi.service.component.annotations;version="1.3.0"

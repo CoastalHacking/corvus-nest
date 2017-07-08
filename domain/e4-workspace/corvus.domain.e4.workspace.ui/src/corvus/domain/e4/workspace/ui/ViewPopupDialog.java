@@ -31,7 +31,7 @@ public class ViewPopupDialog extends PopupDialog {
 	protected Control createDialogArea(Composite parent) {
 		// TODO Auto-generated method stub
 		Composite result = (Composite) super.createDialogArea(parent);
-		Composite composite = compositeProvider.getFormComposite(result);
+		compositeProvider.getFormComposite(result);
 		return result;
 	}
 
