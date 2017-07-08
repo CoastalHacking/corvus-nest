@@ -1,13 +1,12 @@
 package corvus.domain.e4.workspace.osgi;
 
 import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.transaction.NotificationFilter;
 import org.eclipse.emf.transaction.ResourceSetChangeEvent;
 import org.eclipse.emf.transaction.ResourceSetListener;
 import org.eclipse.emf.transaction.RollbackException;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
-import org.osgi.service.component.annotations.Activate;
-import org.osgi.service.component.annotations.Deactivate;
 
 import com.google.inject.Injector;
 
@@ -20,15 +19,19 @@ public abstract class AbstractOsgiDelegatedResourceSetListener
 	@Override
 	protected abstract Injector getInjector();
 
-	@Activate
-	void activate() {
+	protected void activate() {
 		delegate = getDelegate(ResourceSetListener.class);
 		ted = injector.getInstance(TransactionalEditingDomain.class);
+		// Hack: demand load the resource and initialize it, which avoids initializing it
+		// potentially w/ a read-write transaction during a read-only transaction
+		// TODO: move this code to the activators?
+		@SuppressWarnings("unused")
+		final Resource resource = injector.getInstance(Resource.class);
+		// Then add listeners
 		ted.addResourceSetListener(delegate);
 	}
 
-	@Deactivate
-	void deactivate() {
+	protected void deactivate() {
 		ted.removeResourceSetListener(delegate);
 		delegate = null;
 	}

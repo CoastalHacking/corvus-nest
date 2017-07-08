@@ -1,7 +1,10 @@
 package corvus.domain.e4.workspace.m2m.entrypoint;
 
-import corvus.domain.e4.workspace.m2m.entrypoint.EntryPointModelToModelListener;
-import org.eclipse.emf.transaction.ResourceSetListener;
+import com.google.inject.Provider;
+import corvus.domain.e4.workspace.m2m.entrypoint.EntryPointM2MNotificationFilterProvider;
+import corvus.domain.e4.workspace.m2m.entrypoint.EntryPointM2MNotificationsConsumer;
+import corvus.resource.NotificationsConsumer;
+import org.eclipse.emf.transaction.NotificationFilter;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 
 /**
@@ -14,7 +17,12 @@ public class EntrypointEmfParsleyGuiceModule extends corvus.model.entrypoint.Ent
   }
   
   @Override
-  public Class<? extends ResourceSetListener> bindResourceSetListener() {
-    return EntryPointModelToModelListener.class;
+  public Class<? extends Provider<NotificationFilter>> provideNotificationFilter() {
+    return EntryPointM2MNotificationFilterProvider.class;
+  }
+  
+  @Override
+  public Class<? extends NotificationsConsumer> bindNotificationsConsumer() {
+    return EntryPointM2MNotificationsConsumer.class;
   }
 }

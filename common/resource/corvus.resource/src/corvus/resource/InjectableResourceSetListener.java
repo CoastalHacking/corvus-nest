@@ -1,11 +1,16 @@
 package corvus.resource;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.transaction.NotificationFilter;
 import org.eclipse.emf.transaction.ResourceSetChangeEvent;
 import org.eclipse.emf.transaction.ResourceSetListenerImpl;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 
 import com.google.inject.Inject;
+import com.google.inject.Provider;
 
 public class InjectableResourceSetListener extends ResourceSetListenerImpl {
 
@@ -13,7 +18,7 @@ public class InjectableResourceSetListener extends ResourceSetListenerImpl {
 	protected NotificationFilter filter;
 
 	@Inject
-	protected ReadWriteTransaction transaction;
+	protected Provider<ReadWriteTransaction> transactionProvider;
 
 	public InjectableResourceSetListener() {
 		super();
@@ -51,7 +56,12 @@ public class InjectableResourceSetListener extends ResourceSetListenerImpl {
 				ted != null &&
 				event.getEditingDomain().equals(ted)) {
 
-			transaction.setNotifications(event.getNotifications()); // need to be copied
+			// Create a new transaction for each call
+			final ReadWriteTransaction transaction = transactionProvider.get();
+
+			// Per ResourceSetChangeEvent Javadoc, need to copy the notifiers
+			final List<Notification> notifications = new ArrayList<>(event.getNotifications());
+			transaction.setNotifications(notifications);
 			transaction.commit();
 		}
 		return;

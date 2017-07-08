@@ -1,9 +1,15 @@
-import org.eclipse.emf.transaction.ResourceSetListener
+import corvus.resource.NotificationsConsumer
+import org.eclipse.emf.transaction.NotificationFilter
 
 /* corvus.domain.e4.workspace.m2m.entrypoint EMF Parsley Dsl Module file */
 module corvus.domain.e4.workspace.m2m.entrypoint extends corvus.model.entrypoint.EntrypointEmfParsleyGuiceModule {
 
 	bindings {
-		type ResourceSetListener -> EntryPointModelToModelListener
+		// Override default ANY with something more specific
+		provide NotificationFilter -> EntryPointM2MNotificationFilterProvider
+
+		// Override consumer
+		type NotificationsConsumer -> EntryPointM2MNotificationsConsumer
+
 	}
 }

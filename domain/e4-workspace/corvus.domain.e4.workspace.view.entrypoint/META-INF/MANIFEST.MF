@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Corvus Entry Point View
+Bundle-SymbolicName: corvus.domain.e4.workspace.view.entrypoint;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Require-Bundle: org.eclipse.e4.ui.model.workbench;bundle-version="2.0.0.v20170228-1842",
+ org.eclipse.core.resources,
+ corvus.domain.e4.workspace.ui
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8

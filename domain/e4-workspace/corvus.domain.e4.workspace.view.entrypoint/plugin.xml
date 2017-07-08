@@ -2,14 +2,14 @@
 <plugin>
 
    <extension
-         id="corvus.domain.e4.workspace.m2v.entrypoint.fragment"
+         id="corvus.domain.e4.workspace.view.entrypoint.fragment"
          point="org.eclipse.e4.workbench.model">
       <fragment
             uri="fragment.e4xmi">
       </fragment>
    </extension>
    <extension
-         id="entryPoint"
+         id="entryPointMarker"
          name="Corvus Entry Point"
          point="org.eclipse.core.resources.markers">
       <super

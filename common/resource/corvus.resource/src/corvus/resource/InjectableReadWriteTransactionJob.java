@@ -27,6 +27,7 @@ public class InjectableReadWriteTransactionJob extends Job implements ReadWriteT
 
 	protected List<Notification> notifications;
 
+	@Inject
 	public InjectableReadWriteTransactionJob(String name) {
 		super(name);
 	}
