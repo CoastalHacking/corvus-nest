@@ -1,4 +1,4 @@
-package corvus.domain.e4.workspace.m2v.entrypoint;
+package corvus.domain.e4.workspace;
 
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.emf.ecore.EObject;
@@ -9,9 +9,9 @@ import org.eclipse.swt.widgets.Composite;
 
 import com.google.inject.Inject;
 
-import corvus.domain.e4.workspace.ICompositeProvider;
-
-public class InjectableCompositeProviderAdapter extends AdapterImpl implements ICompositeProvider {
+public class InjectableCompositeProviderAdapter
+	extends AdapterImpl
+	implements ICompositeProviderAdapter {
 
 	@Inject
 	FormFactory formFactory;

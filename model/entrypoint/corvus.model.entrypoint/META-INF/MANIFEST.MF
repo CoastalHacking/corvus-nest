@@ -21,6 +21,8 @@ Import-Package: org.apache.log4j,
  org.apache.commons.logging
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: corvus.model.entrypoint,
+ corvus.model.entrypoint.config,
  corvus.model.entrypoint.impl,
  corvus.model.entrypoint.provider,
+ corvus.model.entrypoint.resource,
  corvus.model.entrypoint.util
