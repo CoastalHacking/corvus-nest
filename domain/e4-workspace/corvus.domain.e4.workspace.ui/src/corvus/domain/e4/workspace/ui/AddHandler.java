@@ -35,7 +35,7 @@ public class AddHandler {
 		}
 		final int charStart = textSelection.getOffset();
 		final int charEnd = textSelection.getOffset() + textSelection.getLength();
-		IMarker marker = markerUtil.getMarkerAtSelection(resource, charStart, charEnd);
+		IMarker marker = markerUtil.getMarkerAtSelection(resource, markerType, charStart, charEnd);
 
 		if (marker == null) {
 			final int lineNumber = textSelection.getStartLine();

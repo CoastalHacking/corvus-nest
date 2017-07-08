@@ -3,11 +3,16 @@
   <imports xsi:type="menu:Menu" xmi:id="_Xq0iYGM5EeenbtsboHSPbw" elementId="corvus.domain.e4.workspace.ui.menu.corvus"/>
   <imports xsi:type="commands:Command" xmi:id="_bwTKAGM5EeenbtsboHSPbw" elementId="corvus.domain.e4.workspace.ui.command.add"/>
   <imports xsi:type="commands:CommandParameter" xmi:id="_dv5qQGM5EeenbtsboHSPbw" elementId="markerType"/>
+  <imports xsi:type="commands:Command" xmi:id="_Tb0g0GOFEeenbtsboHSPbw" elementId="corvus.domain.e4.workspace.ui.command.view"/>
+  <imports xsi:type="commands:CommandParameter" xmi:id="_WEhBYGOFEeenbtsboHSPbw" elementId="markerType"/>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_jFICgGM5EeenbtsboHSPbw" featurename="menuContributions" parentElementId="xpath:/">
     <elements xsi:type="menu:MenuContribution" xmi:id="_liO-IGM5EeenbtsboHSPbw" elementId="corvus.domain.e4.workspace.view.entrypoint.menucontribution.0" parentId="corvus.domain.e4.workspace.ui.menu.corvus">
       <children xsi:type="menu:Menu" xmi:id="_oR0J0GM5EeenbtsboHSPbw" elementId="corvus.domain.e4.workspace.view.entrypoint.menu" label="Entry Point...">
         <children xsi:type="menu:HandledMenuItem" xmi:id="_r1_bMGM5EeenbtsboHSPbw" elementId="corvus.domain.e4.workspace.view.entrypoint.handledmenuitem.add" label="Add" command="_bwTKAGM5EeenbtsboHSPbw">
           <parameters xmi:id="_u1rfcGM5EeenbtsboHSPbw" elementId="corvus.domain.e4.workspace.view.entrypoint.parameter.0" name="markerType" value="corvus.domain.e4.workspace.view.entrypoint.entryPointMarker"/>
+        </children>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_ZBHVYGOFEeenbtsboHSPbw" elementId="corvus.domain.e4.workspace.view.entrypoint.handledmenuitem.view" label="View" command="_Tb0g0GOFEeenbtsboHSPbw">
+          <parameters xmi:id="_bFWeAGOFEeenbtsboHSPbw" elementId="corvus.domain.e4.workspace.view.entrypoint.parameter.1" name="markerType" value="corvus.domain.e4.workspace.view.entrypoint.entryPointMarker"/>
         </children>
       </children>
     </elements>

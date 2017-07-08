@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Corvus Entry Point M2V Tests
+Bundle-SymbolicName: corvus.domain.e4.workspace.m2v.entrypoint.tests
+Bundle-Version: 1.0.0.qualifier
+Fragment-Host: corvus.domain.e4.workspace.m2v.entrypoint
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8

@@ -21,5 +21,5 @@ public interface MarkerUtil {
 	 * @param charEnd
 	 * @return
 	 */
-	public IMarker getMarkerAtSelection(IResource resource, int charStart, int charEnd);
+	public IMarker getMarkerAtSelection(IResource resource, String markerType, int charStart, int charEnd);
 }

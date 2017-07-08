@@ -11,6 +11,8 @@ module corvus.domain.e4.workspace.m2v.entrypoint extends corvus.model.entrypoint
 
 		// Override with consumer that does something
 		type NotificationsConsumer -> EntryPointM2VNotificationsConsumer
+
+		type InjectableCompositeProviderAdapter -> InjectableCompositeProviderAdapter
 	}
 
 }

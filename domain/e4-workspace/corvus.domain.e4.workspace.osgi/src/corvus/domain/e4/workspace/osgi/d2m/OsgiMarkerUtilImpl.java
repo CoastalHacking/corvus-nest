@@ -40,8 +40,8 @@ public class OsgiMarkerUtilImpl
 	 * @see corvus.domain.e4.workspace.MarkerUtil#getMarkerAtSelection(org.eclipse.core.resources.IResource, int, int)
 	 */
 	@Override
-	public IMarker getMarkerAtSelection(IResource resource, int charStart, int charEnd) {
-		return delegate.getMarkerAtSelection(resource, charStart, charEnd);
+	public IMarker getMarkerAtSelection(IResource resource, String markerType, int charStart, int charEnd) {
+		return delegate.getMarkerAtSelection(resource, markerType, charStart, charEnd);
 	}
 
 	@Override

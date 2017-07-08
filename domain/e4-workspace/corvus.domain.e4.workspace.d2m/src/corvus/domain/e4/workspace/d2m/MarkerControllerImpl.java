@@ -51,6 +51,10 @@ public class MarkerControllerImpl implements MarkerController {
 
 		// Find out which sub-branch need to be added from the branch
 		ComparisonResourcesSwitch comparisonSwitch = new ComparisonResourcesSwitch(workspaceRoot);
+
+		// TODO: perform the below in the read-write transaction
+		// at a minimum it needs to be in a read-only transaction, however, it
+		// could suffer a TOCTOU issue if the underlying value was concurrently changed
 		for (TreeIterator<EObject> iter = resource.getAllContents(); iter.hasNext();) {
 			EObject eObject = iter.next();
 			if (comparisonSwitch.doSwitch(eObject) == Boolean.FALSE) {
@@ -82,7 +86,7 @@ public class MarkerControllerImpl implements MarkerController {
 								// TODO log at warning
 								treeIterator.prune();
 							}
-							
+
 							try {
 								resourceManager.save(resource);
 							} catch (IOException e) {

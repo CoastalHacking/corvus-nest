@@ -70,13 +70,20 @@ public class MarkerUtilImpl implements MarkerUtil {
 		return otherRoot;
 	}
 
-	public org.eclipse.core.resources.IMarker getMarkerAtSelection(org.eclipse.core.resources.IResource resource, int charStart, int charEnd) {
+	@Override
+	public org.eclipse.core.resources.IMarker getMarkerAtSelection(
+			org.eclipse.core.resources.IResource resource,
+			String markerType, int charStart, int charEnd) {
 		org.eclipse.core.resources.IMarker result = null;
 
 		try {
 			for (org.eclipse.core.resources.IMarker m: resource.findMarkers(
 					Constants.MARKER_TYPE, /*includeSubtypes*/true, /*?*/ org.eclipse.core.resources.IResource.DEPTH_ONE)) {
 				// ends are exclusive; starts are inclusive
+
+				// ignore if it's not our type
+				if (!m.getType().equals(markerType))
+					continue;
 
 				final int markerCharStart = (Integer)m.getAttribute(org.eclipse.core.resources.IMarker.CHAR_START, -1);
 				final int markerCharEnd = (Integer)m.getAttribute(org.eclipse.core.resources.IMarker.CHAR_END, -1);
