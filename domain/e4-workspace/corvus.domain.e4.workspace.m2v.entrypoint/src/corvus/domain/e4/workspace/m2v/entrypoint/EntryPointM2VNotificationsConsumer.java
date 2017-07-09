@@ -2,9 +2,7 @@ package corvus.domain.e4.workspace.m2v.entrypoint;
 
 import java.util.List;
 
-import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import com.google.inject.Inject;
 
