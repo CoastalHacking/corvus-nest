@@ -12,8 +12,7 @@ Require-Bundle: org.eclipse.core.runtime,
  corvus.resource,
  org.eclipse.e4.ui.model.workbench;bundle-version="2.0.0.v20170228-1842",
  corvus.domain.e4.workspace.ui,
- corvus.model.entrypoint,
- corvus.domain.e4.workspace
+ corvus.domain.e4.workspace.entrypoint
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: org.apache.commons.logging,
   org.apache.log4j

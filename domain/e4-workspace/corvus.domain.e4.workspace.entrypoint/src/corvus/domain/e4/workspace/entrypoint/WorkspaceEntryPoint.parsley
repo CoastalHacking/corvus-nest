@@ -1,0 +1,20 @@
+import corvus.domain.e4.workspace.WorkspaceEmfParsleyGuiceModule
+import org.eclipse.emf.parsley.config.Configurator
+import corvus.model.entrypoint.config.EntrypointConfigurator
+import org.eclipse.emf.parsley.resource.ResourceManager
+import corvus.model.entrypoint.resource.EntrypointResourceManager
+
+module corvus.domain.e4.workspace.entrypoint extends WorkspaceEmfParsleyGuiceModule {
+
+	bindings {
+
+		// Consider this marker type as valid
+		value String EntryPointMarker -> "corvus.domain.e4.workspace.entrypoint.entryPointMarker"
+
+		// Use the configurator and resource manager from
+		// the entry point model resource project
+		// TODO: test
+		type Configurator -> EntrypointConfigurator
+		type ResourceManager -> EntrypointResourceManager
+	}
+}

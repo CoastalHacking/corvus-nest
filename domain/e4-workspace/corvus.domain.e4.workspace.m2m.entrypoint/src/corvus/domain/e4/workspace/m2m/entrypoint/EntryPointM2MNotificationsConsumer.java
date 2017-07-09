@@ -6,6 +6,10 @@ import java.util.UUID;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
+import com.google.inject.Inject;
+import com.google.inject.name.Named;
+
+import corvus.domain.e4.workspace.entrypoint.WorkspaceEntryPointsConstants;
 import corvus.domain.org.eclipse.core.resources.IResource;
 import corvus.domain.org.eclipse.core.resources.TextMarker;
 import corvus.model.entrypoint.EntryPoint;
@@ -15,6 +19,10 @@ import corvus.resource.NotificationsConsumer;
 
 public class EntryPointM2MNotificationsConsumer extends NotificationsConsumer {
 
+	@Inject
+	@Named(WorkspaceEntryPointsConstants.ENTRY_POINT_MARKER)
+	protected String entryPointMarker;
+	
 	/* (non-Javadoc)
 	 * @see corvus.resource.NotificationsConsumer#consume(java.util.List)
 	 */
@@ -29,12 +37,17 @@ public class EntryPointM2MNotificationsConsumer extends NotificationsConsumer {
 				switch (notification.getEventType()) {
 				case Notification.ADD:
 					textMarker = (TextMarker)notification.getNewValue();
-					markerAdded(textMarker);
+					// Guard against only our markers
+					if (entryPointMarker.equals(textMarker.getType())) {
+						markerAdded(textMarker);
+					}
 					break;
 
 				case Notification.REMOVE:
 					textMarker = (TextMarker)notification.getOldValue();
-					markerDeleted(textMarker);
+					if (entryPointMarker.equals(textMarker.getType())) {
+						markerDeleted(textMarker);
+					}
 					break;
 
 				default:

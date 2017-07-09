@@ -1,13 +1,8 @@
-import corvus.domain.e4.workspace.WorkspaceEmfParsleyGuiceModule
-import corvus.model.entrypoint.config.EntrypointConfigurator
-import corvus.model.entrypoint.resource.EntrypointResourceManager
 import corvus.resource.NotificationsConsumer
-import org.eclipse.emf.parsley.config.Configurator
-import org.eclipse.emf.parsley.resource.ResourceManager
 import org.eclipse.emf.transaction.NotificationFilter
 
 module corvus.domain.e4.workspace.m2m.entrypoint
-	extends WorkspaceEmfParsleyGuiceModule {
+	extends corvus.domain.e4.workspace.entrypoint.EntrypointEmfParsleyGuiceModule {
 
 	bindings {
 		// Override default ANY with something more specific
@@ -16,10 +11,5 @@ module corvus.domain.e4.workspace.m2m.entrypoint
 		// Override consumer
 		type NotificationsConsumer -> EntryPointM2MNotificationsConsumer
 
-		// Use the configurator and resource manager from
-		// the entry point model resource project
-		// TODO: test
-		type Configurator -> EntrypointConfigurator
-		type ResourceManager -> EntrypointResourceManager
 	}
 }

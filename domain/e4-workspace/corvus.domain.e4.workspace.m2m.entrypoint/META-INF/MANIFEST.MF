@@ -11,8 +11,8 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.parsley.views,
  org.eclipse.xtext.xbase.lib,
  corvus.model.entrypoint,
- corvus.domain.e4.workspace,
- corvus.domain.org.eclipse.core.resources
+ corvus.domain.org.eclipse.core.resources,
+ corvus.domain.e4.workspace.entrypoint
 Import-Package: org.apache.log4j,
  org.apache.commons.logging
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8

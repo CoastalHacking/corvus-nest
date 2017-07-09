@@ -8,13 +8,5 @@
             uri="fragment.e4xmi">
       </fragment>
    </extension>
-   <extension
-         id="entryPointMarker"
-         name="Corvus Entry Point"
-         point="org.eclipse.core.resources.markers">
-      <super
-            type="corvus.domain.e4.workspace.corvusMarker">
-      </super>
-   </extension>
 
 </plugin>
