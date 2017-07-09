@@ -4,14 +4,10 @@ import java.util.List;
 import java.util.UUID;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.resource.Resource;
-
-import com.google.inject.Inject;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import corvus.domain.org.eclipse.core.resources.IResource;
 import corvus.domain.org.eclipse.core.resources.TextMarker;
-import corvus.domain.org.eclipse.core.resources.util.ResourcesSwitch;
 import corvus.model.entrypoint.EntryPoint;
 import corvus.model.entrypoint.EntryPointFramework;
 import corvus.model.entrypoint.EntrypointFactory;
@@ -19,54 +15,32 @@ import corvus.resource.NotificationsConsumer;
 
 public class EntryPointM2MNotificationsConsumer extends NotificationsConsumer {
 
-	@Inject
-	Resource resource;
-
 	/* (non-Javadoc)
 	 * @see corvus.resource.NotificationsConsumer#consume(java.util.List)
 	 */
 	@Override
 	public void consume(List<Notification> notifications) {
 		for (final Notification notification: notifications) {
-			Object notifier = notification.getNotifier();
 
-			if (notifier instanceof EObject) {
-				ResourcesSwitch<Boolean> resourcesSwitch = new ResourcesSwitch<Boolean>() {
+			// Guard against out notifier filter
+			if (notification.getNotifier() instanceof IResource) {
 
-					@Override
-					public Boolean defaultCase(EObject object) {
-						return Boolean.FALSE;
-					}
+				TextMarker textMarker;
+				switch (notification.getEventType()) {
+				case Notification.ADD:
+					textMarker = (TextMarker)notification.getNewValue();
+					markerAdded(textMarker);
+					break;
 
-					@Override
-					public Boolean caseTextMarker(TextMarker object) {
-						// The add filter matches in practice a notification with a SET
-						// TODO: test!
-						switch (notification.getEventType()) {
-						case Notification.SET:
-							markerAdded(object);
-							break;
-						case Notification.REMOVE:
-						case Notification.REMOVE_MANY:
-							break;
-						default:
-							break;
-						}
-						return Boolean.TRUE;
-					}
+				case Notification.REMOVE:
+					textMarker = (TextMarker)notification.getOldValue();
+					markerDeleted(textMarker);
+					break;
 
-					@Override
-					public Boolean caseIResource(IResource object) {
-						if (notification.getEventType() == Notification.REMOVE) {
-							markerDeleted(object);
-						}
+				default:
+					break;
+				}
 
-						return super.caseIResource(object);
-					}
-
-					
-				};
-				resourcesSwitch.doSwitch((EObject)notifier);
 			}
 		}
 	}
@@ -83,8 +57,21 @@ public class EntryPointM2MNotificationsConsumer extends NotificationsConsumer {
 
 		// Then connect to marker
 		addedMarker.setDomain(entryPoint);
+
+		// TODO: obtain a resource adapter that saves on the addedMarker
+
+		save();
 	}
 
-	protected void markerDeleted(IResource resource) {
+	protected void markerDeleted(TextMarker deletedMarker) {
+		
+		// Guard against an unusual case if somehow we're not the reference
+		if (deletedMarker.getDomain() instanceof EntryPoint) {
+			final EntryPoint entryPoint = (EntryPoint) deletedMarker.getDomain();
+			EcoreUtil.delete(entryPoint, /*recursive*/ true);
+		}
+		save();
 	}
+
+
 }

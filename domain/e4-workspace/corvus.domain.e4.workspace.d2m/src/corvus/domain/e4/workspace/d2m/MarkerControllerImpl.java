@@ -94,12 +94,7 @@ public class MarkerControllerImpl implements MarkerController {
 								treeIterator.prune();
 							}
 
-							try {
-								resourceManager.save(resource);
-							} catch (IOException e) {
-								// TODO Auto-generated catch block
-								e.printStackTrace();
-							}
+							save();
 						}
 					}
 				}, Collections.EMPTY_MAP);
@@ -145,10 +140,14 @@ public class MarkerControllerImpl implements MarkerController {
 					// Otherwise, remove the elements, within a transaction
 					stack.execute(new RecordingCommand(ted) {
 						protected void doExecute() {
+
+							// Ignore deleting the reference. It is up to the consumer to do this
+
+							// Delete the marker 
 							final IResource iResource = existingTextMarker.getResource();
 							EcoreUtil.delete(existingTextMarker, /*recursive*/ true);
 
-							// Remove resource if applicable
+							// Delete the resource if applicable
 							if (iResource.getMarkers().isEmpty()) {
 
 								// Prepare to remove container if applicable
@@ -169,12 +168,8 @@ public class MarkerControllerImpl implements MarkerController {
 									EcoreUtil.delete(child, /*recursive*/ true);
 								}
 							}
-							try {
-								resourceManager.save(resource);
-							} catch (IOException e) {
-								// TODO Auto-generated catch block
-								e.printStackTrace();
-							}
+
+							save();
 						}
 					}, options.get());
 				} catch (InterruptedException | RollbackException e) {
@@ -200,5 +195,13 @@ public class MarkerControllerImpl implements MarkerController {
 		
 	}
 
-	
+	protected void save() {
+		try {
+			resourceManager.save(resource);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
 }

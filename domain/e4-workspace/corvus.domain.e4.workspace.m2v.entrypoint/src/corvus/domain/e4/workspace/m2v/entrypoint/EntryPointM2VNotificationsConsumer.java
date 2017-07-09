@@ -2,7 +2,9 @@ package corvus.domain.e4.workspace.m2v.entrypoint;
 
 import java.util.List;
 
+import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import com.google.inject.Inject;
 
@@ -23,11 +25,20 @@ public class EntryPointM2VNotificationsConsumer extends NotificationsConsumer {
 	public void consume(List<Notification> notifications) {
 
 		for (Notification notification : notifications) {
-			final Object notifier = notification.getNewValue();
-			if (notifier instanceof EntryPoint) {
 
-				// Adapt it for our view
-				compositeProviderAdapterFactory.adapt((EntryPoint)notifier, ICompositeProvider.class);
+			switch (notification.getEventType()) {
+			case Notification.ADD:
+				if (notification.getNewValue() instanceof EntryPoint) {
+					// Adapt it for our view
+					compositeProviderAdapterFactory.adapt((EntryPoint)notification.getNewValue(), ICompositeProvider.class);
+				}
+				break;
+
+			case Notification.REMOVE:
+				// Nothing to implement 
+				break;
+			default:
+				break;
 			}
 		}
 	}
