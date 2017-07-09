@@ -7,7 +7,6 @@ import corvus.resource.NotificationsConsumer;
 import corvus.resource.ReadWriteTransaction;
 import corvus.resource.ReadWriteTransactionProvider;
 import corvus.resource.ResourceProvider;
-import corvus.resource.TransactionOptions;
 import corvus.transactional.GlobalTransactionalEditingDomainProvider;
 import corvus.transactional.TransactionalEmfParsleyGuiceModule;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -44,10 +43,6 @@ public class ResourceEmfParsleyGuiceModule extends TransactionalEmfParsleyGuiceM
   
   public Class<? extends ResourceSetListener> bindResourceSetListener() {
     return InjectableResourceSetListener.class;
-  }
-  
-  public Class<? extends TransactionOptions> bindTransactionOptions() {
-    return TransactionOptions.class;
   }
   
   public Class<? extends NotificationsConsumer> bindNotificationsConsumer() {

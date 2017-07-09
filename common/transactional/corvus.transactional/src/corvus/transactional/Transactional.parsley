@@ -2,6 +2,7 @@ import org.eclipse.emf.edit.domain.EditingDomain
 import org.eclipse.emf.parsley.edit.EditingDomainFinder
 import org.eclipse.emf.transaction.TransactionalEditingDomain
 import org.eclipse.emf.parsley.resource.ResourceLoader
+import org.eclipse.emf.parsley.internal.databinding.DataBindingHelper
 
 /* corvus.transactional EMF Parsley Dsl Module file */
 module corvus.transactional {
@@ -24,5 +25,10 @@ module corvus.transactional {
 		// use a resource loader that initializes the resource via a transaction
 		type ResourceLoader -> TransactionalResourceLoader
 
+		// Default to an empty list of options for stack commands
+		type TransactionOptions -> TransactionOptions
+
+		// wrap strategies within a transaction
+		type DataBindingHelper -> TransactionalDataBindingHelper
 	}
 }

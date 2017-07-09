@@ -1,4 +1,4 @@
-package corvus.resource;
+package corvus.transactional;
 
 import java.util.Collections;
 import java.util.Map;

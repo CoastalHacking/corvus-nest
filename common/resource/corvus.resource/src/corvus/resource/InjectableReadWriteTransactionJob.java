@@ -14,6 +14,8 @@ import org.eclipse.emf.transaction.TransactionalEditingDomain;
 
 import com.google.inject.Inject;
 
+import corvus.transactional.TransactionOptions;
+
 public class InjectableReadWriteTransactionJob extends Job implements ReadWriteTransaction {
 
 	@Inject

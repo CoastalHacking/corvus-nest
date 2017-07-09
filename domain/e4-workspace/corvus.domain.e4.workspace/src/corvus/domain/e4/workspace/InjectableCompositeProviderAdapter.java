@@ -2,10 +2,13 @@ package corvus.domain.e4.workspace;
 
 import org.eclipse.emf.common.notify.impl.AdapterImpl;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.parsley.composite.FormDetailComposite;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.parsley.composite.FormDetailReadOnlyComposite;
 import org.eclipse.emf.parsley.composite.FormFactory;
+import org.eclipse.emf.parsley.dialogs.DialogFactory;
+import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Shell;
 
 import com.google.inject.Inject;
 
@@ -14,7 +17,13 @@ public class InjectableCompositeProviderAdapter
 	implements ICompositeProviderAdapter {
 
 	@Inject
-	FormFactory formFactory;
+	protected FormFactory formFactory;
+
+	@Inject
+	protected DialogFactory dialogFactory;
+	
+	@Inject
+	protected EditingDomain editingDomain;
 
 	public InjectableCompositeProviderAdapter() {
 		super();
@@ -36,10 +45,9 @@ public class InjectableCompositeProviderAdapter
 	}
 
 	@Override
-	public Composite getEditableFormComposite(Composite parent, int style) {
-		final FormDetailComposite result = formFactory.createFormDetailComposite(parent, style);
-		result.init((EObject)getTarget());
-		return result;
+	public Dialog getEditableDialog(Shell shell, String title) {
+		Dialog dialog = dialogFactory.createDetailDialog(shell, title, (EObject)getTarget(), editingDomain);
+		return dialog;
 	}
 
 }

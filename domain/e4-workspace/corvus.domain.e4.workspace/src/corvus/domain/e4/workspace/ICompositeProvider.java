@@ -1,7 +1,9 @@
 package corvus.domain.e4.workspace;
 
+import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Shell;
 
 public interface ICompositeProvider {
 
@@ -11,9 +13,5 @@ public interface ICompositeProvider {
 
 	public Composite getFormComposite(Composite parent, int style);
 
-	public default Composite getEditableFormComposite(Composite parent) {
-		return getEditableFormComposite(parent, SWT.NONE);
-	}
-
-	public Composite getEditableFormComposite(Composite parent, int style);
+	public Dialog getEditableDialog(Shell shell, String title);
 }

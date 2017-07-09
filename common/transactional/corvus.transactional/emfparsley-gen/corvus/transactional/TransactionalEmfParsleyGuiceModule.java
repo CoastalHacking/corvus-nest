@@ -2,13 +2,16 @@ package corvus.transactional;
 
 import com.google.inject.Provider;
 import corvus.transactional.DefaultTransactionalEditingDomainFactory;
+import corvus.transactional.TransactionOptions;
 import corvus.transactional.TransactionalBackedEditingDomainProvider;
+import corvus.transactional.TransactionalDataBindingHelper;
 import corvus.transactional.TransactionalEditingDomainFinder;
 import corvus.transactional.TransactionalEditingDomainProvider;
 import corvus.transactional.TransactionalResourceLoader;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.parsley.EmfParsleyGuiceModule;
 import org.eclipse.emf.parsley.edit.EditingDomainFinder;
+import org.eclipse.emf.parsley.internal.databinding.DataBindingHelper;
 import org.eclipse.emf.parsley.resource.ResourceLoader;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
@@ -47,5 +50,13 @@ public class TransactionalEmfParsleyGuiceModule extends EmfParsleyGuiceModule {
   @Override
   public Class<? extends ResourceLoader> bindResourceLoader() {
     return TransactionalResourceLoader.class;
+  }
+  
+  public Class<? extends TransactionOptions> bindTransactionOptions() {
+    return TransactionOptions.class;
+  }
+  
+  public Class<? extends DataBindingHelper> bindDataBindingHelper() {
+    return TransactionalDataBindingHelper.class;
   }
 }

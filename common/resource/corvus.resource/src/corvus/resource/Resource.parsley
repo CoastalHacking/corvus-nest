@@ -25,9 +25,6 @@ module corvus.resource extends TransactionalEmfParsleyGuiceModule {
 		// The resource set listener for this project
 		type ResourceSetListener -> InjectableResourceSetListener
 
-		// Default to an empty list of options
-		type TransactionOptions -> TransactionOptions
-
 		// Default to a no-op consumer
 		type NotificationsConsumer -> NotificationsConsumer
 	}

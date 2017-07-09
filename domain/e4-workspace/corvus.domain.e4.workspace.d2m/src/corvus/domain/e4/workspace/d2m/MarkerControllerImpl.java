@@ -21,7 +21,7 @@ import corvus.domain.org.eclipse.core.resources.IContainer;
 import corvus.domain.org.eclipse.core.resources.IResource;
 import corvus.domain.org.eclipse.core.resources.IWorkspaceRoot;
 import corvus.domain.org.eclipse.core.resources.TextMarker;
-import corvus.resource.TransactionOptions;
+import corvus.transactional.TransactionOptions;
 
 
 // TODO: Consider replacing this code with a different strategy, maybe EMF Diff/Merge
