@@ -17,10 +17,10 @@ import corvus.domain.e4.workspace.ViewController;
 public class ViewHandler {
 
 	@Inject
-	MarkerUtil markerUtil;
+	private MarkerUtil markerUtil;
 
 	@Inject
-	ViewController viewController;
+	private ViewController viewController;
 
 	@Execute
 	public void execute(@Named(IServiceConstants.ACTIVE_SHELL) Shell shell,

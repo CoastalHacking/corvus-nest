@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="ASCII"?>
 <fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:commands="http://www.eclipse.org/ui/2010/UIModel/application/commands" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_Nhd_MF-IEeenbtsboHSPbw">
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_XgUTUF-bEeenbtsboHSPbw" featurename="commands" parentElementId="xpath:/">
-    <elements xsi:type="commands:Command" xmi:id="_en-5kF-bEeenbtsboHSPbw" elementId="corvus.domain.e4.workspace.ui.command.add" commandName="Add">
+    <elements xsi:type="commands:Command" xmi:id="_en-5kF-bEeenbtsboHSPbw" elementId="corvus.domain.e4.workspace.ui.command.add" commandName="Add" description="Add a marker">
       <parameters xmi:id="_jIG10F-bEeenbtsboHSPbw" elementId="markerType" name="Marker Type" optional="false"/>
     </elements>
-    <elements xsi:type="commands:Command" xmi:id="_Z4tswGN6EeenbtsboHSPbw" elementId="corvus.domain.e4.workspace.ui.command.view" commandName="View">
+    <elements xsi:type="commands:Command" xmi:id="_Z4tswGN6EeenbtsboHSPbw" elementId="corvus.domain.e4.workspace.ui.command.view" commandName="View" description="View a marker">
       <parameters xmi:id="_g8DzsGN6EeenbtsboHSPbw" elementId="markerType" name="Marker Type" optional="false"/>
+    </elements>
+    <elements xsi:type="commands:Command" xmi:id="_z6Rv8GQkEeenbtsboHSPbw" elementId="corvus.domain.e4.workspace.ui.command.delete" commandName="Delete" description="Delete a marker">
+      <parameters xmi:id="_2-VW0GQkEeenbtsboHSPbw" elementId="markerType" name="Marker Type" optional="false"/>
     </elements>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_6nbnAF-bEeenbtsboHSPbw" featurename="handlers" parentElementId="xpath:/">
     <elements xsi:type="commands:Handler" xmi:id="_9g6VkF-bEeenbtsboHSPbw" elementId="corvus.domain.e4.workspace.ui.handler.add" contributionURI="bundleclass://corvus.domain.e4.workspace.ui/corvus.domain.e4.workspace.ui.AddHandler" command="_en-5kF-bEeenbtsboHSPbw"/>
     <elements xsi:type="commands:Handler" xmi:id="_F7a24GOFEeenbtsboHSPbw" elementId="corvus.domain.e4.workspace.ui.handler.view" contributionURI="bundleclass://corvus.domain.e4.workspace.ui/corvus.domain.e4.workspace.ui.ViewHandler" command="_Z4tswGN6EeenbtsboHSPbw"/>
+    <elements xsi:type="commands:Handler" xmi:id="_5w_EoGQkEeenbtsboHSPbw" elementId="corvus.domain.e4.workspace.ui.handler.0" contributionURI="bundleclass://corvus.domain.e4.workspace.ui/corvus.domain.e4.workspace.ui.DeleteHandler" command="_z6Rv8GQkEeenbtsboHSPbw"/>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_CSoYIF-cEeenbtsboHSPbw" featurename="menuContributions" parentElementId="xpath:/">
     <elements xsi:type="menu:MenuContribution" xmi:id="_Dykg4F-cEeenbtsboHSPbw" elementId="corvus.domain.e4.workspace.ui.menucontribution.0" positionInParent="after=additions" parentId="popup">

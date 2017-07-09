@@ -25,8 +25,8 @@ public class MarkerUtilImpl implements MarkerUtil {
 		try {
 			otherMarker.setType(marker.getType());
 		} catch (CoreException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			// in the case of a deleted marker, only its ID is available
+			// TODO: trace / debug log?
 		}
 		otherMarker.setCharStart(marker.getAttribute(org.eclipse.core.resources.IMarker.CHAR_START, -1));
 		otherMarker.setCharEnd(marker.getAttribute(org.eclipse.core.resources.IMarker.CHAR_END, -1));

@@ -2,9 +2,9 @@
 <fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:commands="http://www.eclipse.org/ui/2010/UIModel/application/commands" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_PfYK8GM5EeenbtsboHSPbw">
   <imports xsi:type="menu:Menu" xmi:id="_Xq0iYGM5EeenbtsboHSPbw" elementId="corvus.domain.e4.workspace.ui.menu.corvus"/>
   <imports xsi:type="commands:Command" xmi:id="_bwTKAGM5EeenbtsboHSPbw" elementId="corvus.domain.e4.workspace.ui.command.add"/>
-  <imports xsi:type="commands:CommandParameter" xmi:id="_dv5qQGM5EeenbtsboHSPbw" elementId="markerType"/>
   <imports xsi:type="commands:Command" xmi:id="_Tb0g0GOFEeenbtsboHSPbw" elementId="corvus.domain.e4.workspace.ui.command.view"/>
-  <imports xsi:type="commands:CommandParameter" xmi:id="_WEhBYGOFEeenbtsboHSPbw" elementId="markerType"/>
+  <imports xsi:type="commands:Command" xmi:id="_oZq-EGQlEeenbtsboHSPbw" elementId="corvus.domain.e4.workspace.ui.command.delete"/>
+  <imports xsi:type="commands:CommandParameter" xmi:id="_dv5qQGM5EeenbtsboHSPbw" elementId="markerType"/>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_jFICgGM5EeenbtsboHSPbw" featurename="menuContributions" parentElementId="xpath:/">
     <elements xsi:type="menu:MenuContribution" xmi:id="_liO-IGM5EeenbtsboHSPbw" elementId="corvus.domain.e4.workspace.view.entrypoint.menucontribution.0" parentId="corvus.domain.e4.workspace.ui.menu.corvus">
       <children xsi:type="menu:Menu" xmi:id="_oR0J0GM5EeenbtsboHSPbw" elementId="corvus.domain.e4.workspace.view.entrypoint.menu" label="Entry Point...">
@@ -13,6 +13,9 @@
         </children>
         <children xsi:type="menu:HandledMenuItem" xmi:id="_ZBHVYGOFEeenbtsboHSPbw" elementId="corvus.domain.e4.workspace.view.entrypoint.handledmenuitem.view" label="View" command="_Tb0g0GOFEeenbtsboHSPbw">
           <parameters xmi:id="_bFWeAGOFEeenbtsboHSPbw" elementId="corvus.domain.e4.workspace.view.entrypoint.parameter.1" name="markerType" value="corvus.domain.e4.workspace.view.entrypoint.entryPointMarker"/>
+        </children>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_ueGlsGQlEeenbtsboHSPbw" elementId="corvus.domain.e4.workspace.view.entrypoint.handledmenuitem.delete" label="Delete" command="_oZq-EGQlEeenbtsboHSPbw">
+          <parameters xmi:id="_FeAP8GQmEeenbtsboHSPbw" elementId="corvus.domain.e4.workspace.view.entrypoint.parameter.2" name="markerType" value="corvus.domain.e4.workspace.view.entrypoint.entryPointMarker"/>
         </children>
       </children>
     </elements>
