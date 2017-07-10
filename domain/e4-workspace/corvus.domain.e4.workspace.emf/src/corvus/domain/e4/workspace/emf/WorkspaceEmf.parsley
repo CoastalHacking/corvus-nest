@@ -1,0 +1,10 @@
+import corvus.domain.e4.workspace.WorkspaceEmfParsleyGuiceModule
+
+module corvus.domain.e4.workspace.emf extends WorkspaceEmfParsleyGuiceModule {
+	
+	bindings {
+
+		type EmfMarkerUtil -> EmfMarkerUtil
+
+	}
+}
