@@ -1,4 +1,4 @@
-package corvus.domain.e4.workspace.osgi;
+package corvus.domain.e4.workspace;
 
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.ecore.resource.Resource;

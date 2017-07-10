@@ -1,4 +1,4 @@
-package corvus.domain.e4.workspace.osgi;
+package corvus.domain.e4.workspace;
 
 import com.google.inject.Injector;
 

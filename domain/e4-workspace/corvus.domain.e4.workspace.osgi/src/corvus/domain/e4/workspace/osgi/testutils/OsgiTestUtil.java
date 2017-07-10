@@ -1,4 +1,4 @@
-package corvus.domain.e4.workspace.osgi;
+package corvus.domain.e4.workspace.osgi.testutils;
 
 import java.util.Dictionary;
 

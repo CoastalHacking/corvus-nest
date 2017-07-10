@@ -1,7 +1,7 @@
 /**
  * 
  */
-package corvus.domain.e4.workspace.osgi.d2m;
+package corvus.domain.e4.workspace.osgi.internal;
 
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IResource;
@@ -9,9 +9,9 @@ import org.osgi.service.component.annotations.Component;
 
 import com.google.inject.Injector;
 
+import corvus.domain.e4.workspace.AbstractOsgiInjectedDelegateComponent;
 import corvus.domain.e4.workspace.MarkerUtil;
 import corvus.domain.e4.workspace.d2m.D2mInjectorProvider;
-import corvus.domain.e4.workspace.osgi.AbstractOsgiInjectedDelegateComponent;
 import corvus.domain.org.eclipse.core.resources.IWorkspaceRoot;
 
 /**

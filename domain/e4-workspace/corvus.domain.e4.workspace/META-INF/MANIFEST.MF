@@ -4,6 +4,6 @@ Bundle-Name: Corvus e4 Workspace
 Bundle-SymbolicName: corvus.domain.e4.workspace;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Require-Bundle: org.eclipse.core.resources,
+Require-Bundle: org.eclipse.core.resources;visibility:=reexport,
  corvus.domain.org.eclipse.core.resources;visibility:=reexport
 Export-Package: corvus.domain.e4.workspace
