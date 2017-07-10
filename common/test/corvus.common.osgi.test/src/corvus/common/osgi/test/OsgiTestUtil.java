@@ -1,4 +1,4 @@
-package corvus.domain.e4.workspace.osgi.testutils;
+package corvus.common.osgi.test;
 
 import java.util.Dictionary;
 
@@ -15,7 +15,7 @@ public class OsgiTestUtil {
 
 	// http://blog.vogella.com/2016/07/04/osgi-component-testing/
 	// This leaks ServiceTrackers
-	public static <B, T> T getService(Class<B> bundleClass, Class<T> serviceClass, String filteredClassName) {
+	public static <B, T> T getService(Class<B> bundleClass, Class<T> serviceClass, String filteredClassName) throws InterruptedException {
 		Bundle bundle = FrameworkUtil.getBundle(bundleClass);
 		T results = null;
 		if (bundle != null) {
@@ -29,11 +29,7 @@ public class OsgiTestUtil {
 				ServiceTracker<T, T> st = new ServiceTracker<T, T>(bundle.getBundleContext(), filter, null);
 				st.open();
 				if (st != null) {
-					try {
-						results = st.waitForService(1000);
-					} catch (InterruptedException e) {
-						e.printStackTrace();
-					}
+					results = st.waitForService(5000);
 				}
 
 			} catch (BundleException | InvalidSyntaxException e1) {

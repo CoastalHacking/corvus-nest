@@ -1,10 +1,7 @@
 package corvus.domain.e4.workspace.d2m;
 
-import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
-
-import com.google.inject.Injector;
 
 /**
  * The activator class controls the plug-in life cycle
@@ -20,10 +17,6 @@ public class D2mActivator extends AbstractUIPlugin {
 	public D2mActivator() {
 	}
 
-	private MarkerResourceChangeListener changeListener;
-	
-	private org.eclipse.core.resources.IWorkspace workspace;
-
 	/*
 	 * (non-Javadoc)
 	 * @see org.eclipse.ui.plugin.AbstractUIPlugin#start(org.osgi.framework.BundleContext)
@@ -32,13 +25,6 @@ public class D2mActivator extends AbstractUIPlugin {
 		super.start(context);
 		plugin = this;
 		
-		Injector injector = D2mInjectorProvider.getInjector();
-
-		// Add the workspace listener
-		// TODO: move me?
-		changeListener = injector.getInstance(MarkerResourceChangeListener.class);
-		workspace = ResourcesPlugin.getWorkspace();
-		workspace.addResourceChangeListener(changeListener);
 	}
 
 	/*
@@ -49,9 +35,6 @@ public class D2mActivator extends AbstractUIPlugin {
 		plugin = null;
 		super.stop(context);
 		
-		// Remove listener
-		if (workspace != null)
-			workspace.removeResourceChangeListener(changeListener);
 	}
 
 	/**

@@ -1,4 +1,5 @@
 import corvus.domain.org.eclipse.core.resources.ResourcesEmfParsleyGuiceModule
+import org.eclipse.core.resources.IWorkspace
 
 module corvus.domain.e4.workspace extends ResourcesEmfParsleyGuiceModule {
 	
@@ -13,5 +14,7 @@ module corvus.domain.e4.workspace extends ResourcesEmfParsleyGuiceModule {
 		// built-in providers, such as its features provider
 		provide ICompositeProviderAdapter -> CompositeProviderAdapterProvider
 
+		// Because why not
+		provide IWorkspace -> WorkspaceProvider
 	}
 }

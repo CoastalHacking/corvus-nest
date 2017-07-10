@@ -2,6 +2,7 @@ package corvus.domain.e4.workspace;
 
 import org.eclipse.emf.transaction.NotificationFilter;
 
+import com.google.inject.Inject;
 import com.google.inject.MembersInjector;
 import com.google.inject.Singleton;
 
@@ -12,6 +13,8 @@ import corvus.resource.DefaultNotificationFilterProvider;
 public class DefaultM2MNotificationFilterProvider extends DefaultNotificationFilterProvider {
 
 	private M2MNotificationFilter filter;
+
+	@Inject
 	private MembersInjector<M2MNotificationFilter> filterInjector;
 
 	/* (non-Javadoc)

@@ -1,4 +1,4 @@
-package corvus.domain.e4.workspace.osgi.internal;
+package corvus.domain.e4.workspace.osgi;
 
 import org.eclipse.core.resources.IMarker;
 import org.osgi.service.component.annotations.Component;

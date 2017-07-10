@@ -5,6 +5,5 @@ Bundle-SymbolicName: corvus.domain.e4.workspace.entrypoint.osgi.tests
 Bundle-Version: 1.0.0.qualifier
 Fragment-Host: corvus.domain.e4.workspace.entrypoint.osgi
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Require-Bundle: corvus.domain.e4.workspace.osgi;bundle-version="1.0.0",
- corvus.common.test
+Require-Bundle: corvus.common.osgi.test
 Export-Package: corvus.domain.e4.workspace.entrypoint.osgi.tests

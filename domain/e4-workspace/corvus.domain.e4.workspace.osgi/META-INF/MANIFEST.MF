@@ -4,12 +4,11 @@ Bundle-Name: Corvus e4 Workspace OSGi DS
 Bundle-SymbolicName: corvus.domain.e4.workspace.osgi
 Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Service-Component: OSGI-INF/corvus.domain.e4.workspace.osgi.internal.OsgiMarkerUtilImpl.xml,
- OSGI-INF/corvus.domain.e4.workspace.osgi.internal.OsgiViewControllerImpl.xml
+Service-Component: OSGI-INF/corvus.domain.e4.workspace.osgi.OsgiMarkerUtilImpl.xml,
+ OSGI-INF/corvus.domain.e4.workspace.osgi.OsgiViewControllerImpl.xml,
+ OSGI-INF/corvus.domain.e4.workspace.osgi.d2m.OsgiMarkerResourceChangeListener.xml
 Bundle-ActivationPolicy: lazy
-Export-Package: corvus.domain.e4.workspace.osgi.testutils
 Require-Bundle: corvus.resource,
- corvus.domain.e4.workspace,
  corvus.domain.e4.workspace.d2m,
  corvus.domain.org.eclipse.core.resources
 Import-Package: org.osgi.service.component.annotations;version="1.3.0"

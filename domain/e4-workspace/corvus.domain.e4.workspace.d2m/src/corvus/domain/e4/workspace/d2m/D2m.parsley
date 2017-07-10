@@ -2,6 +2,7 @@ import corvus.domain.e4.workspace.MarkerController
 import corvus.domain.e4.workspace.MarkerUtil
 import corvus.domain.e4.workspace.ViewController
 import corvus.domain.e4.workspace.WorkspaceEmfParsleyGuiceModule
+import org.eclipse.core.resources.IResourceChangeListener
 
 module corvus.domain.e4.workspace.d2m
 	extends WorkspaceEmfParsleyGuiceModule {
@@ -12,5 +13,7 @@ module corvus.domain.e4.workspace.d2m
 		type MarkerController -> MarkerControllerImpl
 
 		type ViewController -> ViewControllerImpl
+
+		type IResourceChangeListener -> MarkerResourceChangeListener
 	}
 }
