@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         id="linkMarker"
+         name="Corvus Link Marker"
+         point="org.eclipse.core.resources.markers">
+      <super
+            type="corvus.domain.e4.workspace.corvusMarker">
+      </super>
+   </extension>
+
+</plugin>

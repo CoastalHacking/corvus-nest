@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ASCII"?>
+<fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:commands="http://www.eclipse.org/ui/2010/UIModel/application/commands" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_vDrSsGT7EeenbtsboHSPbw">
+  <imports xsi:type="menu:Menu" xmi:id="_MJ7ZQGWCEeenbtsboHSPbw" elementId="corvus.domain.e4.workspace.ui.menu.corvus"/>
+  <imports xsi:type="commands:Command" xmi:id="_0QFGIGT7EeenbtsboHSPbw" elementId="corvus.domain.e4.workspace.ui.command.add"/>
+  <imports xsi:type="commands:Command" xmi:id="_1yt9kGT7EeenbtsboHSPbw" elementId="corvus.domain.e4.workspace.ui.command.edit"/>
+  <imports xsi:type="commands:Command" xmi:id="_4SaTIGT7EeenbtsboHSPbw" elementId="corvus.domain.e4.workspace.ui.command.view"/>
+  <imports xsi:type="commands:Command" xmi:id="_5cPB8GT7EeenbtsboHSPbw" elementId="corvus.domain.e4.workspace.ui.command.delete"/>
+  <imports xsi:type="commands:CommandParameter" xmi:id="_OQBjEGWCEeenbtsboHSPbw" elementId="markerType"/>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_-gQzsGWDEeenbtsboHSPbw" featurename="menuContributions" parentElementId="xpath:/">
+    <elements xsi:type="menu:MenuContribution" xmi:id="_ASIZ8GWEEeenbtsboHSPbw" elementId="corvus.domain.e4.workspace.link.ui.menucontribution.0" parentId="corvus.domain.e4.workspace.ui.menu.corvus">
+      <children xsi:type="menu:Menu" xmi:id="_Ft6GIGWEEeenbtsboHSPbw" elementId="corvus.domain.e4.workspace.link.ui.menu" label="Link...">
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_KYatcGWEEeenbtsboHSPbw" elementId="corvus.domain.e4.workspace.link.ui.handledmenuitem.add" label="Add" command="_0QFGIGT7EeenbtsboHSPbw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_LdthkGWEEeenbtsboHSPbw" elementId="corvus.domain.e4.workspace.link.ui.handledmenuitem.edit" label="Edit" command="_1yt9kGT7EeenbtsboHSPbw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_MTRQkGWEEeenbtsboHSPbw" elementId="corvus.domain.e4.workspace.link.ui.handledmenuitem.view" label="View" command="_4SaTIGT7EeenbtsboHSPbw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_NFhz8GWEEeenbtsboHSPbw" elementId="corvus.domain.e4.workspace.link.ui.handledmenuitem.delete" label="Delete" command="_5cPB8GT7EeenbtsboHSPbw"/>
+      </children>
+    </elements>
+  </fragments>
+</fragment:ModelFragments>

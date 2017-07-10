@@ -1,0 +1,17 @@
+import corvus.domain.e4.workspace.link.LinkEmfParsleyGuiceModule
+import org.eclipse.emf.transaction.NotificationFilter
+import corvus.resource.NotificationsConsumer
+import corvus.domain.e4.workspace.DefaultM2MNotificationFilterProvider
+
+module corvus.domain.e4.workspace.link.m2m extends LinkEmfParsleyGuiceModule {
+
+	bindings {
+		// Use default m2m notification filter provider
+		provide NotificationFilter -> DefaultM2MNotificationFilterProvider
+
+		// Use specialized consumer
+		type NotificationsConsumer -> LinkM2MNotificationsConsumer
+
+	}
+
+}

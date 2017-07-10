@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Corvus e4 Workspace Link UI
+Bundle-SymbolicName: corvus.domain.e4.workspace.link.ui;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Require-Bundle: org.eclipse.e4.ui.model.workbench;bundle-version="2.0.0.v20170228-1842",
+ corvus.domain.e4.workspace.ui;bundle-version="1.0.0",
+ corvus.domain.e4.workspace,
+ org.eclipse.e4.core.di.annotations
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8

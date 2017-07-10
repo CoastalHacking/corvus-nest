@@ -1,0 +1,5 @@
+import corvus.domain.e4.workspace.link.LinkEmfParsleyGuiceModule
+
+module corvus.domain.e4.workspace.link.m2v extends LinkEmfParsleyGuiceModule {
+
+}

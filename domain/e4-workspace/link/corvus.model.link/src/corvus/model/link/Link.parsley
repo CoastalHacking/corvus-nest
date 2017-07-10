@@ -1,0 +1,31 @@
+import corvus.resource.ResourceEmfParsleyGuiceModule
+import org.eclipse.emf.parsley.runtime.ui.PluginUtil
+import org.eclipse.emf.common.util.URI
+
+module corvus.model.link extends ResourceEmfParsleyGuiceModule {
+
+	configurator {
+		resourceURI {
+			// Uses XMI via dependency
+			Object -> {
+				val bc = PluginUtil.getBundle(LinkActivator).bundleContext
+				val file = bc.getBundle().getDataFile("corvus.model.link")
+				URI.createFileURI(file.getAbsolutePath())
+			}
+		}
+	}
+
+	resourceManager {
+		
+		// Load the package into the global package registry
+		// TODO: consider injecting?
+		var LinkPackage package = LinkPackage.eINSTANCE
+
+		var LinkFactory factory = LinkFactory.eINSTANCE
+
+		initializeResource {
+			var LinkContainer linkContainer = factory.createLinkContainer
+			it.contents += linkContainer
+		}
+	}	
+}

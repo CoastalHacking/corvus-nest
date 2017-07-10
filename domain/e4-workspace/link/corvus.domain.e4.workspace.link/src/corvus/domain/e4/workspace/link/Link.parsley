@@ -1,0 +1,24 @@
+
+
+import corvus.domain.e4.workspace.CompositeProviderAdapterFactory
+import corvus.domain.e4.workspace.InjectableCompositeProviderAdapterFactory
+import corvus.domain.e4.workspace.CompositeProviderAdapterProvider
+import corvus.domain.e4.workspace.ICompositeProviderAdapter
+
+module corvus.domain.e4.workspace.link extends corvus.model.link.LinkEmfParsleyGuiceModule {
+
+	bindings {
+
+		// Default adapter factory, which uses a provider of ICompositeProviderAdapter
+		type CompositeProviderAdapterFactory -> InjectableCompositeProviderAdapterFactory
+
+		// Default provider for ICompositeProviderAdapter
+		// Override this provider or FormFactory to specialize the view adapter if needed
+		// The general way to specialize the view is to specialize Parsley's
+		// built-in providers, such as its features provider
+		provide ICompositeProviderAdapter -> CompositeProviderAdapterProvider
+
+		// Link marker
+		value String CorvusDomainMarker -> "corvus.domain.e4.workspace.link.linkMarker"
+	}
+}

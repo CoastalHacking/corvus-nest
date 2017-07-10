@@ -1,0 +1,14 @@
+@GenModel(editDirectory="/corvus.model.link/src-gen")
+package corvus.model.link
+
+class LinkContainer {
+	contains Link[] links opposite linkContainer
+	// Acts as state
+	refers Link lastAdded
+}
+
+class Link {
+	container LinkContainer linkContainer opposite links
+	refers Link[] to opposite from
+	refers Link[] from opposite to
+}
