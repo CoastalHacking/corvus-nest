@@ -16,3 +16,4 @@ Require-Bundle: org.eclipse.e4.ui.model.workbench,
  corvus.domain.org.eclipse.core.resources;bundle-version="1.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: javax.inject;version="1.0.0"
+Export-Package: corvus.domain.e4.workspace.ui
