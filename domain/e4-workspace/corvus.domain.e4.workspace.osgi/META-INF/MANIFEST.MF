@@ -14,7 +14,7 @@ Export-Package: corvus.domain.e4.workspace.osgi,
 Require-Bundle: corvus.resource,
  corvus.domain.e4.workspace,
  corvus.domain.e4.workspace.d2m,
- corvus.domain.e4.workspace.m2m.entrypoint,
- corvus.domain.e4.workspace.m2v.entrypoint,
+ corvus.domain.e4.workspace.entrypoint.m2m,
+ corvus.domain.e4.workspace.entrypoint.m2v,
  corvus.domain.org.eclipse.core.resources
 Import-Package: org.osgi.service.component.annotations;version="1.3.0"

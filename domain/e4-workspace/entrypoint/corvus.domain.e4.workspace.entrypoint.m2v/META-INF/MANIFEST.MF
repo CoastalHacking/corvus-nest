@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: corvus.domain.e4.workspace.m2v.entrypoint
-Bundle-SymbolicName: corvus.domain.e4.workspace.m2v.entrypoint;singleton:=true
+Bundle-SymbolicName: corvus.domain.e4.workspace.entrypoint.m2v;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: corvus.domain.e4.workspace.m2v.entrypoint.EntrypointActivator
 Bundle-Vendor: My Company

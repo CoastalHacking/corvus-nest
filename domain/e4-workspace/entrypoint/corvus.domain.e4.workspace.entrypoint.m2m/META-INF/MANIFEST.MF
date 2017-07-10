@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: corvus.domain.e4.workspace.m2m.entrypoint
 Bundle-Vendor: My Company
 Bundle-Version: 1.0.0.qualifier
-Bundle-SymbolicName: corvus.domain.e4.workspace.m2m.entrypoint;singleton:=true
+Bundle-SymbolicName: corvus.domain.e4.workspace.entrypoint.m2m;singleton:=true
 Bundle-Activator: corvus.domain.e4.workspace.m2m.entrypoint.EntrypointActivator
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.eclipse.core.runtime,
