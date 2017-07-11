@@ -17,7 +17,6 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -62,31 +61,8 @@ public class LinkContainerItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addLastAddedPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Last Added feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addLastAddedPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_LinkContainer_lastAdded_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_LinkContainer_lastAdded_feature", "_UI_LinkContainer_type"),
-				 LinkPackage.Literals.LINK_CONTAINER__LAST_ADDED,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**
@@ -102,6 +78,7 @@ public class LinkContainerItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(LinkPackage.Literals.LINK_CONTAINER__LINKS);
+			childrenFeatures.add(LinkPackage.Literals.LINK_CONTAINER__STATE);
 		}
 		return childrenFeatures;
 	}
@@ -155,6 +132,7 @@ public class LinkContainerItemProvider
 
 		switch (notification.getFeatureID(LinkContainer.class)) {
 			case LinkPackage.LINK_CONTAINER__LINKS:
+			case LinkPackage.LINK_CONTAINER__STATE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -176,6 +154,11 @@ public class LinkContainerItemProvider
 			(createChildParameter
 				(LinkPackage.Literals.LINK_CONTAINER__LINKS,
 				 LinkFactory.eINSTANCE.createLink()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(LinkPackage.Literals.LINK_CONTAINER__STATE,
+				 LinkFactory.eINSTANCE.createState()));
 	}
 
 	/**

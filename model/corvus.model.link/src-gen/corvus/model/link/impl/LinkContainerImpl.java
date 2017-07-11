@@ -5,6 +5,7 @@ package corvus.model.link.impl;
 import corvus.model.link.Link;
 import corvus.model.link.LinkContainer;
 import corvus.model.link.LinkPackage;
+import corvus.model.link.State;
 
 import java.util.Collection;
 
@@ -31,7 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link corvus.model.link.impl.LinkContainerImpl#getLinks <em>Links</em>}</li>
- *   <li>{@link corvus.model.link.impl.LinkContainerImpl#getLastAdded <em>Last Added</em>}</li>
+ *   <li>{@link corvus.model.link.impl.LinkContainerImpl#getState <em>State</em>}</li>
  * </ul>
  *
  * @generated
@@ -48,14 +49,14 @@ public class LinkContainerImpl extends MinimalEObjectImpl.Container implements L
 	protected EList<Link> links;
 
 	/**
-	 * The cached value of the '{@link #getLastAdded() <em>Last Added</em>}' reference.
+	 * The cached value of the '{@link #getState() <em>State</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getLastAdded()
+	 * @see #getState()
 	 * @generated
 	 * @ordered
 	 */
-	protected Link lastAdded;
+	protected State state;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -93,16 +94,23 @@ public class LinkContainerImpl extends MinimalEObjectImpl.Container implements L
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Link getLastAdded() {
-		if (lastAdded != null && lastAdded.eIsProxy()) {
-			InternalEObject oldLastAdded = (InternalEObject)lastAdded;
-			lastAdded = (Link)eResolveProxy(oldLastAdded);
-			if (lastAdded != oldLastAdded) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, LinkPackage.LINK_CONTAINER__LAST_ADDED, oldLastAdded, lastAdded));
-			}
+	public State getState() {
+		return state;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetState(State newState, NotificationChain msgs) {
+		State oldState = state;
+		state = newState;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, LinkPackage.LINK_CONTAINER__STATE, oldState, newState);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
-		return lastAdded;
+		return msgs;
 	}
 
 	/**
@@ -110,20 +118,18 @@ public class LinkContainerImpl extends MinimalEObjectImpl.Container implements L
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Link basicGetLastAdded() {
-		return lastAdded;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setLastAdded(Link newLastAdded) {
-		Link oldLastAdded = lastAdded;
-		lastAdded = newLastAdded;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, LinkPackage.LINK_CONTAINER__LAST_ADDED, oldLastAdded, lastAdded));
+	public void setState(State newState) {
+		if (newState != state) {
+			NotificationChain msgs = null;
+			if (state != null)
+				msgs = ((InternalEObject)state).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - LinkPackage.LINK_CONTAINER__STATE, null, msgs);
+			if (newState != null)
+				msgs = ((InternalEObject)newState).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - LinkPackage.LINK_CONTAINER__STATE, null, msgs);
+			msgs = basicSetState(newState, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, LinkPackage.LINK_CONTAINER__STATE, newState, newState));
 	}
 
 	/**
@@ -151,6 +157,8 @@ public class LinkContainerImpl extends MinimalEObjectImpl.Container implements L
 		switch (featureID) {
 			case LinkPackage.LINK_CONTAINER__LINKS:
 				return ((InternalEList<?>)getLinks()).basicRemove(otherEnd, msgs);
+			case LinkPackage.LINK_CONTAINER__STATE:
+				return basicSetState(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -165,9 +173,8 @@ public class LinkContainerImpl extends MinimalEObjectImpl.Container implements L
 		switch (featureID) {
 			case LinkPackage.LINK_CONTAINER__LINKS:
 				return getLinks();
-			case LinkPackage.LINK_CONTAINER__LAST_ADDED:
-				if (resolve) return getLastAdded();
-				return basicGetLastAdded();
+			case LinkPackage.LINK_CONTAINER__STATE:
+				return getState();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -185,8 +192,8 @@ public class LinkContainerImpl extends MinimalEObjectImpl.Container implements L
 				getLinks().clear();
 				getLinks().addAll((Collection<? extends Link>)newValue);
 				return;
-			case LinkPackage.LINK_CONTAINER__LAST_ADDED:
-				setLastAdded((Link)newValue);
+			case LinkPackage.LINK_CONTAINER__STATE:
+				setState((State)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -203,8 +210,8 @@ public class LinkContainerImpl extends MinimalEObjectImpl.Container implements L
 			case LinkPackage.LINK_CONTAINER__LINKS:
 				getLinks().clear();
 				return;
-			case LinkPackage.LINK_CONTAINER__LAST_ADDED:
-				setLastAdded((Link)null);
+			case LinkPackage.LINK_CONTAINER__STATE:
+				setState((State)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -220,8 +227,8 @@ public class LinkContainerImpl extends MinimalEObjectImpl.Container implements L
 		switch (featureID) {
 			case LinkPackage.LINK_CONTAINER__LINKS:
 				return links != null && !links.isEmpty();
-			case LinkPackage.LINK_CONTAINER__LAST_ADDED:
-				return lastAdded != null;
+			case LinkPackage.LINK_CONTAINER__STATE:
+				return state != null;
 		}
 		return super.eIsSet(featureID);
 	}

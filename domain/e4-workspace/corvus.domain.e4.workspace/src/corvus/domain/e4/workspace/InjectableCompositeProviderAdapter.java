@@ -6,7 +6,9 @@ import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.parsley.composite.FormDetailReadOnlyComposite;
 import org.eclipse.emf.parsley.composite.FormFactory;
 import org.eclipse.emf.parsley.dialogs.DialogFactory;
+import org.eclipse.emf.parsley.viewers.ViewerFactory;
 import org.eclipse.jface.dialogs.Dialog;
+import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Shell;
 
@@ -21,9 +23,12 @@ public class InjectableCompositeProviderAdapter
 
 	@Inject
 	protected DialogFactory dialogFactory;
-	
+
 	@Inject
 	protected EditingDomain editingDomain;
+
+	@Inject
+	protected ViewerFactory viewerFactory;
 
 	public InjectableCompositeProviderAdapter() {
 		super();
@@ -50,4 +55,11 @@ public class InjectableCompositeProviderAdapter
 		return dialog;
 	}
 
+	// inject TableFeaturesProvider to specialize which features are returned
+	@Override
+	public TreeViewer createTreeViewerWithColumns(Composite parent) {
+		final EObject target = (EObject)getTarget();
+		final TreeViewer treeViewer = viewerFactory.createTreeViewerWithColumns(parent, target.eClass(), target);
+		return treeViewer;
+	}
 }

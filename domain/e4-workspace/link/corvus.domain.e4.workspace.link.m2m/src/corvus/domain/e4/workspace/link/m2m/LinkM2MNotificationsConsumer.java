@@ -18,12 +18,21 @@ public class LinkM2MNotificationsConsumer extends AbstractTextMarker2MNotificati
 		// Chaos occurs if the framework list is re-ordered
 		// TODO: re-factor post named URI fragments
 		LinkContainer container = (LinkContainer)resource.getContents().get(0);
-		Link lastAdded = container.getLastAdded();
+
+		// Add link so other events trigger notifications
+		container.getLinks().add(link);
+
+		Link lastAdded = container.getState().getLastAdded();
 		if (lastAdded != null) {
-			link.getFrom().add(link);
+			link.getFrom().add(lastAdded);
 			lastAdded.getTo().add(link);
 		}
-		container.setLastAdded(link);
+
+		// could move the below to a resource set change listener
+		// but we're here so might as well do it
+		container.getState().setLastAdded(link);
+
+		// set our xref
 		marker.setDomain(link);
 	}
 

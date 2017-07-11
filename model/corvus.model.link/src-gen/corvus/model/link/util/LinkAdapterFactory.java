@@ -68,6 +68,10 @@ public class LinkAdapterFactory extends AdapterFactoryImpl {
 	protected LinkSwitch<Adapter> modelSwitch =
 		new LinkSwitch<Adapter>() {
 			@Override
+			public Adapter caseState(State object) {
+				return createStateAdapter();
+			}
+			@Override
 			public Adapter caseLinkContainer(LinkContainer object) {
 				return createLinkContainerAdapter();
 			}
@@ -94,6 +98,20 @@ public class LinkAdapterFactory extends AdapterFactoryImpl {
 		return modelSwitch.doSwitch((EObject)target);
 	}
 
+
+	/**
+	 * Creates a new adapter for an object of class '{@link corvus.model.link.State <em>State</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see corvus.model.link.State
+	 * @generated
+	 */
+	public Adapter createStateAdapter() {
+		return null;
+	}
 
 	/**
 	 * Creates a new adapter for an object of class '{@link corvus.model.link.LinkContainer <em>Container</em>}'.

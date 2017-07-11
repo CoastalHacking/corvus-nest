@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link corvus.model.link.LinkContainer#getLinks <em>Links</em>}</li>
- *   <li>{@link corvus.model.link.LinkContainer#getLastAdded <em>Last Added</em>}</li>
+ *   <li>{@link corvus.model.link.LinkContainer#getState <em>State</em>}</li>
  * </ul>
  *
  * @see corvus.model.link.LinkPackage#getLinkContainer()
@@ -43,29 +43,29 @@ public interface LinkContainer extends EObject {
 	EList<Link> getLinks();
 
 	/**
-	 * Returns the value of the '<em><b>Last Added</b></em>' reference.
+	 * Returns the value of the '<em><b>State</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Last Added</em>' reference isn't clear,
+	 * If the meaning of the '<em>State</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Last Added</em>' reference.
-	 * @see #setLastAdded(Link)
-	 * @see corvus.model.link.LinkPackage#getLinkContainer_LastAdded()
-	 * @model
+	 * @return the value of the '<em>State</em>' containment reference.
+	 * @see #setState(State)
+	 * @see corvus.model.link.LinkPackage#getLinkContainer_State()
+	 * @model containment="true"
 	 * @generated
 	 */
-	Link getLastAdded();
+	State getState();
 
 	/**
-	 * Sets the value of the '{@link corvus.model.link.LinkContainer#getLastAdded <em>Last Added</em>}' reference.
+	 * Sets the value of the '{@link corvus.model.link.LinkContainer#getState <em>State</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Last Added</em>' reference.
-	 * @see #getLastAdded()
+	 * @param value the new value of the '<em>State</em>' containment reference.
+	 * @see #getState()
 	 * @generated
 	 */
-	void setLastAdded(Link value);
+	void setState(State value);
 
 } // LinkContainer

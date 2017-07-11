@@ -1,14 +1,26 @@
 @GenModel(editDirectory="/corvus.model.link/src-gen")
 package corvus.model.link
 
+enum Direction {
+	TO,
+	FROM
+}
+
+class State {
+	// Store last link added
+	refers Link lastAdded
+	// Store current direction
+	Direction direction
+}
+
 class LinkContainer {
 	contains Link[] links opposite linkContainer
-	// Acts as state
-	refers Link lastAdded
+	contains State state
 }
 
 class Link {
 	container LinkContainer linkContainer opposite links
+	String name
 	refers Link[] to opposite from
 	refers Link[] from opposite to
 }

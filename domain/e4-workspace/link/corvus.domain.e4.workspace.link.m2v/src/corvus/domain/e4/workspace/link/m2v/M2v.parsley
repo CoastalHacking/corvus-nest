@@ -1,5 +1,21 @@
+import corvus.domain.e4.workspace.DefaultM2VNotificationsConsumer
 import corvus.domain.e4.workspace.link.LinkEmfParsleyGuiceModule
+import corvus.resource.NotificationsConsumer
+import org.eclipse.emf.parsley.ui.provider.TableFeaturesProvider
+import org.eclipse.emf.transaction.NotificationFilter
 
 module corvus.domain.e4.workspace.link.m2v extends LinkEmfParsleyGuiceModule {
 
+	bindings {
+		// override the parsley table provider with one that
+		// dynamically adds a structural feature
+		type TableFeaturesProvider -> ExtendedLinkTableFeaturesProvider
+
+		// Use the default m2v notifications consumer
+		type NotificationsConsumer -> DefaultM2VNotificationsConsumer
+
+		// Override with a structural notifications filter
+		provide NotificationFilter -> LinkM2VNotificationFilterProvider
+
+	}
 }

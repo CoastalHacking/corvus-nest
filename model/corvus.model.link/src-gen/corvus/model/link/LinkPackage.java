@@ -2,7 +2,9 @@
  */
 package corvus.model.link;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -57,6 +59,52 @@ public interface LinkPackage extends EPackage {
 	LinkPackage eINSTANCE = corvus.model.link.impl.LinkPackageImpl.init();
 
 	/**
+	 * The meta object id for the '{@link corvus.model.link.impl.StateImpl <em>State</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see corvus.model.link.impl.StateImpl
+	 * @see corvus.model.link.impl.LinkPackageImpl#getState()
+	 * @generated
+	 */
+	int STATE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Last Added</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATE__LAST_ADDED = 0;
+
+	/**
+	 * The feature id for the '<em><b>Direction</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATE__DIRECTION = 1;
+
+	/**
+	 * The number of structural features of the '<em>State</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATE_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>State</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATE_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link corvus.model.link.impl.LinkContainerImpl <em>Container</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -64,7 +112,7 @@ public interface LinkPackage extends EPackage {
 	 * @see corvus.model.link.impl.LinkPackageImpl#getLinkContainer()
 	 * @generated
 	 */
-	int LINK_CONTAINER = 0;
+	int LINK_CONTAINER = 1;
 
 	/**
 	 * The feature id for the '<em><b>Links</b></em>' containment reference list.
@@ -76,13 +124,13 @@ public interface LinkPackage extends EPackage {
 	int LINK_CONTAINER__LINKS = 0;
 
 	/**
-	 * The feature id for the '<em><b>Last Added</b></em>' reference.
+	 * The feature id for the '<em><b>State</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LINK_CONTAINER__LAST_ADDED = 1;
+	int LINK_CONTAINER__STATE = 1;
 
 	/**
 	 * The number of structural features of the '<em>Container</em>' class.
@@ -110,7 +158,7 @@ public interface LinkPackage extends EPackage {
 	 * @see corvus.model.link.impl.LinkPackageImpl#getLink()
 	 * @generated
 	 */
-	int LINK = 1;
+	int LINK = 2;
 
 	/**
 	 * The feature id for the '<em><b>Link Container</b></em>' container reference.
@@ -122,13 +170,22 @@ public interface LinkPackage extends EPackage {
 	int LINK__LINK_CONTAINER = 0;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK__NAME = 1;
+
+	/**
 	 * The feature id for the '<em><b>To</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LINK__TO = 1;
+	int LINK__TO = 2;
 
 	/**
 	 * The feature id for the '<em><b>From</b></em>' reference list.
@@ -137,7 +194,7 @@ public interface LinkPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LINK__FROM = 2;
+	int LINK__FROM = 3;
 
 	/**
 	 * The number of structural features of the '<em>Link</em>' class.
@@ -146,7 +203,7 @@ public interface LinkPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LINK_FEATURE_COUNT = 3;
+	int LINK_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Link</em>' class.
@@ -157,6 +214,48 @@ public interface LinkPackage extends EPackage {
 	 */
 	int LINK_OPERATION_COUNT = 0;
 
+	/**
+	 * The meta object id for the '{@link corvus.model.link.Direction <em>Direction</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see corvus.model.link.Direction
+	 * @see corvus.model.link.impl.LinkPackageImpl#getDirection()
+	 * @generated
+	 */
+	int DIRECTION = 3;
+
+
+	/**
+	 * Returns the meta object for class '{@link corvus.model.link.State <em>State</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>State</em>'.
+	 * @see corvus.model.link.State
+	 * @generated
+	 */
+	EClass getState();
+
+	/**
+	 * Returns the meta object for the reference '{@link corvus.model.link.State#getLastAdded <em>Last Added</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Last Added</em>'.
+	 * @see corvus.model.link.State#getLastAdded()
+	 * @see #getState()
+	 * @generated
+	 */
+	EReference getState_LastAdded();
+
+	/**
+	 * Returns the meta object for the attribute '{@link corvus.model.link.State#getDirection <em>Direction</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Direction</em>'.
+	 * @see corvus.model.link.State#getDirection()
+	 * @see #getState()
+	 * @generated
+	 */
+	EAttribute getState_Direction();
 
 	/**
 	 * Returns the meta object for class '{@link corvus.model.link.LinkContainer <em>Container</em>}'.
@@ -180,15 +279,15 @@ public interface LinkPackage extends EPackage {
 	EReference getLinkContainer_Links();
 
 	/**
-	 * Returns the meta object for the reference '{@link corvus.model.link.LinkContainer#getLastAdded <em>Last Added</em>}'.
+	 * Returns the meta object for the containment reference '{@link corvus.model.link.LinkContainer#getState <em>State</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Last Added</em>'.
-	 * @see corvus.model.link.LinkContainer#getLastAdded()
+	 * @return the meta object for the containment reference '<em>State</em>'.
+	 * @see corvus.model.link.LinkContainer#getState()
 	 * @see #getLinkContainer()
 	 * @generated
 	 */
-	EReference getLinkContainer_LastAdded();
+	EReference getLinkContainer_State();
 
 	/**
 	 * Returns the meta object for class '{@link corvus.model.link.Link <em>Link</em>}'.
@@ -212,6 +311,17 @@ public interface LinkPackage extends EPackage {
 	EReference getLink_LinkContainer();
 
 	/**
+	 * Returns the meta object for the attribute '{@link corvus.model.link.Link#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see corvus.model.link.Link#getName()
+	 * @see #getLink()
+	 * @generated
+	 */
+	EAttribute getLink_Name();
+
+	/**
 	 * Returns the meta object for the reference list '{@link corvus.model.link.Link#getTo <em>To</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -232,6 +342,16 @@ public interface LinkPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getLink_From();
+
+	/**
+	 * Returns the meta object for enum '{@link corvus.model.link.Direction <em>Direction</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Direction</em>'.
+	 * @see corvus.model.link.Direction
+	 * @generated
+	 */
+	EEnum getDirection();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -257,6 +377,32 @@ public interface LinkPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
+		 * The meta object literal for the '{@link corvus.model.link.impl.StateImpl <em>State</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see corvus.model.link.impl.StateImpl
+		 * @see corvus.model.link.impl.LinkPackageImpl#getState()
+		 * @generated
+		 */
+		EClass STATE = eINSTANCE.getState();
+
+		/**
+		 * The meta object literal for the '<em><b>Last Added</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference STATE__LAST_ADDED = eINSTANCE.getState_LastAdded();
+
+		/**
+		 * The meta object literal for the '<em><b>Direction</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STATE__DIRECTION = eINSTANCE.getState_Direction();
+
+		/**
 		 * The meta object literal for the '{@link corvus.model.link.impl.LinkContainerImpl <em>Container</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -275,12 +421,12 @@ public interface LinkPackage extends EPackage {
 		EReference LINK_CONTAINER__LINKS = eINSTANCE.getLinkContainer_Links();
 
 		/**
-		 * The meta object literal for the '<em><b>Last Added</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>State</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference LINK_CONTAINER__LAST_ADDED = eINSTANCE.getLinkContainer_LastAdded();
+		EReference LINK_CONTAINER__STATE = eINSTANCE.getLinkContainer_State();
 
 		/**
 		 * The meta object literal for the '{@link corvus.model.link.impl.LinkImpl <em>Link</em>}' class.
@@ -301,6 +447,14 @@ public interface LinkPackage extends EPackage {
 		EReference LINK__LINK_CONTAINER = eINSTANCE.getLink_LinkContainer();
 
 		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LINK__NAME = eINSTANCE.getLink_Name();
+
+		/**
 		 * The meta object literal for the '<em><b>To</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -315,6 +469,16 @@ public interface LinkPackage extends EPackage {
 		 * @generated
 		 */
 		EReference LINK__FROM = eINSTANCE.getLink_From();
+
+		/**
+		 * The meta object literal for the '{@link corvus.model.link.Direction <em>Direction</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see corvus.model.link.Direction
+		 * @see corvus.model.link.impl.LinkPackageImpl#getDirection()
+		 * @generated
+		 */
+		EEnum DIRECTION = eINSTANCE.getDirection();
 
 	}
 

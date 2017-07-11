@@ -22,6 +22,15 @@ public interface LinkFactory extends EFactory {
 	LinkFactory eINSTANCE = corvus.model.link.impl.LinkFactoryImpl.init();
 
 	/**
+	 * Returns a new object of class '<em>State</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>State</em>'.
+	 * @generated
+	 */
+	State createState();
+
+	/**
 	 * Returns a new object of class '<em>Container</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -32,6 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link corvus.model.link.impl.LinkImpl#getLinkContainer <em>Link Container</em>}</li>
+ *   <li>{@link corvus.model.link.impl.LinkImpl#getName <em>Name</em>}</li>
  *   <li>{@link corvus.model.link.impl.LinkImpl#getTo <em>To</em>}</li>
  *   <li>{@link corvus.model.link.impl.LinkImpl#getFrom <em>From</em>}</li>
  * </ul>
@@ -39,6 +40,26 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * @generated
  */
 public class LinkImpl extends MinimalEObjectImpl.Container implements Link {
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
+
 	/**
 	 * The cached value of the '{@link #getTo() <em>To</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -134,6 +155,27 @@ public class LinkImpl extends MinimalEObjectImpl.Container implements Link {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, LinkPackage.LINK__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<Link> getTo() {
 		if (to == null) {
 			to = new EObjectWithInverseResolvingEList.ManyInverse<Link>(Link.class, this, LinkPackage.LINK__TO, LinkPackage.LINK__FROM);
@@ -217,6 +259,8 @@ public class LinkImpl extends MinimalEObjectImpl.Container implements Link {
 			case LinkPackage.LINK__LINK_CONTAINER:
 				if (resolve) return getLinkContainer();
 				return basicGetLinkContainer();
+			case LinkPackage.LINK__NAME:
+				return getName();
 			case LinkPackage.LINK__TO:
 				return getTo();
 			case LinkPackage.LINK__FROM:
@@ -236,6 +280,9 @@ public class LinkImpl extends MinimalEObjectImpl.Container implements Link {
 		switch (featureID) {
 			case LinkPackage.LINK__LINK_CONTAINER:
 				setLinkContainer((LinkContainer)newValue);
+				return;
+			case LinkPackage.LINK__NAME:
+				setName((String)newValue);
 				return;
 			case LinkPackage.LINK__TO:
 				getTo().clear();
@@ -260,6 +307,9 @@ public class LinkImpl extends MinimalEObjectImpl.Container implements Link {
 			case LinkPackage.LINK__LINK_CONTAINER:
 				setLinkContainer((LinkContainer)null);
 				return;
+			case LinkPackage.LINK__NAME:
+				setName(NAME_EDEFAULT);
+				return;
 			case LinkPackage.LINK__TO:
 				getTo().clear();
 				return;
@@ -280,12 +330,30 @@ public class LinkImpl extends MinimalEObjectImpl.Container implements Link {
 		switch (featureID) {
 			case LinkPackage.LINK__LINK_CONTAINER:
 				return basicGetLinkContainer() != null;
+			case LinkPackage.LINK__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case LinkPackage.LINK__TO:
 				return to != null && !to.isEmpty();
 			case LinkPackage.LINK__FROM:
 				return from != null && !from.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (name: ");
+		result.append(name);
+		result.append(')');
+		return result.toString();
 	}
 
 } //LinkImpl

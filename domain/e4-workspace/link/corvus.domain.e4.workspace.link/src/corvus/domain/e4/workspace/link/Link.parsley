@@ -1,9 +1,8 @@
-
-
 import corvus.domain.e4.workspace.CompositeProviderAdapterFactory
-import corvus.domain.e4.workspace.InjectableCompositeProviderAdapterFactory
 import corvus.domain.e4.workspace.CompositeProviderAdapterProvider
 import corvus.domain.e4.workspace.ICompositeProviderAdapter
+import corvus.domain.e4.workspace.InjectableCompositeProviderAdapterFactory
+import corvus.model.link.Link
 
 module corvus.domain.e4.workspace.link extends corvus.model.link.LinkEmfParsleyGuiceModule {
 
@@ -20,5 +19,13 @@ module corvus.domain.e4.workspace.link extends corvus.model.link.LinkEmfParsleyG
 
 		// Link marker
 		value String CorvusDomainMarker -> "corvus.domain.e4.workspace.link.linkMarker"
+	}
+
+	// Initially define the table features provider used to create tree viewer columns
+	// For links, this is further specialized in the m2v project
+	tableFeaturesProvider {
+		features {
+			Link -> name
+		}
 	}
 }

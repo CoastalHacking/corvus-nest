@@ -72,6 +72,29 @@ public class LinkItemProviderAdapterFactory extends LinkAdapterFactory implement
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link corvus.model.link.State} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected StateItemProvider stateItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link corvus.model.link.State}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createStateAdapter() {
+		if (stateItemProvider == null) {
+			stateItemProvider = new StateItemProvider(this);
+		}
+
+		return stateItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link corvus.model.link.LinkContainer} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -216,6 +239,7 @@ public class LinkItemProviderAdapterFactory extends LinkAdapterFactory implement
 	 * @generated
 	 */
 	public void dispose() {
+		if (stateItemProvider != null) stateItemProvider.dispose();
 		if (linkContainerItemProvider != null) linkContainerItemProvider.dispose();
 		if (linkItemProvider != null) linkItemProvider.dispose();
 	}

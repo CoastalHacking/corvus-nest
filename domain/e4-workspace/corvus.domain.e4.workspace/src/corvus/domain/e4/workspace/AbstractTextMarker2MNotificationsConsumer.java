@@ -23,7 +23,7 @@ public abstract class AbstractTextMarker2MNotificationsConsumer extends Notifica
 				save();
 				break;
 			case Notification.REMOVE:
-				markerDeleted((TextMarker)notification.getNewValue());
+				markerDeleted((TextMarker)notification.getOldValue());
 				save();
 				break;
 			}

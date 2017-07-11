@@ -9,10 +9,18 @@
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_-gQzsGWDEeenbtsboHSPbw" featurename="menuContributions" parentElementId="xpath:/">
     <elements xsi:type="menu:MenuContribution" xmi:id="_ASIZ8GWEEeenbtsboHSPbw" elementId="corvus.domain.e4.workspace.link.ui.menucontribution.0" parentId="corvus.domain.e4.workspace.ui.menu.corvus">
       <children xsi:type="menu:Menu" xmi:id="_Ft6GIGWEEeenbtsboHSPbw" elementId="corvus.domain.e4.workspace.link.ui.menu" label="Link...">
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_KYatcGWEEeenbtsboHSPbw" elementId="corvus.domain.e4.workspace.link.ui.handledmenuitem.add" label="Add" command="_0QFGIGT7EeenbtsboHSPbw"/>
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_LdthkGWEEeenbtsboHSPbw" elementId="corvus.domain.e4.workspace.link.ui.handledmenuitem.edit" label="Edit" command="_1yt9kGT7EeenbtsboHSPbw"/>
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_MTRQkGWEEeenbtsboHSPbw" elementId="corvus.domain.e4.workspace.link.ui.handledmenuitem.view" label="View" command="_4SaTIGT7EeenbtsboHSPbw"/>
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_NFhz8GWEEeenbtsboHSPbw" elementId="corvus.domain.e4.workspace.link.ui.handledmenuitem.delete" label="Delete" command="_5cPB8GT7EeenbtsboHSPbw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_KYatcGWEEeenbtsboHSPbw" elementId="corvus.domain.e4.workspace.link.ui.handledmenuitem.add" label="Add" command="_0QFGIGT7EeenbtsboHSPbw">
+          <parameters xmi:id="_yCh1sGZJEeeNH8_1ipWo7A" elementId="corvus.domain.e4.workspace.link.ui.parameter.0" name="markerType" value="corvus.domain.e4.workspace.link.linkMarker"/>
+        </children>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_LdthkGWEEeenbtsboHSPbw" elementId="corvus.domain.e4.workspace.link.ui.handledmenuitem.edit" label="Edit" command="_1yt9kGT7EeenbtsboHSPbw">
+          <parameters xmi:id="_5tbE0GZJEeeNH8_1ipWo7A" elementId="corvus.domain.e4.workspace.link.ui.parameter.1" name="markerType" value="corvus.domain.e4.workspace.link.linkMarker"/>
+        </children>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_MTRQkGWEEeenbtsboHSPbw" elementId="corvus.domain.e4.workspace.link.ui.handledmenuitem.view" label="View" command="_4SaTIGT7EeenbtsboHSPbw">
+          <parameters xmi:id="_6xDsEGZJEeeNH8_1ipWo7A" elementId="corvus.domain.e4.workspace.link.ui.parameter.2" name="markerType" value="corvus.domain.e4.workspace.link.linkMarker"/>
+        </children>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_NFhz8GWEEeenbtsboHSPbw" elementId="corvus.domain.e4.workspace.link.ui.handledmenuitem.delete" label="Delete" command="_5cPB8GT7EeenbtsboHSPbw">
+          <parameters xmi:id="_73RtQGZJEeeNH8_1ipWo7A" elementId="corvus.domain.e4.workspace.link.ui.parameter.3" name="markerType" value="corvus.domain.e4.workspace.link.linkMarker"/>
+        </children>
       </children>
     </elements>
   </fragments>

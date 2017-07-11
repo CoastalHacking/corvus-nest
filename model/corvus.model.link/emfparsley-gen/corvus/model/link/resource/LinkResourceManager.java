@@ -3,6 +3,7 @@ package corvus.model.link.resource;
 import corvus.model.link.LinkContainer;
 import corvus.model.link.LinkFactory;
 import corvus.model.link.LinkPackage;
+import corvus.model.link.State;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -35,5 +36,7 @@ public class LinkResourceManager extends ResourceManager {
     LinkContainer linkContainer = this.factory.createLinkContainer();
     EList<EObject> _contents = it.getContents();
     _contents.add(linkContainer);
+    State state = this.factory.createState();
+    linkContainer.setState(state);
   }
 }

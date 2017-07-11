@@ -24,8 +24,14 @@ module corvus.model.link extends ResourceEmfParsleyGuiceModule {
 		var LinkFactory factory = LinkFactory.eINSTANCE
 
 		initializeResource {
+			// first add to the resource
 			var LinkContainer linkContainer = factory.createLinkContainer
 			it.contents += linkContainer
+
+			// then add the state for notification purpose
+			// could move the below to a resource set change listener
+			var State state = factory.createState
+			linkContainer.state = state
 		}
 	}	
 }

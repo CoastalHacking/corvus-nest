@@ -3,8 +3,9 @@
 package corvus.model.link.provider;
 
 
-import corvus.model.link.Link;
+import corvus.model.link.Direction;
 import corvus.model.link.LinkPackage;
+import corvus.model.link.State;
 
 import java.util.Collection;
 import java.util.List;
@@ -26,12 +27,12 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link corvus.model.link.Link} object.
+ * This is the item provider adapter for a {@link corvus.model.link.State} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class LinkItemProvider 
+public class StateItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -45,7 +46,7 @@ public class LinkItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public LinkItemProvider(AdapterFactory adapterFactory) {
+	public StateItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -60,28 +61,26 @@ public class LinkItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addLinkContainerPropertyDescriptor(object);
-			addNamePropertyDescriptor(object);
-			addToPropertyDescriptor(object);
-			addFromPropertyDescriptor(object);
+			addLastAddedPropertyDescriptor(object);
+			addDirectionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Link Container feature.
+	 * This adds a property descriptor for the Last Added feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addLinkContainerPropertyDescriptor(Object object) {
+	protected void addLastAddedPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Link_linkContainer_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Link_linkContainer_feature", "_UI_Link_type"),
-				 LinkPackage.Literals.LINK__LINK_CONTAINER,
+				 getString("_UI_State_lastAdded_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_State_lastAdded_feature", "_UI_State_type"),
+				 LinkPackage.Literals.STATE__LAST_ADDED,
 				 true,
 				 false,
 				 true,
@@ -91,19 +90,19 @@ public class LinkItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Name feature.
+	 * This adds a property descriptor for the Direction feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addNamePropertyDescriptor(Object object) {
+	protected void addDirectionPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Link_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Link_name_feature", "_UI_Link_type"),
-				 LinkPackage.Literals.LINK__NAME,
+				 getString("_UI_State_direction_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_State_direction_feature", "_UI_State_type"),
+				 LinkPackage.Literals.STATE__DIRECTION,
 				 true,
 				 false,
 				 false,
@@ -113,58 +112,14 @@ public class LinkItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the To feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addToPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Link_to_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Link_to_feature", "_UI_Link_type"),
-				 LinkPackage.Literals.LINK__TO,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the From feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addFromPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Link_from_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Link_from_feature", "_UI_Link_type"),
-				 LinkPackage.Literals.LINK__FROM,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This returns Link.gif.
+	 * This returns State.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Link"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/State"));
 	}
 
 	/**
@@ -175,10 +130,11 @@ public class LinkItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Link)object).getName();
+		Direction labelValue = ((State)object).getDirection();
+		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Link_type") :
-			getString("_UI_Link_type") + " " + label;
+			getString("_UI_State_type") :
+			getString("_UI_State_type") + " " + label;
 	}
 	
 
@@ -193,8 +149,8 @@ public class LinkItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Link.class)) {
-			case LinkPackage.LINK__NAME:
+		switch (notification.getFeatureID(State.class)) {
+			case LinkPackage.STATE__DIRECTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
