@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Corvus e4 Workspace Link M2V Tests
+Bundle-SymbolicName: corvus.domain.e4.workspace.link.m2v.tests
+Bundle-Version: 1.0.0.qualifier
+Fragment-Host: corvus.domain.e4.workspace.link.m2v
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: corvus.common.test;bundle-version="1.0.0",
+ com.ibm.icu,
+ org.eclipse.core.expressions

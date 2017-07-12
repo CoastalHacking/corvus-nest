@@ -1,7 +1,8 @@
-import corvus.domain.e4.workspace.DefaultM2VNotificationsConsumer
 import corvus.domain.e4.workspace.link.LinkEmfParsleyGuiceModule
+import corvus.model.link.provider.LinkItemProvider
+import corvus.model.link.provider.LinkItemProviderAdapterFactory
 import corvus.resource.NotificationsConsumer
-import org.eclipse.emf.parsley.ui.provider.TableFeaturesProvider
+import org.eclipse.emf.common.notify.AdapterFactory
 import org.eclipse.emf.transaction.NotificationFilter
 
 module corvus.domain.e4.workspace.link.m2v extends LinkEmfParsleyGuiceModule {
@@ -9,13 +10,23 @@ module corvus.domain.e4.workspace.link.m2v extends LinkEmfParsleyGuiceModule {
 	bindings {
 		// override the parsley table provider with one that
 		// dynamically adds a structural feature
-		type TableFeaturesProvider -> ExtendedLinkTableFeaturesProvider
-
-		// Use the default m2v notifications consumer
-		type NotificationsConsumer -> DefaultM2VNotificationsConsumer
+		// TODO: re-implement after tree column displays correctly
+		// TODO: or delete when done with testings
+//		type TableFeaturesProvider -> ExtendedLinkTableFeaturesProvider
 
 		// Override with a structural notifications filter
 		provide NotificationFilter -> LinkM2VNotificationFilterProvider
 
+		// Override the default link adapter and its factory to show
+		// references as children without having to modify the model
+		provide LinkItemProvider -> M2VLinkItemProviderProvider
+		type LinkItemProviderAdapterFactory -> M2VLinkItemProviderAdapterFactory
+
+		// Extend default notifications consumer to use the above adapter factory
+		// to adapt newly added links
+		type NotificationsConsumer -> M2VNotificationsConsumer
+
+		// Add above adapter factory to the injected adapter factories
+		type AdapterFactory -> M2VInjectableAdapterFactory
 	}
 }

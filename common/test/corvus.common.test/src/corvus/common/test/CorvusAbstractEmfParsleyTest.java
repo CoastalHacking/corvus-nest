@@ -1,5 +1,7 @@
 package corvus.common.test;
 
+import static org.junit.Assert.assertNotNull;
+
 import java.util.UUID;
 
 import org.eclipse.emf.ecore.resource.Resource;
@@ -36,4 +38,13 @@ public abstract class CorvusAbstractEmfParsleyTest extends AbstractEmfParsleyTes
 		final TransactionalEmfParsleyGuiceModule module = getTestModule(plugin, id);
 		return createInjector(module);
 	}
+	
+
+	public <T> T shouldInjectInstance(Class<T> clazz) {
+		Injector injector = getOrCreateInjector();
+		T result = injector.getInstance(clazz);
+		assertNotNull(result);
+		return result;
+	}
+
 }

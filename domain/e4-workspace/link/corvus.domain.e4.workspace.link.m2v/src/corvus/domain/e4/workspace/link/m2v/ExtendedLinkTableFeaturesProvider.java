@@ -52,7 +52,8 @@ public class ExtendedLinkTableFeaturesProvider extends LinkTableFeaturesProvider
 			stringMap.put(key, values);
 		}
 
-		values.add(toOrFrom);
+		// make first because it is the element being displayed
+		values.add(0, toOrFrom);
 	}
 
 	protected String getToOrFrom(State state) {
