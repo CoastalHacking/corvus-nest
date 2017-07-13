@@ -26,6 +26,7 @@
           <parameters xmi:id="_g5ocUGgQEeeNH8_1ipWo7A" elementId="corvus.domain.e4.workspace.link.ui.parameter.5" name="markerType" value="corvus.domain.e4.workspace.link.linkMarker"/>
           <parameters xmi:id="_ib1O4GgQEeeNH8_1ipWo7A" elementId="corvus.domain.e4.workspace.link.ui.parameter.6" name="corvus.domain.e4.workspace.link.ui.commandparameter.navigation" value="outgoing"/>
         </children>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_d1_aQGgSEeeNH8_1ipWo7A" elementId="corvus.domain.e4.workspace.link.ui.handledmenuitem.end" label="End" command="_WrwBIGgSEeeNH8_1ipWo7A"/>
       </children>
     </elements>
   </fragments>
@@ -34,8 +35,10 @@
       <parameters xmi:id="_ni4KkGf3EeeNH8_1ipWo7A" elementId="markerType" name="Marker Type" optional="false"/>
       <parameters xmi:id="_oCmMcGf3EeeNH8_1ipWo7A" elementId="corvus.domain.e4.workspace.link.ui.commandparameter.navigation" name="Navigation" optional="false"/>
     </elements>
+    <elements xsi:type="commands:Command" xmi:id="_WrwBIGgSEeeNH8_1ipWo7A" elementId="corvus.domain.e4.workspace.link.ui.command.end" commandName="End" description="End a chain of links"/>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_0_Q3MGf3EeeNH8_1ipWo7A" featurename="handlers" parentElementId="xpath:/">
     <elements xsi:type="commands:Handler" xmi:id="_2Sv4UGf3EeeNH8_1ipWo7A" elementId="corvus.domain.e4.workspace.link.ui.handler.navigate" contributionURI="bundleclass://corvus.domain.e4.workspace.link.ui/corvus.domain.e4.workspace.link.ui.NavigateHandler" command="_iVRdQGf3EeeNH8_1ipWo7A"/>
+    <elements xsi:type="commands:Handler" xmi:id="_ZEL4IGgSEeeNH8_1ipWo7A" elementId="corvus.domain.e4.workspace.link.ui.handler.end" contributionURI="bundleclass://corvus.domain.e4.workspace.link.ui/corvus.domain.e4.workspace.link.ui.EndHandler" command="_WrwBIGgSEeeNH8_1ipWo7A"/>
   </fragments>
 </fragment:ModelFragments>
