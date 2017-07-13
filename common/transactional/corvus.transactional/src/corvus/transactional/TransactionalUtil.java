@@ -1,6 +1,6 @@
 package corvus.transactional;
 
-import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.RollbackException;
 import org.eclipse.emf.transaction.TransactionalCommandStack;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
@@ -15,8 +15,18 @@ public class TransactionalUtil {
 	@Inject
 	private TransactionOptions options;
 
-	public void performTransaction(Command command) throws InterruptedException, RollbackException {
+	public void executeRecordingCommand(IRecordingCommand command) {
 		TransactionalCommandStack stack = (TransactionalCommandStack)ted.getCommandStack();
-		stack.execute(command, options.get());
+		try {
+			stack.execute(new RecordingCommand(ted) {
+				@Override
+				protected void doExecute() {
+					command.doExecute();
+				}
+			}, options.get());
+		} catch (InterruptedException | RollbackException e) {
+			// TODO: log warning?
+			throw new RuntimeException(e);
+		}
 	}
 }
