@@ -24,14 +24,13 @@ public class InjectableReadWriteTransactionJob extends Job implements ReadWriteT
 	@Inject
 	private TransactionOptions options;
 
-	@Inject
 	private NotificationsConsumer consumer;
 
 	protected List<Notification> notifications;
 
-	@Inject
-	public InjectableReadWriteTransactionJob(String name) {
-		super(name);
+	public InjectableReadWriteTransactionJob(NotificationsConsumer consumer) {
+		super("Corvus injected read write job transaction");  // TODO: inject
+		this.consumer = consumer;
 	}
 
 	/**

@@ -21,11 +21,15 @@ module corvus.resource extends TransactionalEmfParsleyGuiceModule {
 
 		// Perform read/write transactions via Eclipse Jobs
 		provide ReadWriteTransaction -> ReadWriteTransactionProvider
+		type ReadWriteTransactionFactory -> ReadWriteTransactionFactory
 
 		// The resource set listener for this project
 		type ResourceSetListener -> InjectableResourceSetListener
+		// Factory used to create on-demand resource set listeners
+		type ResourceSetListenerFactory -> ResourceSetListenerFactory
 
 		// Default to a no-op consumer
 		type NotificationsConsumer -> NotificationsConsumer
+
 	}
 }

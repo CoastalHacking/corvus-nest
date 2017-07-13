@@ -10,18 +10,21 @@ import org.eclipse.emf.transaction.ResourceSetListenerImpl;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 
 import com.google.inject.Inject;
-import com.google.inject.Provider;
 
 public class InjectableResourceSetListener extends ResourceSetListenerImpl {
 
 	@Inject
+	private ReadWriteTransactionFactory transactionFactory;
+
 	protected NotificationFilter filter;
+	protected NotificationsConsumer consumer;
 
 	@Inject
-	protected Provider<ReadWriteTransaction> transactionProvider;
-
-	public InjectableResourceSetListener() {
+	protected InjectableResourceSetListener(
+			NotificationFilter filter, NotificationsConsumer consumer) {
 		super();
+		this.filter = filter;
+		this.consumer = consumer;
 	}
 
 	/*
@@ -57,7 +60,7 @@ public class InjectableResourceSetListener extends ResourceSetListenerImpl {
 				event.getEditingDomain().equals(ted)) {
 
 			// Create a new transaction for each call
-			final ReadWriteTransaction transaction = transactionProvider.get();
+			final ReadWriteTransaction transaction = transactionFactory.create(consumer);
 
 			// Per ResourceSetChangeEvent Javadoc, need to copy the notifiers
 			final List<Notification> notifications = new ArrayList<>(event.getNotifications());
