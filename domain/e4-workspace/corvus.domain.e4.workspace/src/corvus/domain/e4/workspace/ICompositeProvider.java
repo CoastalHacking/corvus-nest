@@ -1,5 +1,6 @@
 package corvus.domain.e4.workspace;
 
+import org.eclipse.emf.parsley.composite.TreeFormComposite;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.SWT;
@@ -17,4 +18,14 @@ public interface ICompositeProvider {
 	public Dialog getEditableDialog(Shell shell, String title);
 
 	public TreeViewer createTreeViewerWithColumns(Composite parent);
+
+	/*
+	 * test tree form 
+	 */
+	public TreeFormComposite createTreeFormComposite(Composite parent, int style);
+
+	/*
+	 * Consider moving these tidbits and ones maybe above to parsley
+	 */
+	public TreeColumnComposite createTreeColumnComposite(Composite parent, int style);
 }

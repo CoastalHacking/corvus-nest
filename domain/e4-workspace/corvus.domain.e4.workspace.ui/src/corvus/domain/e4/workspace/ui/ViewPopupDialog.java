@@ -1,27 +1,16 @@
 package corvus.domain.e4.workspace.ui;
 
-import org.eclipse.jface.dialogs.PopupDialog;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Shell;
 
 import corvus.domain.e4.workspace.ICompositeProvider;
 
-public class ViewPopupDialog extends PopupDialog {
+public class ViewPopupDialog extends AbstractPopupDialog {
 
-	private ICompositeProvider compositeProvider;
-	
-	public ViewPopupDialog(Shell parent, String titleText, String infoText, ICompositeProvider compositeProvider) {
-		super(parent,
-				PopupDialog.INFOPOPUPRESIZE_SHELLSTYLE,
-				/*takeFocusOnOpen*/ true,
-				/*persistSize*/ false,
-				/*persistLocation*/ false,
-				/*showDialogMenu*/ false,
-				/*showPersistActions*/ true,
-				titleText,
-				infoText);
-		this.compositeProvider = compositeProvider;
+	protected ViewPopupDialog(Shell parent, String titleText, String infoText, ICompositeProvider compositeProvider) {
+		super(parent, titleText, infoText, compositeProvider);
+		// TODO Auto-generated constructor stub
 	}
 
 	/* (non-Javadoc)

@@ -4,6 +4,7 @@ import corvus.model.link.provider.LinkItemProviderAdapterFactory
 import corvus.resource.NotificationsConsumer
 import org.eclipse.emf.common.notify.AdapterFactory
 import org.eclipse.emf.transaction.NotificationFilter
+import corvus.domain.e4.workspace.link.LinkController
 
 module corvus.domain.e4.workspace.link.m2v extends LinkEmfParsleyGuiceModule {
 
@@ -28,5 +29,8 @@ module corvus.domain.e4.workspace.link.m2v extends LinkEmfParsleyGuiceModule {
 
 		// Add above adapter factory to the injected adapter factories
 		type AdapterFactory -> M2VInjectableAdapterFactory
+		
+		// Provide a link controller
+		type LinkController -> M2VLinkController
 	}
 }

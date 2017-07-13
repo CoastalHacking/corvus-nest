@@ -27,7 +27,7 @@ public class DefaultM2VNotificationsConsumer extends NotificationsConsumer {
 				// The notification filter is the guard
 				// We assume EObject here
 				// TODO: test
-				compositeProviderAdapterFactory.adapt((EObject)notification.getNewValue(), ICompositeProvider.class);
+				addNewValue((EObject)notification.getNewValue());
 				break;
 			case Notification.REMOVE:
 				// Currently nothing to implement? Unsure if adapter needs to be removed from
@@ -40,4 +40,7 @@ public class DefaultM2VNotificationsConsumer extends NotificationsConsumer {
 		}
 	}
 
+	protected void addNewValue(EObject newValue) {
+		compositeProviderAdapterFactory.adapt(newValue, ICompositeProvider.class);
+	}
 }

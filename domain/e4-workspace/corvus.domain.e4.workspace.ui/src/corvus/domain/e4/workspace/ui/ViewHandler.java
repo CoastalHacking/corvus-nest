@@ -6,6 +6,7 @@ import javax.inject.Named;
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.ui.services.IServiceConstants;
+import org.eclipse.jface.dialogs.PopupDialog;
 import org.eclipse.jface.text.ITextSelection;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IEditorPart;
@@ -33,10 +34,15 @@ public class ViewHandler {
 		if (marker != null) {
 			ICompositeProvider compositerProvider = viewController.getCompositeProvider(marker);
 			if (compositerProvider != null) {
-				ViewPopupDialog viewPopup = new ViewPopupDialog(shell, markerType, "", compositerProvider);
-				viewPopup.open();
+				PopupDialog popup = createPopup(shell, markerType, "", compositerProvider);
+				popup.open();
 			}
 		}
 	}
+
+	protected PopupDialog createPopup(Shell parent, String titleText, String infoText, ICompositeProvider compositeProvider) {
+		return new ViewPopupDialog(parent, titleText, infoText, compositeProvider);
+	}
+
 
 }

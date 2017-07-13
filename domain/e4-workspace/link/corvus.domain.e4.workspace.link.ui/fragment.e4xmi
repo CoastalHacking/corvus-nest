@@ -3,7 +3,7 @@
   <imports xsi:type="menu:Menu" xmi:id="_MJ7ZQGWCEeenbtsboHSPbw" elementId="corvus.domain.e4.workspace.ui.menu.corvus"/>
   <imports xsi:type="commands:Command" xmi:id="_0QFGIGT7EeenbtsboHSPbw" elementId="corvus.domain.e4.workspace.ui.command.add"/>
   <imports xsi:type="commands:Command" xmi:id="_1yt9kGT7EeenbtsboHSPbw" elementId="corvus.domain.e4.workspace.ui.command.edit"/>
-  <imports xsi:type="commands:Command" xmi:id="_4SaTIGT7EeenbtsboHSPbw" elementId="corvus.domain.e4.workspace.ui.command.view"/>
+  <imports xsi:type="commands:Command" xmi:id="_4SaTIGT7EeenbtsboHSPbw" elementId="corvus.domain.e4.workspace.ui.command.viewtree"/>
   <imports xsi:type="commands:Command" xmi:id="_5cPB8GT7EeenbtsboHSPbw" elementId="corvus.domain.e4.workspace.ui.command.delete"/>
   <imports xsi:type="commands:CommandParameter" xmi:id="_OQBjEGWCEeenbtsboHSPbw" elementId="markerType"/>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_-gQzsGWDEeenbtsboHSPbw" featurename="menuContributions" parentElementId="xpath:/">
@@ -15,13 +15,27 @@
         <children xsi:type="menu:HandledMenuItem" xmi:id="_LdthkGWEEeenbtsboHSPbw" elementId="corvus.domain.e4.workspace.link.ui.handledmenuitem.edit" label="Edit" command="_1yt9kGT7EeenbtsboHSPbw">
           <parameters xmi:id="_5tbE0GZJEeeNH8_1ipWo7A" elementId="corvus.domain.e4.workspace.link.ui.parameter.1" name="markerType" value="corvus.domain.e4.workspace.link.linkMarker"/>
         </children>
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_MTRQkGWEEeenbtsboHSPbw" elementId="corvus.domain.e4.workspace.link.ui.handledmenuitem.view" label="View" command="_4SaTIGT7EeenbtsboHSPbw">
-          <parameters xmi:id="_6xDsEGZJEeeNH8_1ipWo7A" elementId="corvus.domain.e4.workspace.link.ui.parameter.2" name="markerType" value="corvus.domain.e4.workspace.link.linkMarker"/>
-        </children>
         <children xsi:type="menu:HandledMenuItem" xmi:id="_NFhz8GWEEeenbtsboHSPbw" elementId="corvus.domain.e4.workspace.link.ui.handledmenuitem.delete" label="Delete" command="_5cPB8GT7EeenbtsboHSPbw">
           <parameters xmi:id="_73RtQGZJEeeNH8_1ipWo7A" elementId="corvus.domain.e4.workspace.link.ui.parameter.3" name="markerType" value="corvus.domain.e4.workspace.link.linkMarker"/>
         </children>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_bZSikGf3EeeNH8_1ipWo7A" elementId="corvus.domain.e4.workspace.link.ui.handledmenuitem.viewincoming" label="View incoming" command="_iVRdQGf3EeeNH8_1ipWo7A">
+          <parameters xmi:id="_-mIMUGgOEeeNH8_1ipWo7A" elementId="corvus.domain.e4.workspace.link.ui.parameter.2" name="markerType" value="corvus.domain.e4.workspace.link.linkMarker"/>
+          <parameters xmi:id="_CIqe8GgPEeeNH8_1ipWo7A" elementId="corvus.domain.e4.workspace.link.ui.parameter.4" name="corvus.domain.e4.workspace.link.ui.commandparameter.navigation" value="incoming"/>
+        </children>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_b2IGMGgQEeeNH8_1ipWo7A" elementId="corvus.domain.e4.workspace.link.ui.handledmenuitem.viewoutgoing" label="View outgoing" command="_iVRdQGf3EeeNH8_1ipWo7A">
+          <parameters xmi:id="_g5ocUGgQEeeNH8_1ipWo7A" elementId="corvus.domain.e4.workspace.link.ui.parameter.5" name="markerType" value="corvus.domain.e4.workspace.link.linkMarker"/>
+          <parameters xmi:id="_ib1O4GgQEeeNH8_1ipWo7A" elementId="corvus.domain.e4.workspace.link.ui.parameter.6" name="corvus.domain.e4.workspace.link.ui.commandparameter.navigation" value="outgoing"/>
+        </children>
       </children>
     </elements>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_g0Ld8Gf3EeeNH8_1ipWo7A" featurename="commands" parentElementId="xpath:/">
+    <elements xsi:type="commands:Command" xmi:id="_iVRdQGf3EeeNH8_1ipWo7A" elementId="corvus.domain.e4.workspace.link.ui.command.navigate" commandName="Navigate" description="Navigate to either incoming or outgoing links">
+      <parameters xmi:id="_ni4KkGf3EeeNH8_1ipWo7A" elementId="markerType" name="Marker Type" optional="false"/>
+      <parameters xmi:id="_oCmMcGf3EeeNH8_1ipWo7A" elementId="corvus.domain.e4.workspace.link.ui.commandparameter.navigation" name="Navigation" optional="false"/>
+    </elements>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_0_Q3MGf3EeeNH8_1ipWo7A" featurename="handlers" parentElementId="xpath:/">
+    <elements xsi:type="commands:Handler" xmi:id="_2Sv4UGf3EeeNH8_1ipWo7A" elementId="corvus.domain.e4.workspace.link.ui.handler.navigate" contributionURI="bundleclass://corvus.domain.e4.workspace.link.ui/corvus.domain.e4.workspace.link.ui.NavigateHandler" command="_iVRdQGf3EeeNH8_1ipWo7A"/>
   </fragments>
 </fragment:ModelFragments>

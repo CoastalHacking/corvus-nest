@@ -1,4 +1,4 @@
-package corvus.domain.e4.workspace.link.osgi;
+package corvus.domain.e4.workspace.link.osgi.m2m;
 
 import org.eclipse.emf.transaction.ResourceSetListener;
 import org.osgi.service.component.annotations.Activate;

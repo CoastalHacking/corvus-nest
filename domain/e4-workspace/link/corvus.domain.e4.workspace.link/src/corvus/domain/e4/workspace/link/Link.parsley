@@ -3,6 +3,9 @@ import corvus.domain.e4.workspace.CompositeProviderAdapterProvider
 import corvus.domain.e4.workspace.ICompositeProviderAdapter
 import corvus.domain.e4.workspace.InjectableCompositeProviderAdapterFactory
 import corvus.model.link.Link
+import javax.swing.plaf.metal.MetalIconFactory.TreeComputerIcon
+import corvus.domain.e4.workspace.TreeColumnFactory
+import org.eclipse.emf.parsley.composite.TreeFormFactory
 
 module corvus.domain.e4.workspace.link extends corvus.model.link.LinkEmfParsleyGuiceModule {
 
@@ -19,6 +22,8 @@ module corvus.domain.e4.workspace.link extends corvus.model.link.LinkEmfParsleyG
 
 		// Link marker
 		value String CorvusDomainMarker -> "corvus.domain.e4.workspace.link.linkMarker"
+
+		type TreeColumnFactory -> TreeColumnFactory
 	}
 
 	// Initially define the table features provider used to create tree viewer columns

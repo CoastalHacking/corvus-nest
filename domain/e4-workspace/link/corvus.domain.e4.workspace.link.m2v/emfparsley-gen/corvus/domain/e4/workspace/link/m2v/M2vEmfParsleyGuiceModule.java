@@ -1,9 +1,11 @@
 package corvus.domain.e4.workspace.link.m2v;
 
 import com.google.inject.Provider;
+import corvus.domain.e4.workspace.link.LinkController;
 import corvus.domain.e4.workspace.link.LinkEmfParsleyGuiceModule;
 import corvus.domain.e4.workspace.link.m2v.LinkM2VNotificationFilterProvider;
 import corvus.domain.e4.workspace.link.m2v.M2VInjectableAdapterFactory;
+import corvus.domain.e4.workspace.link.m2v.M2VLinkController;
 import corvus.domain.e4.workspace.link.m2v.M2VLinkItemProviderAdapterFactory;
 import corvus.domain.e4.workspace.link.m2v.M2VLinkItemProviderProvider;
 import corvus.domain.e4.workspace.link.m2v.M2VNotificationsConsumer;
@@ -41,5 +43,9 @@ public class M2vEmfParsleyGuiceModule extends LinkEmfParsleyGuiceModule {
   @Override
   public Class<? extends AdapterFactory> bindAdapterFactory() {
     return M2VInjectableAdapterFactory.class;
+  }
+  
+  public Class<? extends LinkController> bindLinkController() {
+    return M2VLinkController.class;
   }
 }
