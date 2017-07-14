@@ -2,10 +2,8 @@ import corvus.domain.e4.workspace.CompositeProviderAdapterFactory
 import corvus.domain.e4.workspace.CompositeProviderAdapterProvider
 import corvus.domain.e4.workspace.ICompositeProviderAdapter
 import corvus.domain.e4.workspace.InjectableCompositeProviderAdapterFactory
-import corvus.model.link.Link
-import javax.swing.plaf.metal.MetalIconFactory.TreeComputerIcon
 import corvus.domain.e4.workspace.TreeColumnFactory
-import org.eclipse.emf.parsley.composite.TreeFormFactory
+import corvus.model.link.Link
 
 module corvus.domain.e4.workspace.link extends corvus.model.link.LinkEmfParsleyGuiceModule {
 
