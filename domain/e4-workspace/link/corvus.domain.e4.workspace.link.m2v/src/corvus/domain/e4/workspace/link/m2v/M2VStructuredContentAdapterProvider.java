@@ -6,9 +6,7 @@ import com.google.inject.Inject;
 import com.google.inject.MembersInjector;
 import com.google.inject.Provider;
 
-import corvus.model.link.provider.LinkItemProvider;
-
-public class M2VLinkItemProviderProvider implements Provider<LinkItemProvider> {
+public class M2VStructuredContentAdapterProvider implements Provider<StructuredItemContentAdapter> {
 
 	@Inject
 	protected AdapterFactory adapterFactory;
@@ -16,12 +14,8 @@ public class M2VLinkItemProviderProvider implements Provider<LinkItemProvider> {
 	@Inject
 	protected MembersInjector<InjectableM2VLinkItemProvider> itemProviderInjector;
 
-	public M2VLinkItemProviderProvider() {
-		// TODO Auto-generated constructor stub
-	}
-
 	@Override
-	public LinkItemProvider get() {
+	public StructuredItemContentAdapter get() {
 		InjectableM2VLinkItemProvider itemProvider = new InjectableM2VLinkItemProvider(adapterFactory);
 		itemProviderInjector.injectMembers(itemProvider);
 		return itemProvider;

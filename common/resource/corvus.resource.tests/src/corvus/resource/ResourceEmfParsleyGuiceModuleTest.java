@@ -25,4 +25,9 @@ public class ResourceEmfParsleyGuiceModuleTest extends AbstractResourceTest {
 		shouldInjectInstance(Resource.class);
 	}
 
+	@Test
+	public void shouldAdapterFactoryUtil() {
+		shouldInjectInstance(AdapterFactoryUtil.class);
+	}
+
 }

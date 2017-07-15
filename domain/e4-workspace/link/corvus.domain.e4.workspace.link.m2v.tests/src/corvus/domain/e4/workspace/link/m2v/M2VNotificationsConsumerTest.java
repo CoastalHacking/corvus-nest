@@ -22,7 +22,7 @@ public class M2VNotificationsConsumerTest extends AbstractM2VTest {
 		consumer.addNewValue(link);
 
 		boolean containsLinkItemProviderAdapter = false;
-		
+
 		for (Adapter adapter : link.eAdapters()) {
 			if (adapter instanceof InjectableM2VLinkItemProvider) {
 				containsLinkItemProviderAdapter = true;

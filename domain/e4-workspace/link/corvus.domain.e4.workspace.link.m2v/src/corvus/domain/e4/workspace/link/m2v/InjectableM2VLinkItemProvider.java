@@ -13,7 +13,8 @@ import corvus.model.link.Link;
 import corvus.model.link.LinkPackage;
 import corvus.model.link.provider.LinkItemProvider;
 
-public class InjectableM2VLinkItemProvider extends LinkItemProvider {
+public class InjectableM2VLinkItemProvider extends LinkItemProvider
+	implements StructuredItemContentAdapter {
 
 	// TODO: test
 	/* (non-Javadoc)

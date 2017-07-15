@@ -2,25 +2,16 @@ package corvus.domain.e4.workspace.link.m2v;
 
 import static org.junit.Assert.assertTrue;
 
-import org.eclipse.emf.common.notify.AdapterFactory;
-import org.eclipse.emf.transaction.ResourceSetListener;
+import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
+import org.eclipse.emf.transaction.NotificationFilter;
 import org.junit.Test;
-
-import corvus.model.link.provider.LinkItemProvider;
-import corvus.model.link.provider.LinkItemProviderAdapterFactory;
-import corvus.resource.InjectableResourceSetListener;
 
 public class M2vEmfParsleyGuiceModuleTest extends AbstractM2VTest {
 
 	@Test
-	public void testShouldInjectLinkItemProviderProvider() {
-		shouldInjectInstance(LinkItemProvider.class);
-	}
-
-	@Test
-	public void testShouldInjectM2VLinkItemProviderAdapterFactory() {
-		LinkItemProviderAdapterFactory adapterFactory = shouldInjectInstance(LinkItemProviderAdapterFactory.class);
-		assertTrue(adapterFactory instanceof M2VLinkItemProviderAdapterFactory);
+	public void testShouldInjectIStructuredItemContentProvider() {
+		IStructuredItemContentProvider instance = shouldInjectInstance(IStructuredItemContentProvider.class);
+		assertTrue(instance instanceof InjectableM2VLinkItemProvider);
 	}
 
 	@Test
@@ -29,15 +20,9 @@ public class M2vEmfParsleyGuiceModuleTest extends AbstractM2VTest {
 	}
 
 	@Test
-	public void testShouldInjectResourceSetListener() {
-		ResourceSetListener rsl = shouldInjectInstance(ResourceSetListener.class);
-		assertTrue(rsl instanceof InjectableResourceSetListener);
+	public void testShouldInjectNotificationFilter() {
+		shouldInjectInstance(NotificationFilter.class);
 	}
 
-	@Test
-	public void testShouldInjectAdapterFactory() {
-		AdapterFactory instance = shouldInjectInstance(AdapterFactory.class);
-		assertTrue(instance instanceof M2VInjectableAdapterFactory);
-	}
 
 }

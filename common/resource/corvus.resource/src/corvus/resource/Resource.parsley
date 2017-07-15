@@ -31,5 +31,7 @@ module corvus.resource extends TransactionalEmfParsleyGuiceModule {
 		// Default to a no-op consumer
 		type NotificationsConsumer -> NotificationsConsumer
 
+		// Default adapter factory utility
+		type AdapterFactoryUtil -> AdapterFactoryUtil
 	}
 }

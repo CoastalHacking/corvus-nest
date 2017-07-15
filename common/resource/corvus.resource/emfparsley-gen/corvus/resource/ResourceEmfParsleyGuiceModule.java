@@ -1,6 +1,7 @@
 package corvus.resource;
 
 import com.google.inject.Provider;
+import corvus.resource.AdapterFactoryUtil;
 import corvus.resource.DefaultNotificationFilterProvider;
 import corvus.resource.InjectableResourceSetListener;
 import corvus.resource.NotificationsConsumer;
@@ -57,5 +58,9 @@ public class ResourceEmfParsleyGuiceModule extends TransactionalEmfParsleyGuiceM
   
   public Class<? extends NotificationsConsumer> bindNotificationsConsumer() {
     return NotificationsConsumer.class;
+  }
+  
+  public Class<? extends AdapterFactoryUtil> bindAdapterFactoryUtil() {
+    return AdapterFactoryUtil.class;
   }
 }
