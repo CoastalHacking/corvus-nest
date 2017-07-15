@@ -6,5 +6,7 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Require-Bundle: corvus.dependencies.test;visibility:=reexport,
  corvus.transactional;visibility:=reexport,
- corvus.dependencies.runtime;visibility:=reexport
+ corvus.dependencies.runtime;visibility:=reexport,
+ com.ibm.icu;visibility:=reexport
 Export-Package: corvus.common.test
+Import-Package: org.eclipse.emf.transaction

@@ -10,16 +10,12 @@ import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
-import org.eclipse.emf.parsley.config.Configurator;
 import org.eclipse.emf.transaction.RunnableWithResult;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
-import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.junit.Test;
 
 import com.google.inject.Injector;
 
-import corvus.common.test.CorvusAbstractEmfParsleyTest;
-import corvus.common.test.TestConfigurator;
 import corvus.domain.e4.workspace.MarkerController;
 import corvus.domain.org.eclipse.core.resources.IContainer;
 import corvus.domain.org.eclipse.core.resources.IMarker;
@@ -27,9 +23,8 @@ import corvus.domain.org.eclipse.core.resources.IResource;
 import corvus.domain.org.eclipse.core.resources.IWorkspaceRoot;
 import corvus.domain.org.eclipse.core.resources.TextMarker;
 import corvus.domain.org.eclipse.core.resources.util.ResourcesSwitch;
-import corvus.transactional.TransactionalEmfParsleyGuiceModule;
 
-public class MarkerControllerImplTest extends CorvusAbstractEmfParsleyTest {
+public class MarkerControllerImplTest extends AbstractD2MTest {
 
 	@Test
 	public void shouldAddMarker() throws CoreException, InterruptedException {
@@ -113,31 +108,6 @@ public class MarkerControllerImplTest extends CorvusAbstractEmfParsleyTest {
 			return Boolean.FALSE;
 		}
 	
-	}
-
-	// Hack: below copied from ResourceProviderTest
-	// just changed the super to D2mEmfParsleyGuiceModule
-	public static class TestCaseModule extends D2mEmfParsleyGuiceModule {
-
-		private String id;
-
-		public TestCaseModule(AbstractUIPlugin plugin, String id) {
-			super(plugin);
-			this.id = id;
-		}
-		
-		public Class<? extends Configurator> bindConfigurator() {
-			return TestConfigurator.class;
-		}
-
-		public String valueTransactionalEditingDomainId() {
-			return id;
-		}
-	}
-
-	@Override
-	protected TransactionalEmfParsleyGuiceModule getTestModule(AbstractUIPlugin plugin, String id) {
-		return new TestCaseModule(plugin, id);
 	}
 
 }

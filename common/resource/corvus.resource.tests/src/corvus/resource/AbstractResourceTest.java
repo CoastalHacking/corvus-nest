@@ -1,4 +1,4 @@
-package corvus.domain.e4.workspace.link.m2v;
+package corvus.resource;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 
@@ -6,10 +6,11 @@ import com.google.inject.Module;
 
 import corvus.common.test.CorvusAbstractEmfParsleyTest;
 
-public abstract class AbstractM2VTest extends CorvusAbstractEmfParsleyTest {
+public abstract class AbstractResourceTest extends CorvusAbstractEmfParsleyTest {
 
 	@Override
 	protected Module getModule(AbstractUIPlugin plugin) {
-		return new M2vEmfParsleyGuiceModule(plugin);
+		return new ResourceEmfParsleyGuiceModule(plugin);
 	}
+
 }
