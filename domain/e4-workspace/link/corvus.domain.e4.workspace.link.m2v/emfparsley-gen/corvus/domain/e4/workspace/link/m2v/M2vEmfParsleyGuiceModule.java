@@ -4,10 +4,9 @@ import com.google.inject.Provider;
 import corvus.domain.e4.workspace.link.LinkController;
 import corvus.domain.e4.workspace.link.LinkEmfParsleyGuiceModule;
 import corvus.domain.e4.workspace.link.m2v.LinkM2VNotificationFilterProvider;
+import corvus.domain.e4.workspace.link.m2v.LinkStructuredItemProviderFactory;
 import corvus.domain.e4.workspace.link.m2v.M2VLinkController;
 import corvus.domain.e4.workspace.link.m2v.M2VNotificationsConsumer;
-import corvus.domain.e4.workspace.link.m2v.M2VStructuredContentAdapterProvider;
-import corvus.domain.e4.workspace.link.m2v.StructuredItemContentAdapter;
 import corvus.resource.NotificationsConsumer;
 import org.eclipse.emf.transaction.NotificationFilter;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
@@ -23,8 +22,8 @@ public class M2vEmfParsleyGuiceModule extends LinkEmfParsleyGuiceModule {
     return LinkM2VNotificationFilterProvider.class;
   }
   
-  public Class<? extends Provider<StructuredItemContentAdapter>> provideStructuredItemContentAdapter() {
-    return M2VStructuredContentAdapterProvider.class;
+  public Class<? extends LinkStructuredItemProviderFactory> bindLinkStructuredItemProviderFactory() {
+    return LinkStructuredItemProviderFactory.class;
   }
   
   @Override

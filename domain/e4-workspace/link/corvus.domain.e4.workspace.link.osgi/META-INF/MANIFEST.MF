@@ -6,7 +6,8 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Service-Component: OSGI-INF/corvus.domain.e4.workspace.link.osgi.m2v.OsgiLinkM2VListener.xml,
  OSGI-INF/corvus.domain.e4.workspace.link.osgi.m2m.OsgiLinkM2MListener.xml,
- OSGI-INF/corvus.domain.e4.workspace.link.osgi.m2v.OsgiLinkController.xml
+ OSGI-INF/corvus.domain.e4.workspace.link.osgi.m2v.OsgiLinkController.xml,
+ OSGI-INF/corvus.domain.e4.workspace.link.osgi.m2v.OsgiLinkStructuredItemProviderFactory.xml
 Bundle-ActivationPolicy: lazy
 Require-Bundle: corvus.domain.e4.workspace.link.m2m;visibility:=reexport,
  corvus.domain.e4.workspace.link.m2v;visibility:=reexport

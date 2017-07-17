@@ -9,9 +9,9 @@ module corvus.domain.e4.workspace.link.m2v extends LinkEmfParsleyGuiceModule {
 		// Override with a structural notifications filter
 		provide NotificationFilter -> LinkM2VNotificationFilterProvider
 
-		// Override the default link to show  references as children
-		/// without having to modify the model directly
-		provide StructuredItemContentAdapter -> M2VStructuredContentAdapterProvider
+		// An adapter factory for links to show child references
+		// based on a dynamic structural feature
+		type LinkStructuredItemProviderFactory -> LinkStructuredItemProviderFactory
 
 		// Extend default notifications consumer to use the above adapter factory
 		// to adapt newly added links
@@ -20,4 +20,5 @@ module corvus.domain.e4.workspace.link.m2v extends LinkEmfParsleyGuiceModule {
 		// Provide a link controller
 		type LinkController -> M2VLinkController
 	}
+
 }

@@ -4,7 +4,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 
 import com.google.inject.Inject;
-import com.google.inject.Provider;
 
 import corvus.domain.e4.workspace.DefaultM2VNotificationsConsumer;
 import corvus.resource.AdapterFactoryUtil;
@@ -12,10 +11,10 @@ import corvus.resource.AdapterFactoryUtil;
 public class M2VNotificationsConsumer extends DefaultM2VNotificationsConsumer {
 
 	@Inject
-	private AdapterFactoryUtil factoryUtil;
-	
+	private LinkStructuredItemProviderFactory structuredFactory;
+
 	@Inject
-	private Provider<StructuredItemContentAdapter> adapterProvider;
+	private AdapterFactoryUtil factoryUtil;
 
 	/* (non-Javadoc)
 	 * @see corvus.domain.e4.workspace.DefaultM2VNotificationsConsumer#addNewValue(org.eclipse.emf.ecore.EObject)
@@ -26,9 +25,7 @@ public class M2VNotificationsConsumer extends DefaultM2VNotificationsConsumer {
 		// Call the super to add the component adapter
 		super.addNewValue(newValue);
 
-		// TODO: delete this adapter in the future when this module is removed
-		StructuredItemContentAdapter adapter = adapterProvider.get();
-		factoryUtil.overrideAdapter(newValue, IStructuredItemContentProvider.class, adapter);
+		factoryUtil.addOverrideAdapter(newValue, structuredFactory, IStructuredItemContentProvider.class);
 	}
 
 	public M2VNotificationsConsumer() {

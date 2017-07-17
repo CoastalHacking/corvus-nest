@@ -11,10 +11,17 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import corvus.model.link.Direction;
 import corvus.model.link.Link;
 import corvus.model.link.LinkPackage;
-import corvus.model.link.provider.LinkItemProvider;
 
-public class InjectableM2VLinkItemProvider extends LinkItemProvider
-	implements StructuredItemContentAdapter {
+public class InjectableM2VLinkItemProvider extends AbstractLinkItemProvider {
+
+	/* Return a null child store to ensure features are calculated dynamically
+	 * 
+	 * @see org.eclipse.emf.edit.provider.ItemProviderAdapter#createChildrenStore(java.lang.Object)
+	 */
+	@Override
+	protected ChildrenStore createChildrenStore(Object object) {
+		return null;
+	}
 
 	// TODO: test
 	/* (non-Javadoc)
