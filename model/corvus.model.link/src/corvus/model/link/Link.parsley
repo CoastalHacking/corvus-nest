@@ -1,7 +1,11 @@
+import corvus.model.link.LinkActivator
+import corvus.model.link.LinkContainer
+import corvus.model.link.LinkFactory
+import corvus.model.link.LinkPackage
+import corvus.model.link.State
 import corvus.resource.ResourceEmfParsleyGuiceModule
-import org.eclipse.emf.parsley.runtime.ui.PluginUtil
 import org.eclipse.emf.common.util.URI
-import org.eclipse.emf.common.notify.AdapterFactory
+import org.eclipse.emf.parsley.runtime.ui.PluginUtil
 
 module corvus.model.link extends ResourceEmfParsleyGuiceModule {
 
@@ -36,8 +40,4 @@ module corvus.model.link extends ResourceEmfParsleyGuiceModule {
 		}
 	}
 
-	bindings {
-		// Use the model's provider
-		type AdapterFactory -> InjectedLinkAdapterFactory
-	}
 }
